@@ -1,0 +1,9 @@
+last_run
+.*.sw?
+.bundle
+.mtn-ignore
+_MTN
+/corundum
+doc/Specifications
+doc/coverage
+pkg

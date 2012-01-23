@@ -1,0 +1,12 @@
+Consider replacing OpenStruct with a configuration object - specifically, restricted fields would help a lot (closer to Struct), as well as a values_at style behavior...
+
+A CommandLine object in place of sh "command line" - mostly this serves a testing purpose, but allows for composition as well
+
+Extract both CommandLine and Tasklib to a GP Rake add-on
+
+QA tests:
+
+XXX, FIXME, profanity filters of code and specs (configurable?)
+Empty filelist
+
+Check that gem authors are gem owners?
