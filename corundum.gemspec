@@ -69,6 +69,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rake-rubygems", ">= 0.2.0"
   #spec.add_dependency "hanna", "~> 0.1.0"
+  spec.add_dependency "rdoc", ">= 0"
   spec.add_dependency "yard", ">= 0"
   spec.add_dependency "mailfactory", "~> 1.4.0"
   spec.add_dependency "rspec", ">= 2.0"

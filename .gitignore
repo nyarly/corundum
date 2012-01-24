@@ -7,3 +7,5 @@ _MTN
 doc/Specifications
 doc/coverage
 pkg
+.yardoc
+doc

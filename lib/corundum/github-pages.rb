@@ -1,0 +1,104 @@
+require 'corundum/tasklib'
+
+module Corundum
+  class GithubPages < TaskLib
+    default_namespace :publish_docs
+
+    setting(:branch, "gh-pages")
+    setting(:doc_dir)
+
+    def default_configuration(doc_gen)
+      self.doc_dir = doc_gen.doc_dir
+    end
+
+    def git_command(*args)
+      Mattock::CommandLine.new("git", "--no-pager") do |cmd|
+        args.each do |arg|
+          cmd.options += [*arg]
+        end
+      end
+    end
+
+    def git(*args)
+      result = git_command(*args).run
+      result.must_succeed!
+      result.stdout.lines
+    end
+
+    def define
+      in_namespace do
+        file File::join(doc_dir, ".git") do
+          fail "Refusing to clobber existing #{doc_dir}" if File.exists?(doc_dir)
+          create = Mattock::PrereqChain.new do |cmd|
+            cmd.add git_command("clone", ".git", doc_dir)
+            cmd.add Mattock::CommandLine.new("cd", doc_dir)
+            cmd.add git_command(%w{symbolic-ref HEAD refs/heads/gh-pages})
+            cmd.add Mattock::CommandLine.new("rm", ".git/index")
+            cmd.add git_command("clean", "-fdx")
+          end
+
+          begin
+            pwd = FileUtils::pwd
+            create.must_succeed!
+          ensure
+            FileUtils::cd pwd
+          end
+        end
+
+        task :setup => File::join(doc_dir, ".git")
+
+        task :on_branch do
+          FileUtils.cd doc_dir do
+            current_branch = git("branch").grep(/^\*/).first.sub(/\*\s*/,"").chomp
+            unless current_branch == branch
+              fail "Current branch \"#{current_branch}\" is not #{branch}"
+            end
+          end
+        end
+
+        task :workspace_committed => :on_branch do
+          FileUtils.cd doc_dir do
+            diffs = git("diff", "--stat", "HEAD")
+            unless diffs.empty?
+              fail "Workspace not committed:\n  #{diffs.join("  \n")}"
+            end
+          end
+        end
+
+        task :is_pulled do
+          FileUtils.cd do
+            fetch = git("fetch", "--dry-run")
+            unless fetch.empty?
+              fail "Remote branch has unpulled changes"
+            end
+
+            remote = git("config", "--get", "branch.#{branch}.remote").first
+            merge = git("config", "--get", "branch.#{branch}.merge").first.split("/").last
+
+            ancestor = git("merge-base", branch, "#{remote}/#{merge}").first
+            remote_rev = File::read(".git/refs/remotes/#{remote}/#{merge}").chomp
+
+            unless ancestor == remote_rev
+              fail "Unmerged changes with remote branch #{remote}/#{merge}"
+            end
+          end
+        end
+        task :is_checked_in => :is_pulled
+
+        task :push => :on_branch do
+          FileUtils.cd doc_dir do
+            git("push", "origin", "gh-pages")
+          end
+        end
+
+        task :check_in => [:push]
+      end
+
+      file doc_dir => self[:setup]
+      task :preflight => self[:is_checked_in]
+
+      desc "Push documentation files to Github Pages"
+      task root_task => self[:check_in]
+    end
+  end
+end

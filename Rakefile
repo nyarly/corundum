@@ -1,4 +1,3 @@
-require 'corundum'
 require 'corundum/tasklibs'
 
 module Corundum
@@ -19,5 +18,6 @@ module Corundum
     end
     task tk.finished_files.build => vc["is_checked_in"]
     docs = YARDoc.new(tk)
+    pages = GithubPages.new(docs)
   end
 end
