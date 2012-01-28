@@ -1,15 +1,15 @@
 require 'corundum/tasklib'
 require 'rspec/core'
 require 'mattock/command-task'
+require 'rbconfig'
 
 module Corundum
   class RSpecTask < Mattock::CommandTask
-    setting :ruby_command,
-      Mattock::CommandLine.new(RUBY) do |cmd|
+    setting :ruby_command, Mattock::CommandLine.new(RbConfig.ruby) do |cmd|
       if /^1\.8/ =~ RUBY_VERSION
         cmd.options << "-S"
       end
-      end
+    end
 
     setting :runner_command
 
