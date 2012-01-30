@@ -1,6 +1,5 @@
 require 'corundum/tasklib'
-
-
+require 'corundum/browser-task'
 
 module Corundum
   class RSpecReportTask < RSpecTask
@@ -91,8 +90,8 @@ module Corundum
         task :generate_report => [:preflight, report_path]
 
         desc "View coverage in browser"
-        task :view => report_path do
-          sh "#{browser} #{report_path}"
+        BrowserTask.new(self) do |t|
+          t.index_html = report_path
         end
 
         task :verify_coverage => :generate_report do

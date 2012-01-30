@@ -9,3 +9,5 @@ doc/coverage
 pkg
 .yardoc
 doc
+publish/
+yardoc/

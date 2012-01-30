@@ -17,7 +17,9 @@ module Corundum
       vc.branch = "master"
     end
     task tk.finished_files.build => vc["is_checked_in"]
-    docs = YARDoc.new(tk)
+    docs = YARDoc.new(tk) do |yd|
+      yd.extra_files = ["Rakefile"]
+    end
     pages = GithubPages.new(docs)
   end
 end

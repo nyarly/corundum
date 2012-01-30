@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
-  spec.version		= "0.0.6"
+  spec.version		= "0.0.7"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -18,7 +18,6 @@ Gem::Specification.new do |spec|
   # Do this: y$@"
   # !!find lib bin doc spec spec_help -not -regex '.*\.sw.' -type f
   spec.files		= %w[
-    lib/corundum/configurable.rb
     lib/corundum/rspec.rb
     lib/corundum/email.rb
     lib/corundum/gemspec_sanity.rb
@@ -33,10 +32,8 @@ Gem::Specification.new do |spec|
     lib/corundum/version_control/monotone.rb
     lib/corundum/version_control/git.rb
     lib/corundum.rb
-    doc/README
-    doc/Specifications
+    README
     spec/smoking_spec.rb
-    spec/bogus_spec.rb
     spec_help/spec_helper.rb
     spec_help/gem_test_suite.rb
     spec_help/ungemmer.rb

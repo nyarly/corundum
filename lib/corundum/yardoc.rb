@@ -7,28 +7,43 @@ module Corundum
 
     setting :gemspec
     setting :options, nil
+    setting :browser
+    setting :yardoc_index, nil
 
-    setting(:doc_dir, "doc")
-    setting(:readme, "README")
-    setting(:files, nested(:code => [], :docs => [], :all => nil))
+    setting(:target_dir, "yardoc")
+    setting(:readme, nil)
+    setting(:files, nested(:code => [], :docs => []))
+    setting(:extra_files, [])
 
     def default_configuration(toolkit)
       self.gemspec = toolkit.gemspec
+      toolkit.files.copy_settings_to(self.files)
+      self.browser = toolkit.browser
     end
 
     def resolve_configuration
-      self.options ||= gemspec.rdoc_options +
-        [ "--output-dir", doc_dir,
-          "--readme", readme ]
-      self.files.all ||= files.code + files.docs
+      self.options ||= gemspec.rdoc_options
+      self.options += [ "--output-dir", target_dir]
+      self.options += [ "--readme", readme ] if readme
+      self.options += files.code
+      unless files.docs.empty? and extra_files.empty?
+        self.options += [ "-" ] + files.docs  + extra_files
+      end
+      self.yardoc_index ||= File::join(target_dir, "index.html")
     end
 
     def define
-      directory doc_dir
+      directory target_dir
 
       in_namespace do
-        task :generate do
-          YARD::CLI::Yardoc.run( *(options + files.all))
+        file yardoc_index =>
+        FileList["README*"] + files.code + files.docs + extra_files do
+          YARD::CLI::Yardoc.run( *(options) )
+        end
+
+        desc "Open up a browser to view your documentation"
+        BrowserTask.new(self) do |t|
+          t.index_html = yardoc_index
         end
       end
 

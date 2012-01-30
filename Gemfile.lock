@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    corundum (0.0.6)
+    corundum (0.0.7)
       bundler (~> 1.0.0)
       mailfactory (~> 1.4.0)
       mattock (>= 0.1)
@@ -38,6 +38,7 @@ GEM
     rbx-require-relative (0.0.5)
     rdoc (3.12)
       json (~> 1.4)
+    redcarpet (2.1.0)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
       rspec-expectations (~> 2.8.0)
@@ -74,5 +75,6 @@ PLATFORMS
 
 DEPENDENCIES
   corundum!
+  redcarpet
   ruby-debug
   ruby-debug19

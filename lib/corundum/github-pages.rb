@@ -1,14 +1,41 @@
 require 'corundum/tasklib'
+require 'mattock/task'
 
 module Corundum
+  class GitTask < Mattock::CommandTask
+    setting(:subcommand)
+    setting(:arguments, [])
+
+    def command
+      Mattock::CommandLine.new("git", "--no-pager") do |cmd|
+        cmd.options << subcommand
+        arguments.each do |arg|
+          cmd.options += [*arg]
+        end
+      end
+    end
+  end
+
+  class InDirCommandTask < Mattock::CommandTask
+    setting :directory
+    def action
+      FileUtils.cd directory do
+        super
+      end
+    end
+  end
+
   class GithubPages < TaskLib
     default_namespace :publish_docs
 
-    setting(:branch, "gh-pages")
-    setting(:doc_dir)
+    setting(:pub_dir)
+
+    def branch
+      "gh-pages"
+    end
 
     def default_configuration(doc_gen)
-      self.doc_dir = doc_gen.doc_dir
+      self.pub_dir = "publish"
     end
 
     def git_command(*args)
@@ -22,33 +49,43 @@ module Corundum
     def git(*args)
       result = git_command(*args).run
       result.must_succeed!
-      result.stdout.lines
+      result.stdout.lines.to_a
     end
+
+    $verbose = true
 
     def define
       in_namespace do
-        file File::join(doc_dir, ".git") do
-          fail "Refusing to clobber existing #{doc_dir}" if File.exists?(doc_dir)
-          create = Mattock::PrereqChain.new do |cmd|
-            cmd.add git_command("clone", ".git", doc_dir)
-            cmd.add Mattock::CommandLine.new("cd", doc_dir)
-            cmd.add git_command(%w{symbolic-ref HEAD refs/heads/gh-pages})
-            cmd.add Mattock::CommandLine.new("rm", ".git/index")
-            cmd.add git_command("clean", "-fdx")
-          end
+        file File::join(pub_dir, ".git") do
+          fail "Refusing to clobber existing #{pub_dir}" if File.exists?(pub_dir)
 
-          begin
-            pwd = FileUtils::pwd
-            create.must_succeed!
-          ensure
-            FileUtils::cd pwd
-          end
+          url = git("config", "--get", "remote.origin.url").first
+
+          Mattock::PrereqChain.new do |chain|
+            chain.add git_command("clone", ".git", pub_dir)
+            chain.add git_command("config -f", pub_dir + "/.git/config", "--replace-all remote.origin.url", url)
+          end.must_succeed!
         end
 
-        task :setup => File::join(doc_dir, ".git")
+        InDirCommandTask.new() do |t|
+          t.task_name = :setup
+          t.directory = pub_dir
+          t.verify_command = Mattock::PipelineChain.new do |chain|
+            chain.add git_command(%w{branch -r})
+            chain.add Mattock::CommandLine.new("grep", "-q", branch)
+          end
+          t.command = Mattock::PrereqChain.new do |cmd|
+            cmd.add git_command("checkout", "-b", branch)
+            cmd.add Mattock::CommandLine.new("rm -rf *")
+            cmd.add git_command(%w{commit -a -m} + ["'Creating pages'"])
+            cmd.add git_command("push", "origin", branch)
+            cmd.add git_command("branch", "--set-upstream", branch, "origin/" + branch)
+          end
+        end
+        task :setup => File::join(pub_dir, ".git")
 
         task :on_branch do
-          FileUtils.cd doc_dir do
+          FileUtils.cd pub_dir do
             current_branch = git("branch").grep(/^\*/).first.sub(/\*\s*/,"").chomp
             unless current_branch == branch
               fail "Current branch \"#{current_branch}\" is not #{branch}"
@@ -57,7 +94,7 @@ module Corundum
         end
 
         task :workspace_committed => :on_branch do
-          FileUtils.cd doc_dir do
+          FileUtils.cd pub_dir do
             diffs = git("diff", "--stat", "HEAD")
             unless diffs.empty?
               fail "Workspace not committed:\n  #{diffs.join("  \n")}"
@@ -86,7 +123,7 @@ module Corundum
         task :is_checked_in => :is_pulled
 
         task :push => :on_branch do
-          FileUtils.cd doc_dir do
+          FileUtils.cd pub_dir do
             git("push", "origin", "gh-pages")
           end
         end
@@ -94,7 +131,7 @@ module Corundum
         task :check_in => [:push]
       end
 
-      file doc_dir => self[:setup]
+      file pub_dir => self[:setup]
       task :preflight => self[:is_checked_in]
 
       desc "Push documentation files to Github Pages"

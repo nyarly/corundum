@@ -9,18 +9,22 @@ module Corundum
     end
 
     def git_command(*args)
-      result = Mattock::CommandLine.new("git", "--no-pager") do |cmd|
+      Mattock::CommandLine.new("git", "--no-pager") do |cmd|
         args.each do |arg|
           cmd.options += [*arg]
         end
-      end.run
+      end
+    end
+
+    def git(*args)
+      result = git_command(*args).run
       result.must_succeed!
-      result.stdout
+      return result.stdout.lines.to_a
     end
 
     def guess_branch
       puts "Guessing branch - configure Git > branch"
-      branch = git_command("branch").grep(/^\*/).first.sub(/\*\s*/,"").chomp
+      branch = git("branch").grep(/^\*/).first.sub(/\*\s*/,"").chomp
       puts "  Guessed: #{branch}"
       return branch
     end
@@ -30,28 +34,28 @@ module Corundum
 
       in_namespace do
         task :on_branch do
-          current_branch = git_command("branch").grep(/^\*/).first.sub(/\*\s*/,"").chomp
+          current_branch = git("branch").grep(/^\*/).first.sub(/\*\s*/,"").chomp
           unless current_branch == branch
             fail "Current branch \"#{current_branch}\" is not #{branch}"
           end
         end
 
         task :not_tagged => :on_branch do
-          tags = git_command("tag", "-l", tag)
+          tags = git("tag", "-l", tag)
           unless tags.empty?
             fail "Tag #{tag} already exists in branch #{branch}"
           end
         end
 
         task :workspace_committed => :on_branch do
-          diffs = git_command("diff", "--stat", "HEAD")
+          diffs = git("diff", "--stat", "HEAD")
           unless diffs.empty?
             fail "Workspace not committed:\n  #{diffs.join("  \n")}"
           end
         end
 
         task :gemspec_files_added => :on_branch do
-          list = git_command(%w{ls-tree -r HEAD})
+          list = git(%w{ls-tree -r HEAD})
           list.map! do |line|
             line.split(/\s+/)[3]
           end
@@ -63,15 +67,15 @@ module Corundum
         end
 
         task :is_pulled do
-          fetch = git_command("fetch", "--dry-run")
+          fetch = git("fetch", "--dry-run")
           unless fetch.empty?
             fail "Remote branch has unpulled changes"
           end
 
-          remote = git_command("config", "--get", "branch.#{branch}.remote").first
-          merge = git_command("config", "--get", "branch.#{branch}.merge").first.split("/").last
+          remote = git("config", "--get", "branch.#{branch}.remote").first
+          merge = git("config", "--get", "branch.#{branch}.merge").first.split("/").last
 
-          ancestor = git_command("merge-base", branch, "#{remote}/#{merge}").first
+          ancestor = git("merge-base", branch, "#{remote}/#{merge}").first
           remote_rev = File::read(".git/refs/remotes/#{remote}/#{merge}").chomp
 
           unless ancestor == remote_rev
@@ -81,11 +85,11 @@ module Corundum
         task :is_checked_in => :is_pulled
 
         task :tag => :on_branch do
-          git_command("tag", tag)
+          git("tag", tag)
         end
 
         task :push => :on_branch do
-          git_command("push")
+          git("push")
         end
 
         task :check_in => [:push]
