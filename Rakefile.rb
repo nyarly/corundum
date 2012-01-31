@@ -21,5 +21,6 @@ module Corundum
       yd.extra_files = ["Rakefile"]
     end
     pages = GithubPages.new(docs)
+    task pages[:assemble_docs] => docs.yardoc_index
   end
 end

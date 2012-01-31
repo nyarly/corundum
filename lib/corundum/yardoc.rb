@@ -48,7 +48,7 @@ module Corundum
       end
 
       desc "Generate documentation based on code using YARD"
-      task root_task => in_namespace("generate")
+      task root_task => yardoc_index
     end
   end
 end

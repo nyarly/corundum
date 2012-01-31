@@ -12,6 +12,13 @@ PATH
       simplecov (>= 0.5.4)
       yard
 
+PATH
+  remote: ../mattock
+  specs:
+    mattock (0.1.0)
+      tilt (> 0)
+      valise (> 0)
+
 GEM
   remote: http://judson:hEi4lOra@gems.lrdesign.com/
   remote: http://gemcutter.org/
@@ -26,9 +33,6 @@ GEM
       ruby_core_source (>= 0.1.4)
     mailfactory (1.4.0)
       mime-types (>= 1.13.1)
-    mattock (0.1.0)
-      tilt (> 0)
-      valise (> 0)
     mime-types (1.17.2)
     multi_json (1.0.4)
     nokogiri (1.5.0)
@@ -75,6 +79,7 @@ PLATFORMS
 
 DEPENDENCIES
   corundum!
+  mattock!
   redcarpet
   ruby-debug
   ruby-debug19

@@ -1,19 +1,19 @@
 ## Corundum
 ### Foolproof rubygems
 
-#### (Yet Another Rubygems packager)
+The goal of Corundum is to be able to run 'rake release' and know that
+you're publishing something you won't be embarrassed by.  Any packaging is a
+tricky problem with lots of details.  Fortunately, those details can mostly
+be automated.
+
+### (Yet Another Rubygems packager)
 
 Why is Corundum different from Jeweler or Hoe?  (or...) Corundum is built not
 to generate code - it doesn't exist to build gems for you if you don't know
 how.  For that, check out Jeweler, and come back once you've understood what a
 .gemspec is and how it works.
 
-The goal of Corundum is to be able to run 'rake release' and know that
-you're publishing something you won't be embarrassed by.  Any packaging is a
-tricky problem with lots of details.  Fortunately, those details can mostly
-be automated.
-
-#### Using Corundum
+### Using Corundum
 
 Check out this Rakefile:
 
