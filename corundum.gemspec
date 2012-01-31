@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
     lib/corundum/version_control/monotone.rb
     lib/corundum/version_control/git.rb
     lib/corundum.rb
-    README
+    README.md
     spec/smoking_spec.rb
     spec_help/spec_helper.rb
     spec_help/gem_test_suite.rb
