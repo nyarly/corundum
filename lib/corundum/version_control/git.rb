@@ -72,8 +72,8 @@ module Corundum
             fail "Remote branch has unpulled changes"
           end
 
-          remote = git("config", "--get", "branch.#{branch}.remote").first
-          merge = git("config", "--get", "branch.#{branch}.merge").first.split("/").last
+          remote = git("config", "--get", "branch.#{branch}.remote").first.chomp
+          merge = git("config", "--get", "branch.#{branch}.merge").first.split("/").last.chomp
 
           ancestor = git("merge-base", branch, "#{remote}/#{merge}").first
           remote_rev = File::read(".git/refs/remotes/#{remote}/#{merge}").chomp

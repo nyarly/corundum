@@ -18,6 +18,8 @@ Gem::Specification.new do |spec|
   # Do this: y$@"
   # !!find lib bin doc spec spec_help -not -regex '.*\.sw.' -type f
   spec.files		= %w[
+    lib/corundum/browser-task.rb
+    lib/corundum/github-pages.rb
     lib/corundum/rspec.rb
     lib/corundum/email.rb
     lib/corundum/gemspec_sanity.rb
