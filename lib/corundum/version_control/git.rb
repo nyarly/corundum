@@ -79,7 +79,7 @@ module Corundum
           remote_rev = File::read(".git/refs/remotes/#{remote}/#{merge}").chomp
 
           unless ancestor == remote_rev
-            fail "Unmerged changes with remote branch #{remote}/#{merge}"
+            fail "Unmerged changes with remote branch #{remote}/#{merge}\n#{ancestor.inspect}\n#{remote_rev.inspect}"
           end
         end
         task :is_checked_in => :is_pulled
