@@ -75,7 +75,7 @@ module Corundum
           remote = git("config", "--get", "branch.#{branch}.remote").first.chomp
           merge = git("config", "--get", "branch.#{branch}.merge").first.split("/").last.chomp
 
-          ancestor = git("merge-base", branch, "#{remote}/#{merge}").first
+          ancestor = git("merge-base", branch, "#{remote}/#{merge}").first.chomp
           remote_rev = File::read(".git/refs/remotes/#{remote}/#{merge}").chomp
 
           unless ancestor == remote_rev
