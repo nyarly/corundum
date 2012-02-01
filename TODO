@@ -1,3 +1,5 @@
+Before rake release: run 'bundle install' to make sure that this gem's version is u2d in Gemfile.lock
+
 QA tests:
   XXX, FIXME, profanity filters of code and specs (configurable?)
   Empty filelist
