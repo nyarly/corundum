@@ -18,6 +18,7 @@ module Corundum
     def default_configuration(toolkit)
       self.gemspec = toolkit.gemspec
       toolkit.files.copy_settings_to(self.files)
+      self.files.docs = []
       self.browser = toolkit.browser
     end
 
