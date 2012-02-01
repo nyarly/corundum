@@ -1,4 +1,5 @@
 require 'corundum/tasklib'
+require 'corundum/configuration_store'
 
 #require 'rubygems'
 #require 'rubygems/installer'
@@ -13,7 +14,7 @@ module Corundum
       :finished_dir => "corundum",
       :package_dir => "pkg",
       :doc_dir => "rubydoc",
-      :browser => "chromium",
+      :browser => Corundum.user_preferences["browser"],
       :finished_files => nested.nil_fields(:build, :qa, :package, :release, :press),
       :files => nested.nil_fields(:code, :test, :docs),
       :rubyforge => nested.nil_fields(:group_id, :package_id, :release_name, :home_page, :project_page),

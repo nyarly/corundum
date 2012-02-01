@@ -70,8 +70,6 @@ module Corundum
       result.stdout.lines.to_a
     end
 
-    $verbose = true
-
     def define
       in_namespace do
         InDirCommandTask.new(self) do |t|
