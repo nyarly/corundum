@@ -33,6 +33,8 @@ Gem::Specification.new do |spec|
     lib/corundum/version_control.rb
     lib/corundum/version_control/monotone.rb
     lib/corundum/version_control/git.rb
+    lib/corundum/configuration_store.rb
+    lib/corundum/default_configuration/preferences.yaml
     lib/corundum.rb
     README.md
     spec/smoking_spec.rb
