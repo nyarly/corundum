@@ -77,7 +77,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "simplecov", ">= 0.5.4"
   spec.add_dependency "bundler", "~> 1.0.0"
   spec.add_dependency "nokogiri"
-  spec.add_dependency "mattock", ">= 0.1"
+  spec.add_dependency "mattock", ">= 0.1.2"
 
   spec.post_install_message = "Another tidy package brought to you by Judson"
 end
