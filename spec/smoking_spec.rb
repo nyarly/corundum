@@ -15,8 +15,9 @@ module Corundum
         gem = GemBuilding.new(tk)
         cutter = GemCutter.new(tk, gem)
         email = Email.new(tk)
-        vc = Monotone.new(tk)
+        vc = Git.new(tk)
         docs = YARDoc.new(tk)
+        pages = GithubPages.new(docs)
       end
     end
 
