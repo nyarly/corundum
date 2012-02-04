@@ -24,13 +24,14 @@ module Corundum
     end
 
     def needed?
-      FileUtils.cd target_dir do
+      return true unless File.directory? target_dir
+      Dir.chdir target_dir do
         super
       end
     end
 
     def action
-      FileUtils.cd target_dir do
+      Dir.chdir target_dir do
         super
       end
     end
@@ -72,34 +73,14 @@ module Corundum
 
     def define
       in_namespace do
-        InDirCommandTask.new(self) do |t|
-          t.task_name = :on_branch
-          t.verify_command = Mattock::PipelineChain.new do |chain|
-            chain.add git_command(%w{branch})
-            chain.add Mattock::CommandLine.new("grep", "-q", "'^[*] #{branch}'")
-          end
-          t.command = Mattock::PrereqChain.new do |chain|
-            chain.add git_command("checkout", branch)
-          end
-        end
-
         file repo_dir do
           fail "Refusing to clobber existing #{target_dir}" if File.exists?(target_dir)
 
           url = git("config", "--get", "remote.origin.url").first
-
-          git("clone", url.chomp, "-b", branch, target_dir)
-          Mattock::CommandLine.new("rm", File::join(repo_dir, "hooks", "*")).must_succeed!
+          git("clone", url.chomp, target_dir)
         end
 
-        task :pull => [repo_dir, :on_branch] do
-          FileUtils.cd target_dir do
-            git("pull")
-          end
-        end
-
-        InDirCommandTask.new(self) do |t|
-          t.task_name = :setup
+        InDirCommandTask.new(self, :remote_branch => repo_dir) do |t|
           t.verify_command = Mattock::PipelineChain.new do |chain|
             chain.add git_command(%w{branch -r})
             chain.add Mattock::CommandLine.new("grep", "-q", branch)
@@ -112,9 +93,40 @@ module Corundum
             cmd.add git_command("branch", "--set-upstream", branch, "origin/" + branch)
           end
         end
-        task :setup => repo_dir
 
-        task :pre_publish => [repo_dir, :setup, :pull]
+        InDirCommandTask.new(self, :local_branch => :remote_branch) do |t|
+          t.verify_command = Mattock::PipelineChain.new do |chain|
+            chain.add git_command(%w{branch})
+            chain.add Mattock::CommandLine.new("grep", "-q", "'#{branch}'")
+          end
+          t.command = Mattock::PrereqChain.new do |chain|
+            chain.add git_command("checkout", "-t", branch)
+          end
+        end
+
+        InDirCommandTask.new(self, :on_branch => [:remote_branch, :local_branch]) do |t|
+          t.verify_command = Mattock::PipelineChain.new do |chain|
+            chain.add git_command(%w{branch})
+            chain.add Mattock::CommandLine.new("grep", "-q", "'^[*] #{branch}'")
+          end
+          t.command = Mattock::PrereqChain.new do |chain|
+            chain.add git_command("checkout", branch)
+          end
+        end
+
+        task :pull => [repo_dir, :on_branch] do
+          FileUtils.cd target_dir do
+            git("pull")
+          end
+        end
+
+        task :cleanup_repo => repo_dir do
+          Mattock::CommandLine.new("rm", "-f", File::join(repo_dir, "hooks", "*")).must_succeed!
+        end
+
+        file target_dir => [:on_branch, :cleanup_repo]
+
+        task :pre_publish => [repo_dir, target_dir, :pull]
 
         task :clobber_target => :on_branch do
           Mattock::CommandLine.new(*%w{rm -rf}) do |cmd|

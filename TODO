@@ -1,9 +1,13 @@
+GH pages isn't working if remote branch doesn't exist (I think)
+
 Before rake release: run 'bundle install' to make sure that this gem's version is u2d in Gemfile.lock
 
 QA tests:
   XXX, FIXME, profanity filters of code and specs (configurable?)
   Empty filelist
   Check that gem authors are gem owners?
+  Gemfile doesn't include :path => or :git => lines?
+    (or gem lines at all?)  - needs a lot of configurablity
 
 Twitter press - external user preferences means that API keys can live on
 machine, not in repo

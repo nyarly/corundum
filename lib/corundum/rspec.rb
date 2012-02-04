@@ -17,6 +17,7 @@ module Corundum
       :warning, :rspec_path, :rspec_opts, :failure_message, :files_to_run
 
     def default_configuration(rspec)
+      super
       self.pattern = rspec.pattern
       self.ruby_opts = rspec.ruby_opts
       self.rspec_configs = rspec.rspec_configs
@@ -44,6 +45,7 @@ module Corundum
         cmd.add ruby_command
         cmd.add runner_command
       end
+      super
     end
   end
 
