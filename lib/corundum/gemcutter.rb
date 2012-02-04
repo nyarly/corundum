@@ -90,7 +90,6 @@ module Corundum
           dep = Gem::Dependency.new(gemspec.name, "= #{gemspec.version}")
           fulfilling = checker.find_matching(dep,false,false,false)
           unless fulfilling.empty?
-            p fulfilling
             fail "Gem #{gemspec.full_name} is already pushed"
           end
         end
