@@ -15,10 +15,10 @@ module Corundum
       @loaded ||= Hash.new{|h,k| h[k] = @valise.find(k).contents}
     end
 
-    attr_reader :loaded
+    attr_reader :loaded, :valise
 
     def register_search_path(from_file)
-      directory = File::dirname(from_file)
+      directory = File::expand_path("../.corundum", from_file)
       @valise.prepend_search_root(Valise::SearchRoot.new(directory))
       loaded.clear
     end

@@ -11,7 +11,8 @@ module Corundum
     settings(
       :gemspec => nil,
       :gemspec_path => nil,
-      :finished_dir => "corundum",
+      :corundum_dir => "corundum",
+      :finished_dir => nil,
       :package_dir => "pkg",
       :doc_dir => "rubydoc",
       :browser => Corundum.user_preferences["browser"],
@@ -38,6 +39,7 @@ module Corundum
     def resolve_configuration
       load_gemspec
 
+      self.finished_dir ||= File::join(corundum_dir, "finished")
       @finished_files.build ||= File::join( package_dir, "#{gemspec.full_name}.gem")
 
       @finished_files.qa ||= File::join( finished_dir, "qa_#{gemspec.version}")

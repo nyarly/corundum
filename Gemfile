@@ -4,4 +4,5 @@ source "http://gemcutter.org"
 gem 'ruby-debug19', :platform => :ruby_19
 gem 'ruby-debug', :platform => :ruby_18
 gem 'redcarpet'
+gem 'valise', :path => "../valise"
 gemspec

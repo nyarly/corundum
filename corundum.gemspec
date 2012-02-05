@@ -25,7 +25,10 @@ Gem::Specification.new do |spec|
     lib/corundum/gemspec_sanity.rb
     lib/corundum/gemcutter.rb
     lib/corundum/tasklib.rb
-    lib/corundum/yardoc.rb
+    lib/corundum/documentation.rb
+    lib/corundum/documentation-task.rb
+    lib/corundum/documentation/yardoc.rb
+    lib/corundum/documentation/assembly.rb
     lib/corundum/gem_building.rb
     lib/corundum/tasklibs.rb
     lib/corundum/simplecov.rb

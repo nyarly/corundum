@@ -1,6 +1,8 @@
 require 'corundum/tasklibs'
 
 module Corundum
+  register_project(__FILE__)
+
   tk = Toolkit.new do |tk|
   end
 
@@ -17,10 +19,11 @@ module Corundum
       vc.branch = "master"
     end
     task tk.finished_files.build => vc["is_checked_in"]
-    docs = YARDoc.new(tk) do |yd|
+    yd = YARDoc.new(tk) do |yd|
       yd.extra_files = ["Rakefile"]
     end
-    pages = GithubPages.new(docs)
-    task pages[:assemble_docs] => docs.entry_point
+    all_docs = DocumentationAssembly.new(tk, yd)
+    pages = GithubPages.new(all_docs)
+    task pages[:assemble_docs] => all_docs.entry_point
   end
 end

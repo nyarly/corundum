@@ -1,0 +1,8 @@
+<%= render readme_file %>
+For further reference see:
+<ul>
+  <% p documenters %>
+<% documenters.each_pair do |path, doccer| %>
+  <li><a href="<%= doccer.entry_link %>"><%= doccer.title%></a></li>
+<% end %>
+</ul>
