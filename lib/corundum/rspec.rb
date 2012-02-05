@@ -83,20 +83,16 @@ module Corundum
     def define
       in_namespace do
         desc "Always run every spec"
-        RSpecTask.new(self) do |t|
-          t.task_name = :all
-        end
+        RSpecTask.new(self, :all)
 
         desc "Generate specifications documentation"
-        RSpecTask.new(self) do |t|
-          t.task_name = :doc
+        RSpecTask.new(self, :doc) do |t|
           t.rspec_opts = %w{-o /dev/null -f d -o doc/Specifications}
           t.failure_message = "Failed generating specification docs"
         end
 
         desc "Run only failing examples listed in last_run"
-        RSpecTask.new(self) do |t|
-          t.task_name = :quick
+        RSpecTask.new(self, :quick) do |t|
           examples = []
           begin
             File.open("last_run", "r") do |fail_list|

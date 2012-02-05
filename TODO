@@ -1,5 +1,3 @@
-GH pages isn't working if remote branch doesn't exist (I think)
-
 Before rake release: run 'bundle install' to make sure that this gem's version is u2d in Gemfile.lock
 
 QA tests:
@@ -13,6 +11,7 @@ Twitter press - external user preferences means that API keys can live on
 machine, not in repo
 
 Documentation:
-  All of: coverage, specs, YARD (or rdoc), showoff, handwritten
-  Compiled in one place for publishing
-  Biggest trick: compiling an index
+  coverage,
+  specs,
+  showoff,
+  handwritten
