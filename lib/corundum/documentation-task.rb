@@ -4,6 +4,7 @@ module Corundum
   class DocumentationTask < TaskLib
     setting :title
     setting :browser
+    setting :gemspec
 
     setting :corundum_dir
     setting :docs_root
@@ -12,14 +13,15 @@ module Corundum
     setting :sub_dir
 
     setting :entry_file, "index.html"
+
+    #The path from the project root to the entry file
+    #Resolves if unset to target_dir + entry_file
     setting :entry_path
+
+    #The URL path from this documentation root
+    #Resolves if unset to sub_dir + entry_file
     setting :entry_link
 
-    # docsroot | subdir | entry_file
-
-    # docsroot + subdir => target_dir
-    # subdir + entry_file => entry_link
-    # target_dir + entryfile => entry_file
 
     def self.title(name)
       setting :title, name
@@ -62,9 +64,6 @@ module Corundum
           t.index_html = entry_point
         end
       end
-
-      desc "Generate documentation based on code using YARD"
-      task root_task => entry_point
     end
   end
 end

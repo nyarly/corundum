@@ -4,6 +4,7 @@ module Corundum
   register_project(__FILE__)
 
   tk = Toolkit.new do |tk|
+    tk.file_lists.project = [__FILE__]
   end
 
   tk.in_namespace do
@@ -20,9 +21,9 @@ module Corundum
     end
     task tk.finished_files.build => vc["is_checked_in"]
     yd = YARDoc.new(tk) do |yd|
-      yd.extra_files = ["Rakefile"]
+      yd.extra_files = ["Rakefile.rb"]
     end
-    all_docs = DocumentationAssembly.new(tk, yd)
+    all_docs = DocumentationAssembly.new(tk, yd, rspec, cov)
     pages = GithubPages.new(all_docs)
     task pages[:assemble_docs] => all_docs.entry_point
   end

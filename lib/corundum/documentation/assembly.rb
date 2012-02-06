@@ -9,7 +9,7 @@ module Corundum
 
     setting :sub_dir, "assembled"
     setting :documenters, []
-    setting :readme_file, "README.md"
+    setting :extra_data, {}
 
     def default_configuration(toolkit, *documenters)
       super(toolkit)
@@ -45,7 +45,6 @@ module Corundum
 
         desc "Generate various documentation and collect it in one place"
         file entry_point => [target_dir, :collect] do
-          p documenters
           File::open(entry_point, "w") do |file|
             file.write(render("doc_assembly/index.html.erb"))
           end

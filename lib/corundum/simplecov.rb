@@ -1,27 +1,20 @@
-require 'corundum/tasklib'
+require 'corundum/documentation-task'
 require 'corundum/browser-task'
 
 module Corundum
-  class RSpecReportTask < RSpecTask
-    def command_task
-      @command_task ||= file task_name do
-        decorated(command).must_succeed!
-      end
-    end
-  end
 
-  class SimpleCov < TaskLib
+  class SimpleCov < DocumentationTask
     default_namespace :coverage
 
+    setting(:title, "Coverage report")
+
     setting(:test_lib)
-    setting(:browser)
     setting(:code_files)
     setting(:all_files)
 
-    setting(:report_path, nil)
     setting(:config_path, nil)
 
-    setting(:report_dir, "doc/coverage")
+    setting(:sub_dir, "coverage")
     setting(:config_file, ".simplecov")
     setting(:filters, ["./spec"])
     setting(:threshold, 80)
@@ -31,15 +24,15 @@ module Corundum
     end)
 
     def default_configuration(toolkit, testlib)
+      super(toolkit)
       self.test_lib = testlib
-      self.browser = toolkit.browser
       self.code_files = toolkit.files.code
       self.all_files =  toolkit.file_lists.project + toolkit.file_lists.code + toolkit.file_lists.test
     end
 
     def resolve_configuration
       self.config_path ||= File::expand_path(config_file, Rake::original_dir)
-      self.report_path ||= File::join(report_dir, "index.html")
+      super
     end
 
     def filter_lines
@@ -58,7 +51,7 @@ module Corundum
 
     def config_file_contents
       contents = ["SimpleCov.start do"]
-      contents << "  coverage_dir \"#{report_dir}\""
+      contents << "  coverage_dir \"#{target_dir}\""
       contents += filter_lines.map{|line| "  " + line}
       contents += group_lines.map{|line| "  " + line}
       contents << "end"
@@ -66,9 +59,8 @@ module Corundum
     end
 
     def define
+      super
       in_namespace do
-        file "Rakefile"
-
         task :example_config do
           $stderr.puts "Try this in #{config_path}"
           $stderr.puts "(You can just do #$0 > #{config_path})"
@@ -77,27 +69,21 @@ module Corundum
         end
 
         task :config_exists do
-          File::exists?(File::join(Rake::original_dir, ".simplecov")) or fail "No .simplecov (try: rake #{self[:example_config]})"
+          File::exists?(config_path) or fail "No .simplecov (try: rake #{self[:example_config]})"
+          File::read(config_path) =~ /coverage_dir.*#{target_dir}/ or fail ".simplecov doesn't refer to #{target_dir}"
         end
 
-        directory File::dirname(report_path)
-        RSpecReportTask.new(@test_lib) do |t|
-          t.task_name = report_path
+        RSpecReportTask.new(@test_lib, :report => [:config_exists] + all_files) do |t|
           t.rspec_opts += %w{-r simplecov}
         end
-        file report_path => all_files
+        file entry_path => :report
 
-        task :generate_report => [:preflight, report_path]
-
-        desc "View coverage in browser"
-        BrowserTask.new(self) do |t|
-          t.index_html = report_path
-        end
+        task :generate_report => [:preflight, entry_path]
 
         task :verify_coverage => :generate_report do
           require 'nokogiri'
 
-          doc = Nokogiri::parse(File::read(report_path))
+          doc = Nokogiri::parse(File::read(entry_path))
 
           coverage_total_xpath = "//span[@class='covered_percent']/span"
           percentage = doc.xpath(coverage_total_xpath).first.content.to_f
@@ -109,7 +95,7 @@ module Corundum
         task :find_stragglers => :generate_report do
           require 'nokogiri'
 
-          doc = Nokogiri::parse(File::read(report_path))
+          doc = Nokogiri::parse(File::read(entry_path))
 
           covered_files = doc.xpath(
             "//table[@class='file_list']//td//a[@class='src_link']").map do |link|
@@ -126,8 +112,8 @@ module Corundum
           end
         end
       end
-      task :preflight => in_namespace(:config_exists)
 
+      task :preflight => in_namespace(:config_exists)
       task :qa => in_namespace(:verify_coverage, :find_stragglers)
     end
   end

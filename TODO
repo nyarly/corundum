@@ -2,7 +2,9 @@ Before rake release: run 'bundle install' to make sure that this gem's version i
 
 QA tests:
   XXX, FIXME, profanity filters of code and specs (configurable?)
+  p in files
   Empty filelist
+  gemspec filelist is a subset of VC known files
   Check that gem authors are gem owners?
   Gemfile doesn't include :path => or :git => lines?
     (or gem lines at all?)  - needs a lot of configurablity

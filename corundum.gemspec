@@ -1,18 +1,24 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
-  spec.version		= "0.0.11"
+  spec.version		= "0.0.12"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
   spec.authors		= author_list.keys
   spec.email		= spec.authors.map {|name| author_list[name]}
-  spec.summary		= "Tools for making ruby gems"
+  spec.summary		= "Tools for synthesizing rubygems"
   spec.description	= <<-EndDescription
-  A Corundum is a synthetic gemstone - including synthetic rubies.  Ergo: a tool for synthesizing gems.
+  A corundum is a synthetic gemstone - including synthetic rubies.  Ergo: a tool for synthesizing gems.
+
+  Corundum starts with the outlook that gemspecs are relatively easy to work with, and that the opinion of the RubyGems team is that they should be treated as a configuration file, not a code file.  Furthermore, Rake is a powerful, easy to use tool, and does admit the use of Ruby code to get the job done.
+
+  The hard part about publishing gems is getting them into a state you'll be proud of.  There's dozens of fiddly steps to putting together a gem fit for public consumption, and it's very easy to get some of them wrong.
+
+  Corundum is a collection of Rake tasklibs, therefore, that will perform the entire process of releasing gems, including QA steps up front through generating and publishing documentation.
   EndDescription
 
   spec.rubyforge_project= spec.name.downcase
-  spec.homepage        = "http://#{spec.rubyforge_project}.rubyforge.org/"
+  spec.homepage        = "http://nyarly.github.com/corundum/"
   spec.required_rubygems_version = Gem::Requirement.new(">= 0") if spec.respond_to? :required_rubygems_version=
 
   # Do this: y$@"
@@ -21,6 +27,7 @@ Gem::Specification.new do |spec|
     lib/corundum/browser-task.rb
     lib/corundum/github-pages.rb
     lib/corundum/rspec.rb
+    lib/corundum/rspec-task.rb
     lib/corundum/email.rb
     lib/corundum/gemspec_sanity.rb
     lib/corundum/gemcutter.rb

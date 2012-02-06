@@ -39,7 +39,6 @@ module Corundum
     def define
       in_namespace do
         file entry_point => document_inputs do
-          p options
           YARD::CLI::Yardoc.run( *(options) )
         end
       end

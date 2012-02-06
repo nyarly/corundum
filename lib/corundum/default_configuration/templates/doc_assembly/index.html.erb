@@ -1,8 +1,28 @@
-<%= render readme_file %>
-For further reference see:
-<ul>
-  <% p documenters %>
-<% documenters.each_pair do |path, doccer| %>
-  <li><a href="<%= doccer.entry_link %>"><%= doccer.title%></a></li>
-<% end %>
-</ul>
+<html>
+  <head>
+  </head>
+  <body>
+    <div class="gem-details">
+      <h1><%= gemspec.name %></h1>
+      <h2><%= gemspec.summary %></h2>
+      <h2>(current version: <%= gemspec.version %>)</h2>
+      <p><%= gemspec.description.gsub(/\n\s*\n/, "</p><p>") %></p>
+    </div>
+    <div class="documentation-list">
+      <p>Documentation is in a few sections:</p>
+      <ul>
+        <% documenters.each_pair do |path, doccer| %>
+          <li><a href="<%= doccer.entry_link %>"><%= doccer.title%></a></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="credits">
+      <dl>
+        <% gemspec.authors.zip(gemspec.email).each do |author, email| %>
+          <dt><%= author %></dt>
+          <dd><%= email %></dd>
+        <% end %>
+      </dl>
+    </div>
+  </body>
+</html>
