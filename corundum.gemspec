@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
-  spec.version		= "0.0.12"
+  spec.version		= "0.0.13"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -75,8 +75,6 @@ Gem::Specification.new do |spec|
 
   spec.has_rdoc		= true
   spec.extra_rdoc_files = Dir.glob("doc/**/*")
-  spec.rdoc_options	= %w{--inline-source }
-  spec.rdoc_options	+= %w{--main doc/README }
   spec.rdoc_options	+= ["--title", "#{spec.name}-#{spec.version} RDoc"]
 
   spec.add_dependency "rake-rubygems", ">= 0.2.0"

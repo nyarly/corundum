@@ -25,6 +25,7 @@ module Corundum
     end
     all_docs = DocumentationAssembly.new(tk, yd, rspec, cov)
     pages = GithubPages.new(all_docs)
-    task pages[:assemble_docs] => all_docs.entry_point
   end
 end
+
+task :default => [:release, :publish_docs]

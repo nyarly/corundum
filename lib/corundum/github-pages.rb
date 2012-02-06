@@ -42,6 +42,7 @@ module Corundum
 
     setting(:target_dir, "gh-pages")
     setting(:source_dir)
+    setting(:docs_index)
 
     nil_fields :repo_dir
 
@@ -51,6 +52,7 @@ module Corundum
 
     def default_configuration(doc_gen)
       self.source_dir = doc_gen.target_dir
+      self.docs_index = doc_gen.entry_point
     end
 
     def resolve_configuration
@@ -134,7 +136,7 @@ module Corundum
           end.must_succeed!
         end
 
-        task :assemble_docs => [:pre_publish, :clobber_target] do
+        task :assemble_docs => [docs_index, :pre_publish, :clobber_target] do
           Mattock::CommandLine.new(*%w{cp -a}) do |cmd|
             cmd.options << source_dir + "/*"
             cmd.options << target_dir
