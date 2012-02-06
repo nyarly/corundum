@@ -62,6 +62,10 @@ module Corundum
       end
     end
 
+    def out_of_date?(stamp)
+      @prerequisites.any? { |n| application[n, @scope].timestamp > stamp}
+    end
+
     def needed?
       ! File.exist?(doc_path) || out_of_date?(timestamp)
     end
