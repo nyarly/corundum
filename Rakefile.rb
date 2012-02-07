@@ -1,4 +1,5 @@
 require 'corundum/tasklibs'
+require 'mattock/yard_extensions'
 
 module Corundum
   register_project(__FILE__)
