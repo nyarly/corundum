@@ -1,4 +1,3 @@
-last_run
 .*.sw?
 .bundle
 .mtn-ignore
@@ -9,6 +8,3 @@ doc/coverage
 pkg
 .yardoc
 doc
-publish/
-yardoc/
-gh-pages/

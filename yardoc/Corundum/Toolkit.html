@@ -1,0 +1,920 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Corundum::Toolkit
+  
+    &mdash; corundum-0.0.13 RDoc
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Corundum.html" title="Corundum (module)">Corundum</a></span></span>
+     &raquo; 
+    <span class="title">Toolkit</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Corundum::Toolkit
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Mattock::TaskLib</li>
+          
+            <li class="next"><span class='object_link'><a href="TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span></li>
+          
+            <li class="next">Corundum::Toolkit</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/corundum.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+  <h2>Instance Settings Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gemspec-instance_method" title="#gemspec (instance method)">- (Object) <strong>gemspec</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting gemspec.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>nil</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gemspec_path-instance_method" title="#gemspec_path (instance method)">- (Object) <strong>gemspec_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting gemspec_path.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>nil</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#corundum_dir-instance_method" title="#corundum_dir (instance method)">- (Object) <strong>corundum_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting corundum_dir.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>"corundum"</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#finished_dir-instance_method" title="#finished_dir (instance method)">- (Object) <strong>finished_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting finished_dir.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>nil</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#package_dir-instance_method" title="#package_dir (instance method)">- (Object) <strong>package_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting package_dir.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>"pkg"</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#doc_dir-instance_method" title="#doc_dir (instance method)">- (Object) <strong>doc_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting doc_dir.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>"rubydoc"</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#browser-instance_method" title="#browser (instance method)">- (Object) <strong>browser</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting browser.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>Corundum.user_preferences["browser"]</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#finished_files-instance_method" title="#finished_files (instance method)">- (Object) <strong>finished_files</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting finished_files.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>nested.nil_fields(:build, :qa, :package, :release, :press)</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#files-instance_method" title="#files (instance method)">- (Object) <strong>files</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting files.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>nested.nil_fields(:code, :test, :docs)</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rubyforge-instance_method" title="#rubyforge (instance method)">- (Object) <strong>rubyforge</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting rubyforge.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>nested.nil_fields(:group_id, :package_id, :release_name, :home_page, :project_page)</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#email.servers-instance_method" title="#email.servers (instance method)">- (Object) <strong>email.servers</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting email.servers.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>[ nested({ :server => "ruby-lang.org", :helo => "gmail.com" }) ]</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#email.announce_to_email-instance_method" title="#email.announce_to_email (instance method)">- (Object) <strong>email.announce_to_email</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting email.announce_to_email.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>"ruby-talk@ruby-lang.org"</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#file_lists.code-instance_method" title="#file_lists.code (instance method)">- (Object) <strong>file_lists.code</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting file_lists.code.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>FileList['lib/**/*.rb']</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#file_lists.test-instance_method" title="#file_lists.test (instance method)">- (Object) <strong>file_lists.test</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting file_lists.test.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>FileList['test/**/*.rb','spec/**/*.rb','features/**/*.rb']</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#file_lists.docs-instance_method" title="#file_lists.docs (instance method)">- (Object) <strong>file_lists.docs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting file_lists.docs.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>FileList['doc/**/*.rb']</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#file_lists.project-instance_method" title="#file_lists.project (instance method)">- (Object) <strong>file_lists.project</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting file_lists.project.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>FileList['Rakefile']</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#file_lists.all-instance_method" title="#file_lists.all (instance method)">- (Object) <strong>file_lists.all</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting file_lists.all.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>nil</code></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define-instance_method" title="#define (instance method)">- (Object) <strong>define</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#guess_gemspec-instance_method" title="#guess_gemspec (instance method)">- (Object) <strong>guess_gemspec</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#load_gemspec-instance_method" title="#load_gemspec (instance method)">- (Object) <strong>load_gemspec</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resolve_configuration-instance_method" title="#resolve_configuration (instance method)">- (Object) <strong>resolve_configuration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="define-instance_method">
+  
+    - (<tt>Object</tt>) <strong>define</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum.rb', line 78</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
+  <span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_directory'>directory</span> <span class='id identifier rubyid_finished_dir'>finished_dir</span>
+
+    <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Run preflight checks</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:preflight</span>
+
+    <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Run quality assurance tasks</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:qa</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:preflight</span><span class='comma'>,</span> <span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_qa'>qa</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_qa'>qa</span> <span class='op'>=&gt;</span>
+    <span class='lbracket'>[</span><span class='id identifier rubyid_finished_dir'>finished_dir</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_project'>project</span> <span class='op'>+</span> <span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>+</span> <span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_test'>test</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_task'>task</span><span class='op'>|</span>
+      <span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='lbracket'>[</span><span class='symbol'>:qa</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_invoke'>invoke</span> <span class='comment'>#because I don't want this to be needed if it's not
+</span>      <span class='id identifier rubyid_touch'>touch</span> <span class='id identifier rubyid_task'>task</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Build the package</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:build</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_qa'>qa</span><span class='comma'>,</span> <span class='symbol'>:preflight</span><span class='comma'>,</span> <span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span> <span class='op'>=&gt;</span>
+    <span class='lbracket'>[</span><span class='id identifier rubyid_finished_dir'>finished_dir</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>+</span> <span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_project'>project</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_task'>task</span><span class='op'>|</span>
+      <span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='lbracket'>[</span><span class='symbol'>:build</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_invoke'>invoke</span>
+      <span class='id identifier rubyid_touch'>touch</span> <span class='id identifier rubyid_task'>task</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Push package out to the world</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:release</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span><span class='comma'>,</span> <span class='symbol'>:preflight</span><span class='comma'>,</span> <span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_release'>release</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_release'>release</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_finished_dir'>finished_dir</span><span class='rbracket'>]</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_task'>task</span><span class='op'>|</span>
+      <span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='lbracket'>[</span><span class='symbol'>:release</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_invoke'>invoke</span>
+      <span class='id identifier rubyid_touch'>touch</span> <span class='id identifier rubyid_task'>task</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Announce publication</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:press</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_release'>release</span><span class='comma'>,</span> <span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_press'>press</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_press'>press</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_finished_dir'>finished_dir</span><span class='rbracket'>]</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_task'>task</span><span class='op'>|</span>
+      <span class='const'>Rake</span><span class='op'>::</span><span class='const'>Task</span><span class='lbracket'>[</span><span class='symbol'>:press</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_invoke'>invoke</span>
+      <span class='id identifier rubyid_touch'>touch</span> <span class='id identifier rubyid_task'>task</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="guess_gemspec-instance_method">
+  
+    - (<tt>Object</tt>) <strong>guess_gemspec</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_guess_gemspec'>guess_gemspec</span>
+  <span class='id identifier rubyid_speclist'>speclist</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='lbracket'>[</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*.gemspec</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rake</span><span class='op'>::</span><span class='id identifier rubyid_original_dir'>original_dir</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_speclist'>speclist</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found no *.gemspec files</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_exit'>exit</span> <span class='int'>1</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_speclist'>speclist</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Found too many *.gemspec files: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_speclist'>speclist</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_exit'>exit</span> <span class='int'>1</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_speclist'>speclist</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="load_gemspec-instance_method">
+  
+    - (<tt>Object</tt>) <strong>load_gemspec</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_load_gemspec'>load_gemspec</span>
+  <span class='ivar'>@gemspec_path</span> <span class='op'>||=</span> <span class='id identifier rubyid_guess_gemspec'>guess_gemspec</span>
+  <span class='ivar'>@gemspec</span> <span class='op'>||=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Specification</span><span class='op'>::</span><span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_gemspec_path'>gemspec_path</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_gemspec'>gemspec</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="resolve_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>resolve_configuration</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
+  <span class='id identifier rubyid_load_gemspec'>load_gemspec</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_finished_dir'>finished_dir</span> <span class='op'>||=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_corundum_dir'>corundum_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>finished</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@finished_files</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span> <span class='op'>||=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span> <span class='id identifier rubyid_package_dir'>package_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_full_name'>full_name</span><span class='rbrace'>}</span><span class='tstring_content'>.gem</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='ivar'>@finished_files</span><span class='period'>.</span><span class='id identifier rubyid_qa'>qa</span> <span class='op'>||=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span> <span class='id identifier rubyid_finished_dir'>finished_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>qa_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@finished_files</span><span class='period'>.</span><span class='id identifier rubyid_release'>release</span> <span class='op'>||=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span> <span class='id identifier rubyid_finished_dir'>finished_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>release_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@finished_files</span><span class='period'>.</span><span class='id identifier rubyid_press'>press</span> <span class='op'>||=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span> <span class='id identifier rubyid_finished_dir'>finished_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>press_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='ivar'>@files</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>||=</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_grep'>grep</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>^lib/</span><span class='regexp_end'>}</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@files</span><span class='period'>.</span><span class='id identifier rubyid_test'>test</span> <span class='op'>||=</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_grep'>grep</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>^spec/</span><span class='regexp_end'>}</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@files</span><span class='period'>.</span><span class='id identifier rubyid_docs'>docs</span> <span class='op'>||=</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_grep'>grep</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>^doc/</span><span class='regexp_end'>}</span></span><span class='rparen'>)</span>
+
+  <span class='ivar'>@file_lists</span><span class='period'>.</span><span class='id identifier rubyid_project'>project</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_gemspec_path'>gemspec_path</span>
+  <span class='ivar'>@file_lists</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span>  <span class='op'>||=</span>
+    <span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>+</span>
+    <span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_test'>test</span> <span class='op'>+</span>
+    <span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_docs'>docs</span>
+
+  <span class='ivar'>@rubyforge</span><span class='period'>.</span><span class='id identifier rubyid_group_id'>group_id</span> <span class='op'>||=</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_rubyforge_project'>rubyforge_project</span>
+  <span class='ivar'>@rubyforge</span><span class='period'>.</span><span class='id identifier rubyid_package_id'>package_id</span> <span class='op'>||=</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+  <span class='ivar'>@rubyforge</span><span class='period'>.</span><span class='id identifier rubyid_release_name'>release_name</span> <span class='op'>||=</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_full_name'>full_name</span>
+  <span class='ivar'>@rubyforge</span><span class='period'>.</span><span class='id identifier rubyid_home_page'>home_page</span> <span class='op'>||=</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_homepage'>homepage</span>
+  <span class='ivar'>@rubyforge</span><span class='period'>.</span><span class='id identifier rubyid_project_page'>project_page</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>http://rubyforge.org/project/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_rubyforge_project'>rubyforge_project</span><span class='rbrace'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Feb  7 18:28:08 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

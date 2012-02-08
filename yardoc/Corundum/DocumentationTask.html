@@ -1,0 +1,718 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Corundum::DocumentationTask
+  
+    &mdash; corundum-0.0.13 RDoc
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (D)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Corundum.html" title="Corundum (module)">Corundum</a></span></span>
+     &raquo; 
+    <span class="title">DocumentationTask</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Corundum::DocumentationTask
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Mattock::TaskLib</li>
+          
+            <li class="next"><span class='object_link'><a href="TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span></li>
+          
+            <li class="next">Corundum::DocumentationTask</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/corundum/documentation-task.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="DocumentationAssembly.html" title="Corundum::DocumentationAssembly (class)">DocumentationAssembly</a></span>, <span class='object_link'><a href="RSpec.html" title="Corundum::RSpec (class)">RSpec</a></span>, <span class='object_link'><a href="SimpleCov.html" title="Corundum::SimpleCov (class)">SimpleCov</a></span>, <span class='object_link'><a href="YARDoc.html" title="Corundum::YARDoc (class)">YARDoc</a></span></p>
+</div>
+
+
+
+
+  <h2>Instance Settings Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#title-instance_method" title="#title (instance method)">- (Object) <strong>title</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting title.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#browser-instance_method" title="#browser (instance method)">- (Object) <strong>browser</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting browser.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gemspec-instance_method" title="#gemspec (instance method)">- (Object) <strong>gemspec</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting gemspec.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#corundum_dir-instance_method" title="#corundum_dir (instance method)">- (Object) <strong>corundum_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting corundum_dir.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#docs_root-instance_method" title="#docs_root (instance method)">- (Object) <strong>docs_root</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting docs_root.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#target_dir-instance_method" title="#target_dir (instance method)">- (Object) <strong>target_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting target_dir.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sub_dir-instance_method" title="#sub_dir (instance method)">- (Object) <strong>sub_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting sub_dir.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#entry_file-instance_method" title="#entry_file (instance method)">- (Object) <strong>entry_file</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting entry_file.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>"index.html"</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#entry_path-instance_method" title="#entry_path (instance method)">- (Object) <strong>entry_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The path from the project root to the entry file Resolves if unset to
+target_dir + entry_file.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#entry_link-instance_method" title="#entry_link (instance method)">- (Object) <strong>entry_link</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The URL path from this documentation root Resolves if unset to sub_dir +
+entry_file.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#title-class_method" title="title (class method)">+ (Object) <strong>title</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_configuration-instance_method" title="#default_configuration (instance method)">- (Object) <strong>default_configuration</strong>(toolkit) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define-instance_method" title="#define (instance method)">- (Object) <strong>define</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#entry_point-instance_method" title="#entry_point (instance method)">- (Object) <strong>entry_point</strong>(under = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resolve_configuration-instance_method" title="#resolve_configuration (instance method)">- (Object) <strong>resolve_configuration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="title-class_method">
+  
+    + (<tt>Object</tt>) <strong>title</strong>(name) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation-task.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_setting'>setting</span> <span class='symbol'>:title</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="default_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>default_configuration</strong>(toolkit) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation-task.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_copy_settings_to'>copy_settings_to</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="define-instance_method">
+  
+    - (<tt>Object</tt>) <strong>define</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation-task.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
+  <span class='id identifier rubyid_directory'>directory</span> <span class='id identifier rubyid_target_dir'>target_dir</span>
+
+  <span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Open up a browser to view your documentation</span><span class='tstring_end'>&quot;</span></span>
+    <span class='const'>BrowserTask</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+      <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_index_html'>index_html</span> <span class='op'>=</span> <span class='id identifier rubyid_entry_point'>entry_point</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="entry_point-instance_method">
+  
+    - (<tt>Object</tt>) <strong>entry_point</strong>(under = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation-task.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_entry_point'>entry_point</span><span class='lparen'>(</span><span class='id identifier rubyid_under'>under</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_under'>under</span> <span class='op'>||</span> <span class='id identifier rubyid_target_dir'>target_dir</span><span class='comma'>,</span> <span class='id identifier rubyid_entry_file'>entry_file</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="resolve_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>resolve_configuration</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation-task.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_unset?'>unset?</span><span class='lparen'>(</span><span class='id identifier rubyid_docs_root'>docs_root</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_docs_root'>docs_root</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_corundum_dir'>corundum_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>docs</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_unset?'>unset?</span><span class='lparen'>(</span><span class='id identifier rubyid_target_dir'>target_dir</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_target_dir'>target_dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_docs_root'>docs_root</span><span class='comma'>,</span> <span class='id identifier rubyid_sub_dir'>sub_dir</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_sub_dir'>sub_dir</span> <span class='op'>=</span> <span class='id identifier rubyid_target_dir'>target_dir</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_docs_root'>docs_root</span><span class='rbrace'>}</span><span class='tstring_content'>\/</span><span class='regexp_end'>/</span></span><span class='comma'>,</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_unset?'>unset?</span><span class='lparen'>(</span><span class='id identifier rubyid_entry_path'>entry_path</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_entry_path'>entry_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_target_dir'>target_dir</span><span class='comma'>,</span> <span class='id identifier rubyid_entry_file'>entry_file</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_unset?'>unset?</span><span class='lparen'>(</span><span class='id identifier rubyid_entry_link'>entry_link</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_entry_link'>entry_link</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_sub_dir'>sub_dir</span><span class='comma'>,</span> <span class='id identifier rubyid_entry_file'>entry_file</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Feb  7 18:28:09 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

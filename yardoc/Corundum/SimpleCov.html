@@ -1,0 +1,880 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Corundum::SimpleCov
+  
+    &mdash; corundum-0.0.13 RDoc
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (S)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Corundum.html" title="Corundum (module)">Corundum</a></span></span>
+     &raquo; 
+    <span class="title">SimpleCov</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Corundum::SimpleCov
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="DocumentationTask.html" title="Corundum::DocumentationTask (class)">DocumentationTask</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Mattock::TaskLib</li>
+          
+            <li class="next"><span class='object_link'><a href="TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="DocumentationTask.html" title="Corundum::DocumentationTask (class)">DocumentationTask</a></span></li>
+          
+            <li class="next">Corundum::SimpleCov</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/corundum/simplecov.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+  <h2>Instance Settings Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#title-instance_method" title="#title (instance method)">- (Object) <strong>title</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting title.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>"Coverage report"</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#test_lib-instance_method" title="#test_lib (instance method)">- (Object) <strong>test_lib</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting test_lib.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#code_files-instance_method" title="#code_files (instance method)">- (Object) <strong>code_files</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting code_files.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_files-instance_method" title="#all_files (instance method)">- (Object) <strong>all_files</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting all_files.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config_path-instance_method" title="#config_path (instance method)">- (Object) <strong>config_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting config_path.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>nil</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sub_dir-instance_method" title="#sub_dir (instance method)">- (Object) <strong>sub_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting sub_dir.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>"coverage"</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config_file-instance_method" title="#config_file (instance method)">- (Object) <strong>config_file</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting config_file.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>".simplecov"</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filters-instance_method" title="#filters (instance method)">- (Object) <strong>filters</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting filters.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>["./spec"]</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#threshold-instance_method" title="#threshold (instance method)">- (Object) <strong>threshold</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting threshold.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>80</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#groups-instance_method" title="#groups (instance method)">- (Object) <strong>groups</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting groups.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>{}</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#coverage_filter-instance_method" title="#coverage_filter (instance method)">- (Object) <strong>coverage_filter</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting coverage_filter.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>proc do |path|
+      /\.rb$/ =~ path
+    end</code></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#config_file_contents-instance_method" title="#config_file_contents (instance method)">- (Object) <strong>config_file_contents</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_configuration-instance_method" title="#default_configuration (instance method)">- (Object) <strong>default_configuration</strong>(toolkit, testlib) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define-instance_method" title="#define (instance method)">- (Object) <strong>define</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filter_lines-instance_method" title="#filter_lines (instance method)">- (Object) <strong>filter_lines</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#group_lines-instance_method" title="#group_lines (instance method)">- (Object) <strong>group_lines</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resolve_configuration-instance_method" title="#resolve_configuration (instance method)">- (Object) <strong>resolve_configuration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="DocumentationTask.html" title="Corundum::DocumentationTask (class)">DocumentationTask</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="DocumentationTask.html#entry_point-instance_method" title="Corundum::DocumentationTask#entry_point (method)">#entry_point</a></span>, <span class='object_link'><a href="DocumentationTask.html#title-class_method" title="Corundum::DocumentationTask.title (method)">title</a></span></p>
+
+  
+  
+  
+  
+  
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="config_file_contents-instance_method">
+  
+    - (<tt>Object</tt>) <strong>config_file_contents</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/simplecov.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_config_file_contents'>config_file_contents</span>
+  <span class='id identifier rubyid_contents'>contents</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SimpleCov.start do</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_contents'>contents</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  coverage_dir \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_target_dir'>target_dir</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_contents'>contents</span> <span class='op'>+=</span> <span class='id identifier rubyid_filter_lines'>filter_lines</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_line'>line</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_contents'>contents</span> <span class='op'>+=</span> <span class='id identifier rubyid_group_lines'>group_lines</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_line'>line</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_contents'>contents</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>end</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_contents'>contents</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="default_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>default_configuration</strong>(toolkit, testlib) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/simplecov.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='comma'>,</span> <span class='id identifier rubyid_testlib'>testlib</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_test_lib'>test_lib</span> <span class='op'>=</span> <span class='id identifier rubyid_testlib'>testlib</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_code_files'>code_files</span> <span class='op'>=</span> <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_all_files'>all_files</span> <span class='op'>=</span>  <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_project'>project</span> <span class='op'>+</span> <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>+</span> <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_test'>test</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="define-instance_method">
+  
+    - (<tt>Object</tt>) <strong>define</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/simplecov.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
+  <span class='kw'>super</span>
+  <span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:example_config</span> <span class='kw'>do</span>
+      <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Try this in </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_config_path'>config_path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(You can just do </span><span class='embvar'>#</span><span class='gvar'>$0</span><span class='tstring_content'> &gt; </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_config_path'>config_path</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+      <span class='gvar'>$stderr</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span>
+      <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_config_file_contents'>config_file_contents</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:config_exists</span> <span class='kw'>do</span>
+      <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_config_path'>config_path</span><span class='rparen'>)</span> <span class='kw'>or</span> <span class='id identifier rubyid_fail'>fail</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No .simplecov (try: rake </span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='lbracket'>[</span><span class='symbol'>:example_config</span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+      <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_config_path'>config_path</span><span class='rparen'>)</span> <span class='op'>=~</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>coverage_dir.*</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_target_dir'>target_dir</span><span class='rbrace'>}</span><span class='regexp_end'>/</span></span> <span class='kw'>or</span> <span class='id identifier rubyid_fail'>fail</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.simplecov doesn't refer to </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_target_dir'>target_dir</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='const'>RSpecReportTask</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@test_lib</span><span class='comma'>,</span> <span class='symbol'>:report</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:config_exists</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_all_files'>all_files</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+      <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_rspec_opts'>rspec_opts</span> <span class='op'>+=</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>-r</span><span class='words_sep'> </span><span class='tstring_content'>simplecov</span><span class='words_sep'>}</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_entry_path'>entry_path</span> <span class='op'>=&gt;</span> <span class='symbol'>:report</span>
+
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:generate_report</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:preflight</span><span class='comma'>,</span> <span class='id identifier rubyid_entry_path'>entry_path</span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:verify_coverage</span> <span class='op'>=&gt;</span> <span class='symbol'>:generate_report</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>nokogiri</span><span class='tstring_end'>'</span></span>
+
+      <span class='id identifier rubyid_doc'>doc</span> <span class='op'>=</span> <span class='const'>Nokogiri</span><span class='op'>::</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_entry_path'>entry_path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+      <span class='id identifier rubyid_coverage_total_xpath'>coverage_total_xpath</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>//span[@class='covered_percent']/span</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_percentage'>percentage</span> <span class='op'>=</span> <span class='id identifier rubyid_doc'>doc</span><span class='period'>.</span><span class='id identifier rubyid_xpath'>xpath</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_total_xpath'>coverage_total_xpath</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+
+      <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Coverage must be at least </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_threshold'>threshold</span><span class='rbrace'>}</span><span class='tstring_content'> but was </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_percentage'>percentage</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_percentage'>percentage</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_threshold'>threshold</span>
+      <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Coverage is </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_percentage'>percentage</span><span class='rbrace'>}</span><span class='tstring_content'>% (required: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_threshold'>threshold</span><span class='rbrace'>}</span><span class='tstring_content'>%)</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:find_stragglers</span> <span class='op'>=&gt;</span> <span class='symbol'>:generate_report</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>nokogiri</span><span class='tstring_end'>'</span></span>
+
+      <span class='id identifier rubyid_doc'>doc</span> <span class='op'>=</span> <span class='const'>Nokogiri</span><span class='op'>::</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_entry_path'>entry_path</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+      <span class='id identifier rubyid_covered_files'>covered_files</span> <span class='op'>=</span> <span class='id identifier rubyid_doc'>doc</span><span class='period'>.</span><span class='id identifier rubyid_xpath'>xpath</span><span class='lparen'>(</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>//table[@class='file_list']//td//a[@class='src_link']</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_link'>link</span><span class='op'>|</span>
+        <span class='id identifier rubyid_link'>link</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span>
+        <span class='kw'>end</span>
+      <span class='id identifier rubyid_need_coverage'>need_coverage</span> <span class='op'>=</span> <span class='ivar'>@code_files</span><span class='period'>.</span><span class='id identifier rubyid_find_all'>find_all</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_coverage_filter'>coverage_filter</span><span class='rparen'>)</span>
+
+      <span class='id identifier rubyid_not_listed'>not_listed</span> <span class='op'>=</span> <span class='id identifier rubyid_covered_files'>covered_files</span> <span class='op'>-</span> <span class='id identifier rubyid_need_coverage'>need_coverage</span>
+      <span class='id identifier rubyid_not_covered'>not_covered</span> <span class='op'>=</span> <span class='id identifier rubyid_need_coverage'>need_coverage</span> <span class='op'>-</span> <span class='id identifier rubyid_covered_files'>covered_files</span>
+      <span class='kw'>unless</span> <span class='id identifier rubyid_not_listed'>not_listed</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='kw'>and</span> <span class='id identifier rubyid_not_covered'>not_covered</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_raise'>raise</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Covered files and gemspec manifest don't match:</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+          <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Not in gemspec: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_not_listed'>not_listed</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+        <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Not covered: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_not_covered'>not_covered</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:preflight</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:config_exists</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:qa</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:verify_coverage</span><span class='comma'>,</span> <span class='symbol'>:find_stragglers</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="filter_lines-instance_method">
+  
+    - (<tt>Object</tt>) <strong>filter_lines</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/simplecov.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_filter_lines'>filter_lines</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_filters'>filters</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_pattern'>pattern</span><span class='op'>|</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>add_filter \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pattern'>pattern</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="group_lines-instance_method">
+  
+    - (<tt>Object</tt>) <strong>group_lines</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/simplecov.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_group_lines'>group_lines</span>
+  <span class='id identifier rubyid_lines'>lines</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_groups'>groups</span><span class='period'>.</span><span class='id identifier rubyid_each_pair'>each_pair</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_group'>group</span><span class='comma'>,</span> <span class='id identifier rubyid_pattern'>pattern</span><span class='op'>|</span>
+    <span class='id identifier rubyid_lines'>lines</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>add_group \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_group'>group</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;, \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pattern'>pattern</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_lines'>lines</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="resolve_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>resolve_configuration</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/simplecov.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_config_path'>config_path</span> <span class='op'>||=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_config_file'>config_file</span><span class='comma'>,</span> <span class='const'>Rake</span><span class='op'>::</span><span class='id identifier rubyid_original_dir'>original_dir</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Feb  7 18:28:08 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

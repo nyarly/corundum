@@ -1,0 +1,775 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Corundum::RSpec
+  
+    &mdash; corundum-0.0.13 RDoc
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (R)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Corundum.html" title="Corundum (module)">Corundum</a></span></span>
+     &raquo; 
+    <span class="title">RSpec</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Corundum::RSpec
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="DocumentationTask.html" title="Corundum::DocumentationTask (class)">DocumentationTask</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Mattock::TaskLib</li>
+          
+            <li class="next"><span class='object_link'><a href="TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="DocumentationTask.html" title="Corundum::DocumentationTask (class)">DocumentationTask</a></span></li>
+          
+            <li class="next">Corundum::RSpec</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/corundum/rspec.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+  <h2>Instance Settings Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sub_dir-instance_method" title="#sub_dir (instance method)">- (Object) <strong>sub_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting sub_dir.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>"rspec"</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pattern-instance_method" title="#pattern (instance method)">- (Object) <strong>pattern</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting pattern.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>'./spec{,/*/**}/*_spec.rb'</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rspec_configs-instance_method" title="#rspec_configs (instance method)">- (Object) <strong>rspec_configs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting rspec_configs.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>nil</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rspec_opts-instance_method" title="#rspec_opts (instance method)">- (Object) <strong>rspec_opts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting rspec_opts.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>%w{--format documentation --out last_run --color --format documentation},</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#warning-instance_method" title="#warning (instance method)">- (Object) <strong>warning</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting warning.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>false</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verbose-instance_method" title="#verbose (instance method)">- (Object) <strong>verbose</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting verbose.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>true</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ruby_opts-instance_method" title="#ruby_opts (instance method)">- (Object) <strong>ruby_opts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting ruby_opts.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>[]</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rspec_path-instance_method" title="#rspec_path (instance method)">- (Object) <strong>rspec_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting rspec_path.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>'rspec'</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rspec_opts-instance_method" title="#rspec_opts (instance method)">- (Object) <strong>rspec_opts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting rspec_opts.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>%w{--format documentation --out last_run --color --format documentation},</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#failure_message-instance_method" title="#failure_message (instance method)">- (Object) <strong>failure_message</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting failure_message.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>"Spec examples failed."</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#files_to_run-instance_method" title="#files_to_run (instance method)">- (Object) <strong>files_to_run</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting files_to_run.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>"spec"</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gemspec_path-instance_method" title="#gemspec_path (instance method)">- (Object) <strong>gemspec_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting gemspec_path.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#qa_finished_path-instance_method" title="#qa_finished_path (instance method)">- (Object) <strong>qa_finished_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting qa_finished_path.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#file_lists-instance_method" title="#file_lists (instance method)">- (Object) <strong>file_lists</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting file_lists.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#file_dependencies-instance_method" title="#file_dependencies (instance method)">- (Object) <strong>file_dependencies</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting file_dependencies.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_configuration-instance_method" title="#default_configuration (instance method)">- (Object) <strong>default_configuration</strong>(toolkit) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define-instance_method" title="#define (instance method)">- (Object) <strong>define</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resolve_configuration-instance_method" title="#resolve_configuration (instance method)">- (Object) <strong>resolve_configuration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="DocumentationTask.html" title="Corundum::DocumentationTask (class)">DocumentationTask</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="DocumentationTask.html#entry_point-instance_method" title="Corundum::DocumentationTask#entry_point (method)">#entry_point</a></span>, <span class='object_link'><a href="DocumentationTask.html#title-class_method" title="Corundum::DocumentationTask.title (method)">title</a></span></p>
+
+  
+  
+  
+  
+  
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="default_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>default_configuration</strong>(toolkit) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/rspec.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_qa_finished_path'>qa_finished_path</span> <span class='op'>=</span> <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_qa'>qa</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="define-instance_method">
+  
+    - (<tt>Object</tt>) <strong>define</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/rspec.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
+  <span class='kw'>super</span>
+  <span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Always run every spec</span><span class='tstring_end'>&quot;</span></span>
+    <span class='const'>RSpecTask</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:all</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Generate specifications documentation</span><span class='tstring_end'>&quot;</span></span>
+    <span class='const'>RSpecReportTask</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:doc</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+      <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_rspec_opts'>rspec_opts</span> <span class='op'>=</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>-o</span><span class='words_sep'> </span><span class='tstring_content'>/dev/null</span><span class='words_sep'> </span><span class='tstring_content'>-f</span><span class='words_sep'> </span><span class='tstring_content'>h</span><span class='words_sep'> </span><span class='tstring_content'>-o</span><span class='words_sep'>}</span> <span class='op'>+</span> <span class='lbracket'>[</span><span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_doc_path'>doc_path</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_failure_message'>failure_message</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Failed generating specification docs</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_entry_path'>entry_path</span> <span class='op'>=&gt;</span> <span class='symbol'>:doc</span>
+
+    <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Run only failing examples listed in last_run</span><span class='tstring_end'>&quot;</span></span>
+    <span class='const'>RSpecTask</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='symbol'>:quick</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+      <span class='id identifier rubyid_examples'>examples</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='kw'>begin</span>
+        <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>last_run</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>r</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_fail_list'>fail_list</span><span class='op'>|</span>
+          <span class='id identifier rubyid_fail_list'>fail_list</span><span class='period'>.</span><span class='id identifier rubyid_lines'>lines</span><span class='period'>.</span><span class='id identifier rubyid_grep'>grep</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>^\s*\d+\)\s*(.*)</span><span class='regexp_end'>}</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span>
+            <span class='id identifier rubyid_examples'>examples</span> <span class='op'>&lt;&lt;</span> <span class='backref'>$1</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>'</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='lbrace'>{</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[']</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+      <span class='kw'>rescue</span>
+      <span class='kw'>end</span>
+      <span class='kw'>unless</span> <span class='id identifier rubyid_examples'>examples</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_rspec_opts'>rspec_opts</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--example</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_rspec_opts'>rspec_opts</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_examples'>examples</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>|</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+      <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_failure_message'>failure_message</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Spec examples failed.</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Run failing examples if any exist, otherwise, run the whole suite</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_task'>task</span> <span class='id identifier rubyid_root_task'>root_task</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:quick</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:qa</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:doc</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="resolve_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>resolve_configuration</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32
+33
+34
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/rspec.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
+  <span class='comment'>#XXX Que?
+</span>  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_rspec_configs'>rspec_configs</span> <span class='op'>=</span> <span class='id identifier rubyid_rspec_opts'>rspec_opts</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_rspec_opts'>rspec_opts</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_rspec_path'>rspec_path</span> <span class='op'>=</span> <span class='backtick'>%x&quot;</span><span class='tstring_content'>which </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_rspec_path'>rspec_path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_file_dependencies'>file_dependencies</span> <span class='op'>=</span> <span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>+</span> <span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_test'>test</span> <span class='op'>+</span> <span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_project'>project</span>
+  <span class='kw'>super</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Feb  7 18:28:08 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

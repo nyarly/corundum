@@ -1,0 +1,626 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Corundum::GemCutter
+  
+    &mdash; corundum-0.0.13 RDoc
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (G)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Corundum.html" title="Corundum (module)">Corundum</a></span></span>
+     &raquo; 
+    <span class="title">GemCutter</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Corundum::GemCutter
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Mattock::TaskLib</li>
+          
+            <li class="next"><span class='object_link'><a href="TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span></li>
+          
+            <li class="next">Corundum::GemCutter</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/corundum/gemcutter.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+   
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="GemCutter/CommandTweaks.html" title="Corundum::GemCutter::CommandTweaks (module)">CommandTweaks</a></span>
+    
+   
+    
+  
+</p>
+
+
+
+
+  <h2>Instance Settings Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gem_path-instance_method" title="#gem_path (instance method)">- (Object) <strong>gem_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting gem_path.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>nil</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build-instance_method" title="#build (instance method)">- (Object) <strong>build</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting build.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gemspec-instance_method" title="#gemspec (instance method)">- (Object) <strong>gemspec</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting gemspec.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_finished_path-instance_method" title="#build_finished_path (instance method)">- (Object) <strong>build_finished_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting build_finished_path.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gem_name-instance_method" title="#gem_name (instance method)">- (Object) <strong>gem_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting gem_name.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#package_dir-instance_method" title="#package_dir (instance method)">- (Object) <strong>package_dir</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting package_dir.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_configuration-instance_method" title="#default_configuration (instance method)">- (Object) <strong>default_configuration</strong>(toolkit, build) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#define-instance_method" title="#define (instance method)">- (Object) <strong>define</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_command-instance_method" title="#get_command (instance method)">- (Object) <strong>get_command</strong>(klass, args = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#resolve_configuration-instance_method" title="#resolve_configuration (instance method)">- (Object) <strong>resolve_configuration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="default_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>default_configuration</strong>(toolkit, build) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16
+17
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/gemcutter.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='comma'>,</span> <span class='id identifier rubyid_build'>build</span><span class='rparen'>)</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span> <span class='op'>=</span> <span class='id identifier rubyid_build'>build</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_gemspec'>gemspec</span> <span class='op'>=</span> <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_gemspec'>gemspec</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_build_finished_path'>build_finished_path</span> <span class='op'>=</span> <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_gem_name'>gem_name</span> <span class='op'>=</span> <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_full_name'>full_name</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_package_dir'>package_dir</span> <span class='op'>=</span> <span class='id identifier rubyid_build'>build</span><span class='period'>.</span><span class='id identifier rubyid_package_dir'>package_dir</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="define-instance_method">
+  
+    - (<tt>Object</tt>) <strong>define</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/gemcutter.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
+  <span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:uninstall</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+      <span class='id identifier rubyid_when_writing'>when_writing</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Uninstalling </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gem_name'>gem_name</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+        <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rubygems/commands/uninstall_command</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_uninstall'>uninstall</span> <span class='op'>=</span> <span class='id identifier rubyid_get_command'>get_command</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Commands</span><span class='op'>::</span><span class='const'>UninstallCommand</span>
+        <span class='id identifier rubyid_uninstall'>uninstall</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:args</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_gem_path'>gem_path</span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_uninstall'>uninstall</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:install</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_gem_path'>gem_path</span><span class='rbracket'>]</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
+      <span class='id identifier rubyid_when_writing'>when_writing</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Installing </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gem_path'>gem_path</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span>
+        <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rubygems/commands/install_command</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_install'>install</span> <span class='op'>=</span> <span class='id identifier rubyid_get_command'>get_command</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Commands</span><span class='op'>::</span><span class='const'>InstallCommand</span>
+        <span class='id identifier rubyid_install'>install</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:args</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_gem_path'>gem_path</span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_install'>install</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:reinstall</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:uninstall</span><span class='comma'>,</span> <span class='symbol'>:install</span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:dependencies_available</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_checker'>checker</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>SpecFetcher</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+      <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_runtime_dependencies'>runtime_dependencies</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_dep'>dep</span><span class='op'>|</span>
+        <span class='id identifier rubyid_fulfilling'>fulfilling</span> <span class='op'>=</span> <span class='id identifier rubyid_checker'>checker</span><span class='period'>.</span><span class='id identifier rubyid_find_matching'>find_matching</span><span class='lparen'>(</span><span class='id identifier rubyid_dep'>dep</span><span class='comma'>,</span><span class='kw'>false</span><span class='comma'>,</span><span class='kw'>false</span><span class='comma'>,</span><span class='kw'>false</span><span class='rparen'>)</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_fulfilling'>fulfilling</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+          <span class='id identifier rubyid_fail'>fail</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Dependency </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_dep'>dep</span><span class='rbrace'>}</span><span class='tstring_content'> is unfulfilled remotely</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>else</span>
+          <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Remotely fulfilled: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_dep'>dep</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_verbose'>verbose</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:is_unpushed</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_checker'>checker</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>SpecFetcher</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+      <span class='id identifier rubyid_dep'>dep</span> <span class='op'>=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Dependency</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>= </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_version'>version</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_fulfilling'>fulfilling</span> <span class='op'>=</span> <span class='id identifier rubyid_checker'>checker</span><span class='period'>.</span><span class='id identifier rubyid_find_matching'>find_matching</span><span class='lparen'>(</span><span class='id identifier rubyid_dep'>dep</span><span class='comma'>,</span><span class='kw'>false</span><span class='comma'>,</span><span class='kw'>false</span><span class='comma'>,</span><span class='kw'>false</span><span class='rparen'>)</span>
+      <span class='kw'>unless</span> <span class='id identifier rubyid_fulfilling'>fulfilling</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_fail'>fail</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Gem </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_full_name'>full_name</span><span class='rbrace'>}</span><span class='tstring_content'> is already pushed</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>Push a gem up to Gemcutter</span><span class='tstring_end'>'</span></span>
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:push</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:dependencies_available</span><span class='comma'>,</span> <span class='symbol'>:is_unpushed</span><span class='rbracket'>]</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rubygems/commands/push_command</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_push'>push</span> <span class='op'>=</span> <span class='id identifier rubyid_get_command'>get_command</span><span class='lparen'>(</span><span class='const'>Gem</span><span class='op'>::</span><span class='const'>Commands</span><span class='op'>::</span><span class='const'>PushCommand</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_push'>push</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:args</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_gem_path'>gem_path</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_push'>push</span><span class='period'>.</span><span class='id identifier rubyid_execute'>execute</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:push</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_build_finished_path'>build_finished_path</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:release</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:push</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:preflight</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:dependencies_available</span><span class='comma'>,</span> <span class='symbol'>:is_unpushed</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="get_command-instance_method">
+  
+    - (<tt>Object</tt>) <strong>get_command</strong>(klass, args = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/gemcutter.rb', line 47</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_command'>get_command</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cmd'>cmd</span> <span class='op'>=</span> <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_cmd'>cmd</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span><span class='lparen'>(</span><span class='const'>CommandTweaks</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cmd'>cmd</span><span class='period'>.</span><span class='id identifier rubyid_setup_args'>setup_args</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cmd'>cmd</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="resolve_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>resolve_configuration</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/gemcutter.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_gem_path'>gem_path</span> <span class='op'>||=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_package_dir'>package_dir</span><span class='comma'>,</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_file_name'>file_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Tue Feb  7 18:28:08 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.5 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>
