@@ -1,10 +1,12 @@
 ## Corundum
 ### Foolproof rubygems
 
-The goal of Corundum is to be able to run 'rake release' and know that
-you're publishing something you won't be embarrassed by.  Any packaging is a
-tricky problem with lots of details.  Fortunately, those details can mostly
-be automated.
+With Corudum added as a developement dependancy to your gemspec, and configured
+(quickly) in your Rakefile you can do:
+
+    rake release
+
+and know that you're publishing something you won't be embarrassed by.
 
 ### (Yet Another Rubygems packager)
 
@@ -13,7 +15,25 @@ to generate code - it doesn't exist to build gems for you if you don't know
 how.  For that, check out Jeweler, and come back once you've understood what a
 .gemspec is and how it works.
 
+Really, writing a gem is pretty easy - you can do it in a gist if you want.  And releasing Gems isn't all that hard either - rubygems has good tools to package up gems and push them to gem servers.  So why Corundum?
+
+Because releasing a gem that will actually help the Ruby community at large is
+actually quite difficult.  There are lot of fiddly details to get wrong, and
+even experienced devs can be doofuses sometimes.  Corundum serves as a
+collection of safeguards against common errors in releasing gems - certainly
+every one that's happened to me.
+
 ### Using Corundum
+
+In your coolgem.gemspec:
+
+    spec.add_development_dependency "corundum"
+
+In you Gemfile:
+
+    gemspec
+
+(But you were doing that anyway, right?)
 
 Check out this Rakefile:
 
@@ -43,8 +63,8 @@ Check out this Rakefile:
       end
     end
 
-That's the whole thing.  'rake release' will push the current version of the
-gem, but only if we can go through a complete a correct QA process.
+That's the whole thing.  Now 'rake release' will push the current version of
+the gem, but only if we can go through a complete a correct QA process.
 (Incidentally, that's the Rakefile for Corundum itself.)
 
 The other goal with Corundum is to present all of these tools as

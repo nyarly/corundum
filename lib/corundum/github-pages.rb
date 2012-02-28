@@ -102,7 +102,10 @@ module Corundum
             chain.add Mattock::CommandLine.new("grep", "-q", "'#{branch}'")
           end
           t.command = Mattock::PrereqChain.new do |chain|
-            chain.add git_command("checkout", "-t", branch)
+            chain.add git_command("checkout", "-b", branch)
+            chain.add git_command("branch", "--set-upstream", branch, "origin/" + branch)
+            chain.add Mattock::CommandLine.new("rm", "-f", '.git/index')
+            chain.add git_command("clean", "-fdx")
           end
         end
 
@@ -118,19 +121,22 @@ module Corundum
 
         task :pull => [repo_dir, :on_branch] do
           FileUtils.cd target_dir do
-            git("pull")
+            git("pull", "-X", "ours")
           end
         end
 
         task :cleanup_repo => repo_dir do
           Mattock::CommandLine.new("rm", "-f", File::join(repo_dir, "hooks", "*")).must_succeed!
+          File::open(File::join(repo_dir, ".gitignore"), "w") do |file|
+            file.write ".sw?"
+          end
         end
 
         file target_dir => [:on_branch, :cleanup_repo]
 
-        task :pre_publish => [repo_dir, target_dir, :pull]
+        task :pre_publish => [repo_dir, target_dir]
 
-        task :clobber_target => :on_branch do
+        task :clobber_target => [:on_branch, :pull] do
           Mattock::CommandLine.new(*%w{rm -rf}) do |cmd|
             cmd.options << target_dir + "/*"
           end.must_succeed!
