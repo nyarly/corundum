@@ -6,7 +6,7 @@
 <title>
   File: Rakefile
   
-    &mdash; corundum-0.0.13 RDoc
+    &mdash; Documentation by YARD 0.7.5
   
 </title>
 
@@ -79,6 +79,7 @@
     <span class='id identifier rubyid_task'>task</span> <span class='id identifier rubyid_tk'>tk</span><span class='period'>.</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_vc'>vc</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is_checked_in</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_yd'>yd</span> <span class='op'>=</span> <span class='const'>YARDoc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_yd'>yd</span><span class='op'>|</span>
       <span class='id identifier rubyid_yd'>yd</span><span class='period'>.</span><span class='id identifier rubyid_extra_files'>extra_files</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rakefile.rb</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_yd'>yd</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>--exclude</span><span class='words_sep'> </span><span class='tstring_content'>corundum/default_configuration</span><span class='words_sep'>]</span>
     <span class='kw'>end</span>
     <span class='id identifier rubyid_all_docs'>all_docs</span> <span class='op'>=</span> <span class='const'>DocumentationAssembly</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='comma'>,</span> <span class='id identifier rubyid_yd'>yd</span><span class='comma'>,</span> <span class='id identifier rubyid_rspec'>rspec</span><span class='comma'>,</span> <span class='id identifier rubyid_cov'>cov</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_pages'>pages</span> <span class='op'>=</span> <span class='const'>GithubPages</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_all_docs'>all_docs</span><span class='rparen'>)</span>
@@ -88,7 +89,7 @@
 <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:release</span><span class='comma'>,</span> <span class='symbol'>:publish_docs</span><span class='rbracket'>]</span></pre></div></div>
     
     <div id="footer">
-  Generated on Tue Mar  6 17:12:44 2012 by 
+  Generated on Tue Mar  6 17:15:44 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>
