@@ -96,6 +96,24 @@
 </dl>
 <div class="clear"></div>
 
+
+  <h2>Rake Tasks Defined</h2>
+  <pre class="code ruby"><span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
+        <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:not_tagged</span>
+        <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:gemspec_files_added</span>
+        <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:workspace_committed</span>
+        <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:is_checked_in</span> <span class='op'>=&gt;</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>gemspec_files_added</span><span class='words_sep'> </span><span class='tstring_content'>workspace_committed</span><span class='words_sep'>}</span>
+        <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:tag</span>
+        <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:check_in</span> <span class='op'>=&gt;</span> <span class='symbol'>:tag</span>
+      <span class='kw'>end</span>
+
+      <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:preflight</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:not_tagged</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:build</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:is_checked_in</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:tag</span><span class='comma'>,</span> <span class='symbol'>:check_in</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_taskname'>taskname</span><span class='op'>|</span>
+        <span class='id identifier rubyid_task'>task</span> <span class='id identifier rubyid_taskname'>taskname</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_build_finished_file'>build_finished_file</span>
+      <span class='kw'>end</span>
+      <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:release</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:tag</span><span class='comma'>,</span> <span class='symbol'>:check_in</span><span class='rparen'>)</span></pre>
+
 <div id="subclasses">
   <h2>Direct Known Subclasses</h2>
   <p class="children"><span class='object_link'><a href="Git.html" title="Corundum::Git (class)">Git</a></span>, <span class='object_link'><a href="Monotone.html" title="Corundum::Monotone (class)">Monotone</a></span></p>
@@ -377,7 +395,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Feb  7 18:28:09 2012 by 
+  Generated on Tue Mar  6 03:26:56 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>
