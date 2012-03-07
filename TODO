@@ -2,6 +2,8 @@ Before rake release: run 'bundle install' to make sure that this gem's version i
 
 Missing something: "don't know how to build docs/Specification"
 
+Documentation assembly is masking rebuilds of docs
+
 QA tests:
   XXX, FIXME, profanity filters of code and specs (configurable?)
   p in files
