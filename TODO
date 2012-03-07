@@ -1,5 +1,7 @@
 Before rake release: run 'bundle install' to make sure that this gem's version is u2d in Gemfile.lock
 
+Missing something: "don't know how to build docs/Specification"
+
 QA tests:
   XXX, FIXME, profanity filters of code and specs (configurable?)
   p in files
@@ -10,6 +12,7 @@ QA tests:
   Gemfile doesn't include :path => or :git => lines?
     (or gem lines at all?)  - needs a lot of configurablity
   spec files included
+  YARD templates missing (?)
 
 Twitter press - external user preferences means that API keys can live on
 machine, not in repo
