@@ -4,7 +4,7 @@ require 'corundum/tasklib'
 #publish announcements to rubyforge ever again
 
 module Corundum
-  class Publishing < TaskLib
+  class Publishing < Mattock::TaskLib
     default_namespace :rubyforge
 
     setting(:rubyforge,  nested(:package_id => nil, :group_id => nil, :release_name => nil))

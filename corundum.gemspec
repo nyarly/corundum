@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
-  spec.version		= "0.0.13"
+  spec.version		= "0.0.14"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -24,6 +24,8 @@ Gem::Specification.new do |spec|
   # Do this: y$@"
   # !!find lib bin doc spec spec_help -not -regex '.*\.sw.' -type f
   spec.files		= %w[
+    lib/corundum.rb
+    lib/corundum/core.rb
     lib/corundum/browser-task.rb
     lib/corundum/github-pages.rb
     lib/corundum/rspec.rb
@@ -31,7 +33,6 @@ Gem::Specification.new do |spec|
     lib/corundum/email.rb
     lib/corundum/gemspec_sanity.rb
     lib/corundum/gemcutter.rb
-    lib/corundum/tasklib.rb
     lib/corundum/documentation.rb
     lib/corundum/documentation-task.rb
     lib/corundum/documentation/yardoc.rb
@@ -43,10 +44,8 @@ Gem::Specification.new do |spec|
     lib/corundum/version_control.rb
     lib/corundum/version_control/monotone.rb
     lib/corundum/version_control/git.rb
-    lib/corundum/configuration_store.rb
     lib/corundum/default_configuration/preferences.yaml
     lib/corundum/default_configuration/templates/doc_assembly/index.html.erb
-    lib/corundum.rb
     README.md
     spec/smoking_spec.rb
     spec_help/spec_helper.rb
@@ -86,7 +85,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "simplecov", ">= 0.5.4"
   spec.add_dependency "bundler", "~> 1.0.0"
   spec.add_dependency "nokogiri"
-  spec.add_dependency "mattock", ">= 0.1.2"
+  spec.add_dependency "mattock", ">= 0.2.10"
 
   spec.post_install_message = "Another tidy package brought to you by Judson"
 end

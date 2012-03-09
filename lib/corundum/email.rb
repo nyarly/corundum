@@ -1,7 +1,7 @@
 require 'corundum/tasklib'
 
 module Corundum
-  class Email < TaskLib
+  class Email < Mattock::TaskLib
     default_namespace :email
 
     setting(:rubyforge)

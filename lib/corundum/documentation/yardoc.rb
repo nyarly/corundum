@@ -14,6 +14,14 @@ module Corundum
              :files =>  nested(:code => [], :docs => []),
              :extra_files =>  [] )
 
+    settings(:server_options => [],
+             :server => nested(
+               :port => 8888,
+               :docroot => "/tmp/yard",
+               :plugins => [])
+            )
+
+
     def document_inputs
       FileList["README*"] + files.code + files.docs + extra_files
     end
@@ -34,12 +42,25 @@ module Corundum
       end
       super
       self.options += [ "--output-dir", target_dir]
+
+
+      self.server_options += ["--reload"]
+      self.server_options += ["--port", server.port.to_s]
+      self.server_options += ["--docroot", server.docroot]
+      self.server.plugins.each do |plugin|
+        self.server_options += ["--plugin", plugin]
+      end
     end
 
     def define
       in_namespace do
         file entry_point => document_inputs do
           YARD::CLI::Yardoc.run( *(options) )
+        end
+
+        desc "Start a live YARD server for editing inline docs"
+        task :live do
+          YARD::CLI::Server.run( *(server_options) )
         end
       end
 

@@ -1,7 +1,7 @@
 require 'corundum/tasklib'
 
 module Corundum
-  class VersionControl < TaskLib
+  class VersionControl < Mattock::TaskLib
     default_namespace :version_control
 
     required_fields(:gemspec, :build_finished_file, :gemspec_files, :tag)

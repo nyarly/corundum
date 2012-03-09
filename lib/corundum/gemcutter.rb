@@ -1,7 +1,7 @@
 require 'corundum/tasklib'
 
 module Corundum
-  class GemCutter < TaskLib
+  class GemCutter < Mattock::TaskLib
     default_namespace :gemcutter
 
     setting(:gem_path, nil)

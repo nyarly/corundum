@@ -74,3 +74,5 @@ to do
     task :default => :release
 
 Then 'rake' will do your releases.
+
+Digging in, the first thing to look at is {Corundum::Toolkit}

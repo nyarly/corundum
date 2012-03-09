@@ -37,7 +37,7 @@ module Corundum
     end
   end
 
-  class GithubPages < TaskLib
+  class GithubPages < Mattock::TaskLib
     default_namespace :publish_docs
 
     setting(:target_dir, "gh-pages")

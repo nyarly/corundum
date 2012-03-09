@@ -1,7 +1,7 @@
 require 'corundum/tasklib'
 
 module Corundum
-  class GemBuilding < TaskLib
+  class GemBuilding < Mattock::TaskLib
     setting(:gemspec)
     setting(:qa_finished_file)
     setting(:package_dir, "pkg")

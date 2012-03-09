@@ -1,7 +1,7 @@
 require 'corundum/tasklib'
 
 module Corundum
-  class DocumentationTask < TaskLib
+  class DocumentationTask < Mattock::TaskLib
     setting :title
     setting :browser
     setting :gemspec
