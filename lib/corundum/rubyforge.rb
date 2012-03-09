@@ -1,4 +1,4 @@
-require 'corundum/tasklib'
+require 'mattock/tasklib'
 
 #Big XXX: this totally isn't done.  It's some notes against ever wanting to
 #publish announcements to rubyforge ever again

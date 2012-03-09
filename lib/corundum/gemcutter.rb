@@ -1,4 +1,4 @@
-require 'corundum/tasklib'
+require 'mattock/tasklib'
 
 module Corundum
   class GemCutter < Mattock::TaskLib

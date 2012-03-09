@@ -1,4 +1,4 @@
-require 'corundum/tasklib'
+require 'mattock/tasklib'
 require 'mattock/task'
 
 module Corundum

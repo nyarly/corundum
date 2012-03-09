@@ -1,8 +1,7 @@
-require 'corundum/configuration_store'
+require 'corundum'
+require 'mattock/tasklib'
 
 module Corundum
-  extend Rake::DSL
-
   #This is the core tasklib for Corundum.  It defines a series of lifecycle
   #steps that define the release process.  The real work is done by other
   #Tasklibs that hook into the lifecycle.
