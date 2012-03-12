@@ -25,6 +25,7 @@ Gem::Specification.new do |spec|
   # !!find lib bin doc spec spec_help -not -regex '.*\.sw.' -type f
   spec.files		= %w[
     lib/corundum.rb
+    lib/corundum/configuration-store.rb
     lib/corundum/core.rb
     lib/corundum/browser-task.rb
     lib/corundum/github-pages.rb
@@ -41,6 +42,7 @@ Gem::Specification.new do |spec|
     lib/corundum/tasklibs.rb
     lib/corundum/simplecov.rb
     lib/corundum/rubyforge.rb
+    lib/corundum/questionable-content.rb
     lib/corundum/version_control.rb
     lib/corundum/version_control/monotone.rb
     lib/corundum/version_control/git.rb
@@ -83,7 +85,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mailfactory", "~> 1.4.0"
   spec.add_dependency "rspec", ">= 2.0"
   spec.add_dependency "simplecov", ">= 0.5.4"
-  spec.add_dependency "bundler", "~> 1.0.0"
+  spec.add_dependency "bundler", "~> 1.1.0"
   spec.add_dependency "nokogiri"
   spec.add_dependency "mattock", ">= 0.2.10"
 
