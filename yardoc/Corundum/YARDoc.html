@@ -73,8 +73,6 @@
           
             <li class="next">Mattock::TaskLib</li>
           
-            <li class="next"><span class='object_link'><a href="TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span></li>
-          
             <li class="next"><span class='object_link'><a href="DocumentationTask.html" title="Corundum::DocumentationTask (class)">DocumentationTask</a></span></li>
           
             <li class="next">Corundum::YARDoc</li>
@@ -103,6 +101,11 @@
   <pre class="code ruby"><span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
         <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_entry_point'>entry_point</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_document_inputs'>document_inputs</span> <span class='kw'>do</span>
           <span class='const'>YARD</span><span class='op'>::</span><span class='const'>CLI</span><span class='op'>::</span><span class='const'>Yardoc</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span> <span class='op'>*</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span> <span class='rparen'>)</span>
+        <span class='kw'>end</span>
+
+        <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Start a live YARD server for editing inline docs</span><span class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:live</span> <span class='kw'>do</span>
+          <span class='const'>YARD</span><span class='op'>::</span><span class='const'>CLI</span><span class='op'>::</span><span class='const'>Server</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span> <span class='op'>*</span><span class='lparen'>(</span><span class='id identifier rubyid_server_options'>server_options</span><span class='rparen'>)</span> <span class='rparen'>)</span>
         <span class='kw'>end</span>
       <span class='kw'>end</span>
 
@@ -297,6 +300,110 @@
 </li>
 
     
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#server_options-instance_method" title="#server_options (instance method)">- (Object) <strong>server_options</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting server_options.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>[]</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#server.port-instance_method" title="#server.port (instance method)">- (Object) <strong>server.port</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting server.port.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>8888</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#server.docroot-instance_method" title="#server.docroot (instance method)">- (Object) <strong>server.docroot</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting server.docroot.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>"/tmp/yard"</code></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#server.plugins-instance_method" title="#server.plugins (instance method)">- (Object) <strong>server.plugins</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting server.plugins.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>[]</code></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -410,11 +517,6 @@
   <p class="inherited"><span class='object_link'><a href="DocumentationTask.html#entry_point-instance_method" title="Corundum::DocumentationTask#entry_point (method)">#entry_point</a></span>, <span class='object_link'><a href="DocumentationTask.html#title-class_method" title="Corundum::DocumentationTask.title (method)">title</a></span></p>
 
   
-  
-  
-  
-  
-  
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -433,15 +535,15 @@
       <pre class="lines">
 
 
-21
-22
-23
-24
-25
-26</pre>
+29
+30
+31
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/yardoc.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/yardoc.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -467,23 +569,33 @@
       <pre class="lines">
 
 
-39
-40
-41
-42
-43
-44
-45
-46
-47</pre>
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/yardoc.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/yardoc.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
   <span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_entry_point'>entry_point</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_document_inputs'>document_inputs</span> <span class='kw'>do</span>
       <span class='const'>YARD</span><span class='op'>::</span><span class='const'>CLI</span><span class='op'>::</span><span class='const'>Yardoc</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span> <span class='op'>*</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span> <span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Start a live YARD server for editing inline docs</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:live</span> <span class='kw'>do</span>
+      <span class='const'>YARD</span><span class='op'>::</span><span class='const'>CLI</span><span class='op'>::</span><span class='const'>Server</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span> <span class='op'>*</span><span class='lparen'>(</span><span class='id identifier rubyid_server_options'>server_options</span><span class='rparen'>)</span> <span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 
@@ -507,12 +619,12 @@
       <pre class="lines">
 
 
-17
-18
-19</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/yardoc.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/yardoc.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_document_inputs'>document_inputs</span>
   <span class='const'>FileList</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>README*</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>+</span> <span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_docs'>docs</span> <span class='op'>+</span> <span class='id identifier rubyid_extra_files'>extra_files</span>
@@ -535,19 +647,27 @@
       <pre class="lines">
 
 
-28
-29
-30
-31
-32
-33
-34
-35
 36
-37</pre>
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/yardoc.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/yardoc.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span> <span class='op'>||=</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_rdoc_options'>rdoc_options</span>
@@ -558,6 +678,14 @@
   <span class='kw'>end</span>
   <span class='kw'>super</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span> <span class='op'>+=</span> <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--output-dir</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_target_dir'>target_dir</span><span class='rbracket'>]</span>
+
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_server_options'>server_options</span> <span class='op'>+=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--reload</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_server_options'>server_options</span> <span class='op'>+=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--port</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_server'>server</span><span class='period'>.</span><span class='id identifier rubyid_port'>port</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_server_options'>server_options</span> <span class='op'>+=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--docroot</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_server'>server</span><span class='period'>.</span><span class='id identifier rubyid_docroot'>docroot</span><span class='rbracket'>]</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_server'>server</span><span class='period'>.</span><span class='id identifier rubyid_plugins'>plugins</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_plugin'>plugin</span><span class='op'>|</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_server_options'>server_options</span> <span class='op'>+=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--plugin</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_plugin'>plugin</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -569,7 +697,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Mar  6 17:19:31 2012 by 
+  Generated on Sun Mar 11 18:20:11 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>

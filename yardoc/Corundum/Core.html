@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  Class: Corundum::Toolkit
+  Class: Corundum::Core
   
     &mdash; Documentation by YARD 0.7.5
   
@@ -33,10 +33,10 @@
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (T)</a> &raquo; 
+    <a href="../_index.html">Index (C)</a> &raquo; 
     <span class='title'><span class='object_link'><a href="../Corundum.html" title="Corundum (module)">Corundum</a></span></span>
      &raquo; 
-    <span class="title">Toolkit</span>
+    <span class="title">Core</span>
   
   
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
@@ -56,7 +56,7 @@
     
     <iframe id="search_frame"></iframe>
     
-    <div id="content"><h1>Class: Corundum::Toolkit
+    <div id="content"><h1>Class: Corundum::Core
   
   
   
@@ -66,16 +66,14 @@
   
     <dt class="r1">Inherits:</dt>
     <dd class="r1">
-      <span class="inheritName"><span class='object_link'><a href="TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span></span>
+      <span class="inheritName">Mattock::TaskLib</span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next">Mattock::TaskLib</li>
           
-            <li class="next"><span class='object_link'><a href="TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span></li>
-          
-            <li class="next">Corundum::Toolkit</li>
+            <li class="next">Corundum::Core</li>
           
         </ul>
         <a href="#" class="inheritanceTree">show all</a>
@@ -91,12 +89,44 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/corundum.rb</dd>
+    <dd class="r2 last">lib/corundum/core.rb</dd>
   
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>This is the core tasklib for Corundum.  It defines a series of lifecycle
+steps that define the release process.  The real work is done by other
+Tasklibs that hook into the lifecycle.</p>
 
+<p>The lifecycle steps (as implied by the Rakefile definition) are:</p>
+<dl class="rdoc-list label-list"><dt> preflight 
+<dd>
+<p>simple tests before we do anything at all</p>
+</dd><dt> qa 
+<dd>
+<p>quality assurance - make sure everything is acceptable before we build the
+gem</p>
+</dd><dt>build
+<dd>
+<p>construct the actual gem</p>
+</dd><dt>release
+<dd>
+<p>push the gem out to the world</p>
+</dd><dt>press
+<dd>
+<p>send out notifications that the gem has been published</p>
+</dd></dl>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
   <h2>Rake Tasks Defined</h2>
   <pre class="code ruby"><span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
         <span class='id identifier rubyid_directory'>directory</span> <span class='id identifier rubyid_finished_dir'>finished_dir</span>
@@ -687,11 +717,6 @@
 
 
   
-  
-  
-  
-  
-  
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -710,14 +735,6 @@
       <pre class="lines">
 
 
-78
-79
-80
-81
-82
-83
-84
-85
 86
 87
 88
@@ -747,10 +764,18 @@
 112
 113
 114
-115</pre>
+115
+116
+117
+118
+119
+120
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/core.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
   <span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
@@ -808,20 +833,20 @@
       <pre class="lines">
 
 
-66
-67
-68
-69
-70
-71
-72
-73
 74
 75
-76</pre>
+76
+77
+78
+79
+80
+81
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/core.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_guess_gemspec'>guess_gemspec</span>
   <span class='id identifier rubyid_speclist'>speclist</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='lbracket'>[</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*.gemspec</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Rake</span><span class='op'>::</span><span class='id identifier rubyid_original_dir'>original_dir</span><span class='rparen'>)</span><span class='rbracket'>]</span>
@@ -852,14 +877,14 @@
       <pre class="lines">
 
 
-33
-34
-35
-36
-37</pre>
+41
+42
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum.rb', line 33</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/core.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_gemspec'>load_gemspec</span>
   <span class='ivar'>@gemspec_path</span> <span class='op'>||=</span> <span class='id identifier rubyid_guess_gemspec'>guess_gemspec</span>
@@ -884,14 +909,6 @@
       <pre class="lines">
 
 
-39
-40
-41
-42
-43
-44
-45
-46
 47
 48
 49
@@ -909,10 +926,18 @@
 61
 62
 63
-64</pre>
+64
+65
+66
+67
+68
+69
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/core.rb', line 47</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
   <span class='id identifier rubyid_load_gemspec'>load_gemspec</span>
@@ -950,7 +975,7 @@
 </div>
     
     <div id="footer">
-  Generated on Tue Mar  6 17:50:46 2012 by 
+  Generated on Sun Mar 11 18:20:10 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>

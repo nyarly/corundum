@@ -66,18 +66,14 @@
   
   
     
-      <dt class="r1">Extended by:</dt>
-      <dd class="r1">Rake::DSL</dd>
-      
-    
   
     
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/corundum.rb<span class="defines">,<br />
-  lib/corundum/rspec.rb,<br /> lib/corundum/email.rb,<br /> lib/corundum/tasklib.rb,<br /> lib/corundum/simplecov.rb,<br /> lib/corundum/gemcutter.rb,<br /> lib/corundum/rubyforge.rb,<br /> lib/corundum/rspec-task.rb,<br /> lib/corundum/github-pages.rb,<br /> lib/corundum/gem_building.rb,<br /> lib/corundum/browser-task.rb,<br /> lib/corundum/gemspec_sanity.rb,<br /> lib/corundum/version_control.rb,<br /> lib/corundum/documentation-task.rb,<br /> lib/corundum/version_control/git.rb,<br /> lib/corundum/configuration_store.rb,<br /> lib/corundum/documentation/yardoc.rb,<br /> lib/corundum/documentation/assembly.rb,<br /> lib/corundum/version_control/monotone.rb</span>
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/corundum/rubyforge.rb<span class="defines">,<br />
+  lib/corundum.rb,<br /> lib/corundum/core.rb,<br /> lib/corundum/rspec.rb,<br /> lib/corundum/email.rb,<br /> lib/corundum/simplecov.rb,<br /> lib/corundum/gemcutter.rb,<br /> lib/corundum/rspec-task.rb,<br /> lib/corundum/github-pages.rb,<br /> lib/corundum/gem_building.rb,<br /> lib/corundum/browser-task.rb,<br /> lib/corundum/gemspec_sanity.rb,<br /> lib/corundum/version_control.rb,<br /> lib/corundum/documentation-task.rb,<br /> lib/corundum/version_control/git.rb,<br /> lib/corundum/configuration-store.rb,<br /> lib/corundum/questionable-content.rb,<br /> lib/corundum/documentation/yardoc.rb,<br /> lib/corundum/documentation/assembly.rb,<br /> lib/corundum/version_control/monotone.rb</span>
 </dd>
   
 </dl>
@@ -102,10 +98,33 @@ publish announcements to rubyforge ever again</p>
     
    
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Corundum/BrowserTask.html" title="Corundum::BrowserTask (class)">BrowserTask</a></span>, <span class='object_link'><a href="Corundum/ConfigurationStore.html" title="Corundum::ConfigurationStore (class)">ConfigurationStore</a></span>, <span class='object_link'><a href="Corundum/DocumentationAssembly.html" title="Corundum::DocumentationAssembly (class)">DocumentationAssembly</a></span>, <span class='object_link'><a href="Corundum/DocumentationTask.html" title="Corundum::DocumentationTask (class)">DocumentationTask</a></span>, <span class='object_link'><a href="Corundum/Email.html" title="Corundum::Email (class)">Email</a></span>, <span class='object_link'><a href="Corundum/GemBuilding.html" title="Corundum::GemBuilding (class)">GemBuilding</a></span>, <span class='object_link'><a href="Corundum/GemCutter.html" title="Corundum::GemCutter (class)">GemCutter</a></span>, <span class='object_link'><a href="Corundum/GemspecSanity.html" title="Corundum::GemspecSanity (class)">GemspecSanity</a></span>, <span class='object_link'><a href="Corundum/Git.html" title="Corundum::Git (class)">Git</a></span>, <span class='object_link'><a href="Corundum/GitTask.html" title="Corundum::GitTask (class)">GitTask</a></span>, <span class='object_link'><a href="Corundum/GithubPages.html" title="Corundum::GithubPages (class)">GithubPages</a></span>, <span class='object_link'><a href="Corundum/InDirCommandTask.html" title="Corundum::InDirCommandTask (class)">InDirCommandTask</a></span>, <span class='object_link'><a href="Corundum/Monotone.html" title="Corundum::Monotone (class)">Monotone</a></span>, <span class='object_link'><a href="Corundum/Publishing.html" title="Corundum::Publishing (class)">Publishing</a></span>, <span class='object_link'><a href="Corundum/RSpec.html" title="Corundum::RSpec (class)">RSpec</a></span>, <span class='object_link'><a href="Corundum/RSpecReportTask.html" title="Corundum::RSpecReportTask (class)">RSpecReportTask</a></span>, <span class='object_link'><a href="Corundum/RSpecTask.html" title="Corundum::RSpecTask (class)">RSpecTask</a></span>, <span class='object_link'><a href="Corundum/SimpleCov.html" title="Corundum::SimpleCov (class)">SimpleCov</a></span>, <span class='object_link'><a href="Corundum/TaskLib.html" title="Corundum::TaskLib (class)">TaskLib</a></span>, <span class='object_link'><a href="Corundum/Toolkit.html" title="Corundum::Toolkit (class)">Toolkit</a></span>, <span class='object_link'><a href="Corundum/VersionControl.html" title="Corundum::VersionControl (class)">VersionControl</a></span>, <span class='object_link'><a href="Corundum/YARDoc.html" title="Corundum::YARDoc (class)">YARDoc</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Corundum/BrowserTask.html" title="Corundum::BrowserTask (class)">BrowserTask</a></span>, <span class='object_link'><a href="Corundum/Core.html" title="Corundum::Core (class)">Core</a></span>, <span class='object_link'><a href="Corundum/DocumentationAssembly.html" title="Corundum::DocumentationAssembly (class)">DocumentationAssembly</a></span>, <span class='object_link'><a href="Corundum/DocumentationTask.html" title="Corundum::DocumentationTask (class)">DocumentationTask</a></span>, <span class='object_link'><a href="Corundum/Email.html" title="Corundum::Email (class)">Email</a></span>, <span class='object_link'><a href="Corundum/GemBuilding.html" title="Corundum::GemBuilding (class)">GemBuilding</a></span>, <span class='object_link'><a href="Corundum/GemCutter.html" title="Corundum::GemCutter (class)">GemCutter</a></span>, <span class='object_link'><a href="Corundum/GemspecSanity.html" title="Corundum::GemspecSanity (class)">GemspecSanity</a></span>, <span class='object_link'><a href="Corundum/Git.html" title="Corundum::Git (class)">Git</a></span>, <span class='object_link'><a href="Corundum/GitTask.html" title="Corundum::GitTask (class)">GitTask</a></span>, <span class='object_link'><a href="Corundum/GithubPages.html" title="Corundum::GithubPages (class)">GithubPages</a></span>, <span class='object_link'><a href="Corundum/InDirCommandTask.html" title="Corundum::InDirCommandTask (class)">InDirCommandTask</a></span>, <span class='object_link'><a href="Corundum/Monotone.html" title="Corundum::Monotone (class)">Monotone</a></span>, <span class='object_link'><a href="Corundum/Publishing.html" title="Corundum::Publishing (class)">Publishing</a></span>, <span class='object_link'><a href="Corundum/QuestionableContent.html" title="Corundum::QuestionableContent (class)">QuestionableContent</a></span>, <span class='object_link'><a href="Corundum/RSpec.html" title="Corundum::RSpec (class)">RSpec</a></span>, <span class='object_link'><a href="Corundum/RSpecReportTask.html" title="Corundum::RSpecReportTask (class)">RSpecReportTask</a></span>, <span class='object_link'><a href="Corundum/RSpecTask.html" title="Corundum::RSpecTask (class)">RSpecTask</a></span>, <span class='object_link'><a href="Corundum/SimpleCov.html" title="Corundum::SimpleCov (class)">SimpleCov</a></span>, <span class='object_link'><a href="Corundum/VersionControl.html" title="Corundum::VersionControl (class)">VersionControl</a></span>, <span class='object_link'><a href="Corundum/YARDoc.html" title="Corundum::YARDoc (class)">YARDoc</a></span>
     
   
 </p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="Toolkit-constant" class="">Toolkit =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>deprecated name for Core</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Core</span></pre></dd>
+      
+    </dl>
+  
 
 
 
@@ -189,7 +208,6 @@ publish announcements to rubyforge ever again</p>
   
 
 
-  
 
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
@@ -208,15 +226,19 @@ publish announcements to rubyforge ever again</p>
       <pre class="lines">
 
 
-27
-28
-29</pre>
+3
+4
+5
+6
+7</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/configuration_store.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/configuration-store.rb', line 3</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_configuration_store'>configuration_store</span>
-  <span class='ivar'>@configuration_store</span> <span class='op'>||=</span> <span class='const'>ConfigurationStore</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='ivar'>@configuration_store</span> <span class='op'>||=</span>
+    <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>ConfigurationStore</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>corundum</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                                    <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../default_configuration</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -236,12 +258,12 @@ publish announcements to rubyforge ever again</p>
       <pre class="lines">
 
 
-31
-32
-33</pre>
+9
+10
+11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/configuration_store.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/configuration-store.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_register_project'>register_project</span><span class='lparen'>(</span><span class='id identifier rubyid_rakefile'>rakefile</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_configuration_store'>configuration_store</span><span class='period'>.</span><span class='id identifier rubyid_register_search_path'>register_search_path</span><span class='lparen'>(</span><span class='id identifier rubyid_rakefile'>rakefile</span><span class='rparen'>)</span>
@@ -264,15 +286,15 @@ publish announcements to rubyforge ever again</p>
       <pre class="lines">
 
 
-35
-36
-37</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/configuration_store.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/configuration-store.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_user_preferences'>user_preferences</span>
-  <span class='id identifier rubyid_configuration_store'>configuration_store</span><span class='period'>.</span><span class='id identifier rubyid_loaded'>loaded</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>preferences.yaml</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_configuration_store'>configuration_store</span><span class='period'>.</span><span class='id identifier rubyid_user_preferences'>user_preferences</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -284,7 +306,7 @@ publish announcements to rubyforge ever again</p>
 </div>
     
     <div id="footer">
-  Generated on Tue Mar  6 17:19:30 2012 by 
+  Generated on Sun Mar 11 18:20:10 2012 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.5 (ruby-1.9.2).
 </div>
