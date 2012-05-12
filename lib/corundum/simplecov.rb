@@ -23,6 +23,8 @@ module Corundum
       /\.rb$/ =~ path
     end)
 
+    setting(:test_options, [])
+
     def default_configuration(toolkit, testlib)
       super(toolkit)
       self.test_lib = testlib
@@ -73,8 +75,8 @@ module Corundum
           File::read(config_path) =~ /coverage_dir.*#{target_dir}/ or fail ".simplecov doesn't refer to #{target_dir}"
         end
 
-        RSpecReportTask.new(@test_lib, :report => [:config_exists] + all_files) do |t|
-          t.rspec_opts += %w{-r simplecov}
+        @test_lib.doc_task(:report => [:config_exists] + all_files) do |t|
+          t.rspec_opts += test_options + %w{-r simplecov}
         end
         file entry_path => :report
 

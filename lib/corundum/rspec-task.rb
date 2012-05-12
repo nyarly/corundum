@@ -11,7 +11,7 @@ module Corundum
 
     setting :runner_command
 
-    required_fields :pattern, :ruby_opts, :rspec_configs, :rspec_opts,
+    required_fields :pattern, :ruby_opts, :rspec_opts,
       :warning, :rspec_path, :rspec_opts, :failure_message, :files_to_run,
       :file_dependencies
 
@@ -21,7 +21,6 @@ module Corundum
     end
 
     def resolve_configuration
-      self.rspec_configs = rspec_opts
       self.rspec_path = %x"which #{rspec_path}".chomp
 
       ruby_command.options << ruby_opts if ruby_opts
