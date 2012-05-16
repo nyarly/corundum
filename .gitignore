@@ -8,7 +8,6 @@ doc/Specifications
 doc/coverage
 pkg
 .yardoc
-doc
 publish/
 yardoc/
 gh-pages/
