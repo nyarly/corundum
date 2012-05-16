@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
-/* line 4, doc_assembly/stylesheet.scss */
+/* line 4, doc_assembly/theme/sass/styles.scss */
 html {
   background: #6C7989;
   background: #6c7989 -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6c7989), color-stop(100%, #434b55)) fixed;
@@ -10,7 +10,7 @@ html {
   background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;
 }
 
-/* line 9, doc_assembly/stylesheet.scss */
+/* line 9, doc_assembly/theme/sass/styles.scss */
 body {
   padding: 50px 0;
   margin: 0;
@@ -20,7 +20,7 @@ body {
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAAUdEVYdENyZWF0aW9uIFRpbWUAMy82LzEygrTcTAAAAFRJREFUSIljfPDggZRf5RIGGNjUHsNATz6jXmSL1Kb2GLiAX+USBnrymRgGGDCORgFmoNAXjEbBaBSMRsFoFIxGwWgUjEbBaBSMRsFoFIxGwWgUAABYNujumib3wAAAAABJRU5ErkJggg==') fixed;
 }
 
-/* line 18, doc_assembly/stylesheet.scss */
+/* line 18, doc_assembly/theme/sass/styles.scss */
 .wrapper {
   width: 640px;
   margin: 0 auto;
@@ -35,30 +35,30 @@ body {
   box-shadow: rgba(0, 0, 0, 0.2) 0 0 0 1px, rgba(0, 0, 0, 0.45) 0 3px 10px;
 }
 
-/* line 26, doc_assembly/stylesheet.scss */
+/* line 26, doc_assembly/theme/sass/styles.scss */
 header, section, footer {
   display: block;
 }
 
-/* line 30, doc_assembly/stylesheet.scss */
+/* line 30, doc_assembly/theme/sass/styles.scss */
 a {
   color: #069;
   text-decoration: none;
 }
 
-/* line 35, doc_assembly/stylesheet.scss */
+/* line 35, doc_assembly/theme/sass/styles.scss */
 p {
   margin: 0 0 20px;
   padding: 0;
 }
 
-/* line 40, doc_assembly/stylesheet.scss */
+/* line 40, doc_assembly/theme/sass/styles.scss */
 strong {
   color: #222;
   font-weight: 700;
 }
 
-/* line 45, doc_assembly/stylesheet.scss */
+/* line 45, doc_assembly/theme/sass/styles.scss */
 header {
   -webkit-border-radius: 8px 8px 0 0;
   -moz-border-radius: 8px 8px 0 0;
@@ -76,7 +76,7 @@ header {
   padding: 15px 20px;
   border-bottom: 1px solid #B2D2E1;
 }
-/* line 53, doc_assembly/stylesheet.scss */
+/* line 53, doc_assembly/theme/sass/styles.scss */
 header h1 {
   margin: 0;
   padding: 0;
@@ -85,33 +85,33 @@ header h1 {
   color: #069;
   text-shadow: rgba(255, 255, 255, 0.9) 0 1px 0;
 }
-/* line 62, doc_assembly/stylesheet.scss */
+/* line 62, doc_assembly/theme/sass/styles.scss */
 header.without-description h1 {
   margin: 10px 0;
 }
-/* line 66, doc_assembly/stylesheet.scss */
+/* line 66, doc_assembly/theme/sass/styles.scss */
 header p {
   margin: 0;
   color: #61778B;
   width: 300px;
   font-size: 13px;
 }
-/* line 72, doc_assembly/stylesheet.scss */
+/* line 72, doc_assembly/theme/sass/styles.scss */
 header p.view {
   display: none;
   font-weight: 700;
   text-shadow: rgba(255, 255, 255, 0.9) 0 1px 0;
   -webkit-font-smoothing: antialiased;
 }
-/* line 78, doc_assembly/stylesheet.scss */
+/* line 78, doc_assembly/theme/sass/styles.scss */
 header p.view a {
   color: #06c;
 }
-/* line 82, doc_assembly/stylesheet.scss */
+/* line 82, doc_assembly/theme/sass/styles.scss */
 header p.view small {
   font-weight: 400;
 }
-/* line 88, doc_assembly/stylesheet.scss */
+/* line 88, doc_assembly/theme/sass/styles.scss */
 header ul {
   margin: 0;
   padding: 0;
@@ -135,7 +135,7 @@ header ul {
   box-shadow: inset rgba(255, 255, 255, 0.45) 0 1px 0, inset rgba(0, 0, 0, 0.2) 0 -1px 0;
   width: 240px;
 }
-/* line 104, doc_assembly/stylesheet.scss */
+/* line 104, doc_assembly/theme/sass/styles.scss */
 header ul:before {
   content: '';
   position: absolute;
@@ -154,24 +154,24 @@ header ul:before {
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0, inset rgba(255, 255, 255, 0.7) 0 -1px 0;
   box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0, inset rgba(255, 255, 255, 0.7) 0 -1px 0;
 }
-/* line 117, doc_assembly/stylesheet.scss */
+/* line 117, doc_assembly/theme/sass/styles.scss */
 header ul li {
   width: 79px;
   float: left;
   border-right: 1px solid #3A7CBE;
   height: 38px;
 }
-/* line 124, doc_assembly/stylesheet.scss */
+/* line 124, doc_assembly/theme/sass/styles.scss */
 header ul li + li {
   width: 78px;
   border-left: 1px solid #8BBEF3;
 }
-/* line 129, doc_assembly/stylesheet.scss */
+/* line 129, doc_assembly/theme/sass/styles.scss */
 header ul li + li + li {
   border-right: none;
   width: 79px;
 }
-/* line 134, doc_assembly/stylesheet.scss */
+/* line 134, doc_assembly/theme/sass/styles.scss */
 header ul a {
   line-height: 1;
   font-size: 11px;
@@ -184,7 +184,7 @@ header ul a {
   height: 40px;
   text-shadow: rgba(0, 0, 0, 0.4) 0 -1px 0;
 }
-/* line 146, doc_assembly/stylesheet.scss */
+/* line 146, doc_assembly/theme/sass/styles.scss */
 header ul a strong {
   font-size: 14px;
   display: block;
@@ -192,7 +192,7 @@ header ul a strong {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 156, doc_assembly/stylesheet.scss */
+/* line 156, doc_assembly/theme/sass/styles.scss */
 section {
   padding: 15px 20px;
   font-size: 15px;
@@ -211,7 +211,7 @@ section {
   position: relative;
 }
 
-/* line 165, doc_assembly/stylesheet.scss */
+/* line 165, doc_assembly/theme/sass/styles.scss */
 h1, h2, h3, h4, h5, h6 {
   color: #222;
   padding: 0;
@@ -219,32 +219,32 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-/* line 172, doc_assembly/stylesheet.scss */
+/* line 172, doc_assembly/theme/sass/styles.scss */
 p, ul, ol, table, pre, dl {
   margin: 0 0 20px;
 }
 
-/* line 176, doc_assembly/stylesheet.scss */
+/* line 176, doc_assembly/theme/sass/styles.scss */
 h1, h2, h3 {
   line-height: 1.1;
 }
 
-/* line 180, doc_assembly/stylesheet.scss */
+/* line 180, doc_assembly/theme/sass/styles.scss */
 h1 {
   font-size: 28px;
 }
 
-/* line 184, doc_assembly/stylesheet.scss */
+/* line 184, doc_assembly/theme/sass/styles.scss */
 h2 {
   color: #393939;
 }
 
-/* line 188, doc_assembly/stylesheet.scss */
+/* line 188, doc_assembly/theme/sass/styles.scss */
 h3, h4, h5, h6 {
   color: #494949;
 }
 
-/* line 192, doc_assembly/stylesheet.scss */
+/* line 192, doc_assembly/theme/sass/styles.scss */
 blockquote {
   margin: 0 -20px 20px;
   padding: 15px 20px 1px 40px;
@@ -254,12 +254,12 @@ blockquote {
   color: #222;
 }
 
-/* line 201, doc_assembly/stylesheet.scss */
+/* line 201, doc_assembly/theme/sass/styles.scss */
 img {
   max-width: 100%;
 }
 
-/* line 205, doc_assembly/stylesheet.scss */
+/* line 205, doc_assembly/theme/sass/styles.scss */
 code, pre {
   font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
   color: #333;
@@ -267,53 +267,53 @@ code, pre {
   overflow-x: auto;
 }
 
-/* line 212, doc_assembly/stylesheet.scss */
+/* line 212, doc_assembly/theme/sass/styles.scss */
 pre {
   padding: 20px;
   background: #3A3C42;
   color: #f8f8f2;
   margin: 0 -20px 20px;
 }
-/* line 218, doc_assembly/stylesheet.scss */
+/* line 218, doc_assembly/theme/sass/styles.scss */
 pre code {
   color: #f8f8f2;
 }
-/* line 222, doc_assembly/stylesheet.scss */
+/* line 222, doc_assembly/theme/sass/styles.scss */
 li pre {
   margin-left: -60px;
   padding-left: 60px;
 }
 
-/* line 228, doc_assembly/stylesheet.scss */
+/* line 228, doc_assembly/theme/sass/styles.scss */
 table {
   width: 100%;
   border-collapse: collapse;
 }
 
-/* line 233, doc_assembly/stylesheet.scss */
+/* line 233, doc_assembly/theme/sass/styles.scss */
 th, td {
   text-align: left;
   padding: 5px 10px;
   border-bottom: 1px solid #aaa;
 }
 
-/* line 239, doc_assembly/stylesheet.scss */
+/* line 239, doc_assembly/theme/sass/styles.scss */
 dt {
   color: #222;
   font-weight: 700;
 }
 
-/* line 244, doc_assembly/stylesheet.scss */
+/* line 244, doc_assembly/theme/sass/styles.scss */
 th {
   color: #222;
 }
 
-/* line 248, doc_assembly/stylesheet.scss */
+/* line 248, doc_assembly/theme/sass/styles.scss */
 small {
   font-size: 11px;
 }
 
-/* line 252, doc_assembly/stylesheet.scss */
+/* line 252, doc_assembly/theme/sass/styles.scss */
 hr {
   border: 0;
   background: #aaa;
@@ -321,7 +321,7 @@ hr {
   margin: 0 0 20px;
 }
 
-/* line 259, doc_assembly/stylesheet.scss */
+/* line 259, doc_assembly/theme/sass/styles.scss */
 footer {
   width: 640px;
   margin: 0 auto;
@@ -329,27 +329,27 @@ footer {
   color: #ccc;
   overflow: hidden;
 }
-/* line 266, doc_assembly/stylesheet.scss */
+/* line 266, doc_assembly/theme/sass/styles.scss */
 footer a {
   color: #fff;
   font-weight: bold;
 }
-/* line 271, doc_assembly/stylesheet.scss */
+/* line 271, doc_assembly/theme/sass/styles.scss */
 footer p {
   float: left;
 }
-/* line 275, doc_assembly/stylesheet.scss */
+/* line 275, doc_assembly/theme/sass/styles.scss */
 footer p + p {
   float: right;
 }
 
 @media print, screen and (max-width: 740px) {
-  /* line 281, doc_assembly/stylesheet.scss */
+  /* line 281, doc_assembly/theme/sass/styles.scss */
   body {
     padding: 0;
   }
 
-  /* line 285, doc_assembly/stylesheet.scss */
+  /* line 285, doc_assembly/theme/sass/styles.scss */
   .wrapper {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -362,7 +362,7 @@ footer p + p {
     width: 100%;
   }
 
-  /* line 291, doc_assembly/stylesheet.scss */
+  /* line 291, doc_assembly/theme/sass/styles.scss */
   footer {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -372,34 +372,34 @@ footer p + p {
     padding: 20px;
     width: auto;
   }
-  /* line 296, doc_assembly/stylesheet.scss */
+  /* line 296, doc_assembly/theme/sass/styles.scss */
   footer p {
     float: none;
     margin: 0;
   }
-  /* line 301, doc_assembly/stylesheet.scss */
+  /* line 301, doc_assembly/theme/sass/styles.scss */
   footer p + p {
     float: none;
   }
 }
 @media print, screen and (max-width:580px) {
-  /* line 308, doc_assembly/stylesheet.scss */
+  /* line 308, doc_assembly/theme/sass/styles.scss */
   header ul {
     display: none;
   }
 
-  /* line 312, doc_assembly/stylesheet.scss */
+  /* line 312, doc_assembly/theme/sass/styles.scss */
   header p.view {
     display: block;
   }
 
-  /* line 316, doc_assembly/stylesheet.scss */
+  /* line 316, doc_assembly/theme/sass/styles.scss */
   header p {
     width: 100%;
   }
 }
 @media print {
-  /* line 322, doc_assembly/stylesheet.scss */
+  /* line 322, doc_assembly/theme/sass/styles.scss */
   header p.view a small:before {
     content: 'at http://github.com/';
   }
