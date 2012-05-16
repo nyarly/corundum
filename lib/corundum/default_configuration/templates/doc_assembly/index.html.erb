@@ -1,32 +1,40 @@
 <html>
   <head>
-    <link rel="stylesheet" src="stylesheet.css" />
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+    <title><%= gemspec.name.sub(/./){|ch| ch.upcase} %> <%=gemspec.version %></title>
   </head>
   <body>
-    <div class="gem-details">
-      <div class="headers">
-        <h1><%= gemspec.name %></h1>
-        <h2><%= gemspec.summary %></h2>
-        <h2>(current version: <%= gemspec.version %>)</h2>
-      </div>
-      <p><%= gemspec.description.gsub(/\n\s*\n/, "</p><p>") %></p>
-    </div>
-    <div class="documentation-list">
-      <p>Documentation is in a few sections:</p>
-      <ul>
-        <% documenters.each_pair do |path, doccer| %>
-          <li><a href="<%= doccer.entry_link %>"><%= doccer.title%></a></li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="credits">
-      <h2>Authors</h2>
-      <dl>
-        <% gemspec.authors.zip(gemspec.email).each do |author, email| %>
-          <dt><%= author %></dt>
-          <dd><%= email %></dd>
-        <% end %>
-      </dl>
+    <div class="wrapper">
+      <header>
+        <div class="headers">
+          <h1><%= gemspec.name.sub(/./){|ch| ch.upcase} %></h1>
+          <h2><%= gemspec.summary %></h2>
+          <h2>(current version: <%= gemspec.version %>)</h2>
+        </div>
+      </header>
+      <section>
+        <p><%= gemspec.description.gsub(/\n\s*\n/, "</p><p>") %></p>
+      </section>
+      <section class="documentation-list">
+        <p>Documentation is in a few sections:</p>
+        <ul>
+          <% documenters.each_pair do |path, doccer| %>
+            <li><a href="<%= doccer.entry_link %>"><%= doccer.title%></a></li>
+          <% end %>
+          <% external_docs.each_pair do |name, link| %>
+            <li><a href="<%= link %>"><%= name %></a></li>
+          <% end %>
+        </ul>
+      </section>
+      <section class="credits">
+        <h2>Authors</h2>
+        <dl>
+          <% gemspec.authors.zip(gemspec.email).each do |author, email| %>
+            <dt><%= author %></dt>
+            <dd><%= email %></dd>
+          <% end %>
+        </dl>
+      </section>
     </div>
   </body>
 </html>

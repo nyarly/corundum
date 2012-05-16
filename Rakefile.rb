@@ -30,9 +30,12 @@ tk.in_namespace do
   task tk.finished_files.build => vc["is_checked_in"]
   yd = YARDoc.new(tk) do |yd|
     yd.extra_files = ["Rakefile.rb"]
+    yd.readme = "doc/README"
     yd.options = %w[--exclude corundum/default_configuration]
   end
-  all_docs = DocumentationAssembly.new(tk, yd, rspec, cov)
+  all_docs = DocumentationAssembly.new(tk, yd, rspec, cov) do |da|
+    da.external_docs["The Wiki"] = "https://github.com/nyarly/corundum/wiki"
+  end
   pages = GithubPages.new(all_docs)
 end
 

@@ -11,6 +11,7 @@ module Corundum
     setting :sub_dir, "assembled"
     setting :documenters, []
     setting :extra_data, {}
+    setting :external_docs, {}
     setting :stylesheet
     setting :css_dir, "stylesheets"
     setting :compass_config, nested(
@@ -18,7 +19,8 @@ module Corundum
       :line_comments => false,
       :preferred_syntax => :scss,
       :http_stylesheets_path => nil,
-      :project_path => nil
+      :project_path => nil,
+      :images_dir => 'images',
     )
 
     def default_configuration(toolkit, *documenters)
@@ -27,7 +29,7 @@ module Corundum
       self.valise = Corundum::configuration_store.valise
 
       self.compass_config.http_stylesheets_path = css_dir
-      self.compass_config.project_dir = template_path("doc_assembly/theme")
+      self.compass_config.project_path = template_path("doc_assembly/theme")
     end
 
     def resolve_configuration
@@ -60,7 +62,7 @@ module Corundum
         task :collect => documenters.keys
 
         task :setup_compass do
-          Compass.configuration_for(compass_config.to_hash)
+          Compass.add_configuration(compass_config.to_hash, __FILE__)
         end
 
         template_task("doc_assembly/stylesheet.scss", stylesheet, Compass.sass_engine_options)

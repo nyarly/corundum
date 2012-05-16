@@ -60,7 +60,7 @@ module Corundum
 
         desc "Start a live YARD server for editing inline docs"
         task :live do
-          YARD::CLI::Server.run( *(server_options) )
+          YARD::CLI::Server.run( *(options + server_options) )
         end
       end
 
