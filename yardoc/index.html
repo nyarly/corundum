@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.7.5
+    &mdash; Documentation by YARD 0.8.1
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
   relpath = '';
-  if (relpath != '') relpath += '/';
+  framesUrl = "frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
 
@@ -26,116 +28,139 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <a href="_index.html">Index</a> &raquo; 
     <span class="title">File: README</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
-    <div id="content"><div id='filecontents'><h2>Corundum</h2>
 
-<h3>Foolproof rubygems</h3>
+    <div id="content"><div id='filecontents'>
+<h2 id="label-Corundum">Corundum</h2>
 
-<p>With Corudum added as a developement dependancy to your gemspec, and configured
-(quickly) in your Rakefile you can do:</p>
+<h3 id="label-Foolproof+rubygems">Foolproof rubygems</h3>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_release'>release</span>
-</code></pre>
+<p>With Corudum added as a developement dependancy to your gemspec, and
+configured (quickly) in your Rakefile you can do:</p>
 
-<p>and know that you&#39;re publishing something you won&#39;t be embarrassed by.</p>
+<pre class="code ruby"><code><span class='id identifier rubyid_rake'>rake</span> <span class='id identifier rubyid_release'>release</span></code></pre>
 
-<h3>(Yet Another Rubygems packager)</h3>
+<p>and know that you’re publishing something you won’t be embarrassed by.</p>
 
-<p>Why is Corundum different from Jeweler or Hoe?  (or...) Corundum is built not
-to generate code - it doesn&#39;t exist to build gems for you if you don&#39;t know
-how.  For that, check out Jeweler, and come back once you&#39;ve understood what a
-.gemspec is and how it works.</p>
+<h3 id="label-Yet+Another+Rubygems+packager%3F">Yet Another Rubygems packager?</h3>
 
-<p>Really, writing a gem is pretty easy - you can do it in a gist if you want.  And releasing Gems isn&#39;t all that hard either - rubygems has good tools to package up gems and push them to gem servers.  So why Corundum?</p>
+<p>Why is Corundum different from Jeweler or Hoe?  (or…) Corundum isn’t built
+to generate code - it doesn’t build gems for you if you don’t know how or
+don’t  care to.  For that, check out <a href="http://rubygems.org/gems/jeweler" target="_parent" title="Jeweler">Jeweler</a>, and  come back once you’ve understood what a .gemspec is and how
+it works.</p>
 
-<p>Because releasing a gem that will actually help the Ruby community at large is
-actually quite difficult.  There are lot of fiddly details to get wrong, and
-even experienced devs can be doofuses sometimes.  Corundum serves as a
-collection of safeguards against common errors in releasing gems - certainly
-every one that&#39;s happened to me.</p>
+<p>Because, really, writing a gem is pretty easy - you can do it in a gist if
+you  want.  And releasing Gems isn’t all that hard either - rubygems has
+good tools  to package up gems and push them to gem servers.  So why
+Corundum?</p>
 
-<h3>Using Corundum</h3>
+<p>Because releasing a gem that will actually help the Ruby community at large
+is actually quite difficult.  There are lot of fiddly details to get wrong,
+and even experienced devs can be 
+<a href="https://github.com/jbarnette/hoe-doofus/blob/master/lib/hoe/doofus.rb#L16" target="_parent" title=" doofuses"> doofuses</a> sometimes.  Corundum serves as a collection of safeguards against
+common errors in releasing gems - certainly every one that’s happened to
+me.</p>
+
+<h3 id="label-Using+Corundum">Using Corundum</h3>
 
 <p>In your coolgem.gemspec:</p>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_add_development_dependency'>add_development_dependency</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>corundum</span><span class='tstring_end'>&quot;</span></span>
-</code></pre>
+<pre class="code ruby"><code><span class='id identifier rubyid_spec'>spec</span><span class='period'>.</span><span class='id identifier rubyid_add_development_dependency'>add_development_dependency</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>corundum</span><span class='tstring_end'>&quot;</span></span></code></pre>
 
 <p>In you Gemfile:</p>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_gemspec'>gemspec</span>
-</code></pre>
+<pre class="code ruby"><code><span class='id identifier rubyid_gemspec'>gemspec</span></code></pre>
 
 <p>(But you were doing that anyway, right?)</p>
 
 <p>Check out this Rakefile:</p>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>corundum/tasklibs</span><span class='tstring_end'>'</span></span>
+<p><pre class="code ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>corundum/tasklibs</span><span class='tstring_end'>'</span></span>
+<span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>mattock/yard_extensions</span><span class='tstring_end'>'</span></span>
 
-<span class='kw'>module</span> <span class='const'>Corundum</span>
-  <span class='id identifier rubyid_tk'>tk</span> <span class='op'>=</span> <span class='const'>Toolkit</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_tk'>tk</span><span class='op'>|</span>
-  <span class='kw'>end</span>
+<span class='id identifier rubyid_include'>include</span> <span class='const'>Corundum</span>
+<span class='const'>Corundum</span><span class='op'>::</span><span class='id identifier rubyid_register_project'>register_project</span><span class='lparen'>(</span><span class='kw'>__FILE__</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_tk'>tk</span><span class='period'>.</span><span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_sanity'>sanity</span> <span class='op'>=</span> <span class='const'>GemspecSanity</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_rspec'>rspec</span> <span class='op'>=</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_cov'>cov</span> <span class='op'>=</span> <span class='const'>SimpleCov</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='comma'>,</span> <span class='id identifier rubyid_rspec'>rspec</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cov'>cov</span><span class='op'>|</span>
-      <span class='id identifier rubyid_cov'>cov</span><span class='period'>.</span><span class='id identifier rubyid_threshold'>threshold</span> <span class='op'>=</span> <span class='int'>55</span>
-    <span class='kw'>end</span>
-    <span class='id identifier rubyid_gem'>gem</span> <span class='op'>=</span> <span class='const'>GemBuilding</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_cutter'>cutter</span> <span class='op'>=</span> <span class='const'>GemCutter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='comma'>,</span><span class='id identifier rubyid_gem'>gem</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_email'>email</span> <span class='op'>=</span> <span class='const'>Email</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_vc'>vc</span> <span class='op'>=</span> <span class='const'>Git</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_vc'>vc</span><span class='op'>|</span>
-      <span class='id identifier rubyid_vc'>vc</span><span class='period'>.</span><span class='id identifier rubyid_branch'>branch</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>master</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-    <span class='id identifier rubyid_task'>task</span> <span class='id identifier rubyid_tk'>tk</span><span class='period'>.</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_vc'>vc</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is_checked_in</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_docs'>docs</span> <span class='op'>=</span> <span class='const'>YARDoc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_yd'>yd</span><span class='op'>|</span>
-      <span class='id identifier rubyid_yd'>yd</span><span class='period'>.</span><span class='id identifier rubyid_extra_files'>extra_files</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rakefile</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
-    <span class='kw'>end</span>
-    <span class='id identifier rubyid_pages'>pages</span> <span class='op'>=</span> <span class='const'>GithubPages</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_docs'>docs</span><span class='rparen'>)</span>
-  <span class='kw'>end</span>
+<span class='id identifier rubyid_tk'>tk</span> <span class='op'>=</span> <span class='const'>Toolkit</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_tk'>tk</span><span class='op'>|</span>
+  <span class='id identifier rubyid_tk'>tk</span><span class='period'>.</span><span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='kw'>__FILE__</span><span class='rbracket'>]</span>
 <span class='kw'>end</span>
-</code></pre>
 
-<p>That&#39;s the whole thing.  Now &#39;rake release&#39; will push the current version of
-the gem, but only if we can go through a complete a correct QA process.
-(Incidentally, that&#39;s the Rakefile for Corundum itself.)</p>
+<span class='id identifier rubyid_tk'>tk</span><span class='period'>.</span><span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_sanity'>sanity</span> <span class='op'>=</span> <span class='const'>GemspecSanity</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span>
+  <span class='const'>QuestionableContent</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_dbg'>dbg</span><span class='op'>|</span>
+    <span class='id identifier rubyid_dbg'>dbg</span><span class='period'>.</span><span class='id identifier rubyid_words'>words</span> <span class='op'>=</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>p</span><span class='words_sep'> </span><span class='tstring_content'>debugger</span><span class='words_sep'>}</span>
+  <span class='kw'>end</span>
+  <span class='const'>QuestionableContent</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_swear'>swear</span><span class='op'>|</span>
+    <span class='id identifier rubyid_swear'>swear</span><span class='period'>.</span><span class='id identifier rubyid_type'>type</span> <span class='op'>=</span> <span class='symbol'>:swearing</span>
+    <span class='id identifier rubyid_swear'>swear</span><span class='period'>.</span><span class='id identifier rubyid_words'>words</span> <span class='op'>=</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>fuck</span><span class='words_sep'> </span><span class='tstring_content'>shit</span><span class='words_sep'>}</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_rspec'>rspec</span> <span class='op'>=</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cov'>cov</span> <span class='op'>=</span> <span class='const'>SimpleCov</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='comma'>,</span> <span class='id identifier rubyid_rspec'>rspec</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cov'>cov</span><span class='op'>|</span>
+    <span class='id identifier rubyid_cov'>cov</span><span class='period'>.</span><span class='id identifier rubyid_threshold'>threshold</span> <span class='op'>=</span> <span class='int'>55</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_gem'>gem</span> <span class='op'>=</span> <span class='const'>GemBuilding</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_cutter'>cutter</span> <span class='op'>=</span> <span class='const'>GemCutter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='comma'>,</span><span class='id identifier rubyid_gem'>gem</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_email'>email</span> <span class='op'>=</span> <span class='const'>Email</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_vc'>vc</span> <span class='op'>=</span> <span class='const'>Git</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_vc'>vc</span><span class='op'>|</span>
+    <span class='id identifier rubyid_vc'>vc</span><span class='period'>.</span><span class='id identifier rubyid_branch'>branch</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>master</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_task'>task</span> <span class='id identifier rubyid_tk'>tk</span><span class='period'>.</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_vc'>vc</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is_checked_in</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_yd'>yd</span> <span class='op'>=</span> <span class='const'>YARDoc</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_yd'>yd</span><span class='op'>|</span>
+    <span class='id identifier rubyid_yd'>yd</span><span class='period'>.</span><span class='id identifier rubyid_extra_files'>extra_files</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rakefile.rb</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_yd'>yd</span><span class='period'>.</span><span class='id identifier rubyid_readme'>readme</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>doc/README</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_yd'>yd</span><span class='period'>.</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>--exclude</span><span class='words_sep'> </span><span class='tstring_content'>corundum/default_configuration</span><span class='words_sep'>]</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_all_docs'>all_docs</span> <span class='op'>=</span> <span class='const'>DocumentationAssembly</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tk'>tk</span><span class='comma'>,</span> <span class='id identifier rubyid_yd'>yd</span><span class='comma'>,</span> <span class='id identifier rubyid_rspec'>rspec</span><span class='comma'>,</span> <span class='id identifier rubyid_cov'>cov</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_da'>da</span><span class='op'>|</span>
+    <span class='id identifier rubyid_da'>da</span><span class='period'>.</span><span class='id identifier rubyid_external_docs'>external_docs</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The Wiki</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://github.com/nyarly/corundum/wiki</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_pages'>pages</span> <span class='op'>=</span> <span class='const'>GithubPages</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_all_docs'>all_docs</span><span class='rparen'>)</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_task'>task</span> <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:release</span><span class='comma'>,</span> <span class='symbol'>:publish_docs</span><span class='rbracket'>]</span></pre></p>
+
+<p>That’s the whole thing.  Now ‘rake release’ will push the current version
+of the gem, but only if we can go through a complete a correct QA process.
+(Incidentally, that’s the Rakefile for Corundum itself.)</p>
 
 <p>The other goal with Corundum is to present all of these tools as
 configurable Tasklibs, so the power of Rake remains available.  If you want
 to do</p>
 
-<pre class="code ruby"><code><span class='id identifier rubyid_task'>task</span> <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='symbol'>:release</span>
-</code></pre>
+<pre class="ruby"><span class="ruby-identifier">task</span> :<span class="ruby-identifier">default</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">release</span>
+</pre>
 
-<p>Then &#39;rake&#39; will do your releases.</p>
+<p>Then ‘rake’ will do your releases.</p>
 
 <p>Digging in, the first thing to look at is <span class='object_link'><a href="Corundum.html#Toolkit-constant" title="Corundum::Toolkit (constant)">Corundum::Toolkit</a></span></p>
 </div>
@@ -175,11 +200,11 @@ to do</p>
   For more information about Mattock, check out <a href="https://rubygems.org/gems/mattock">the page on Rubygems</a> or <a href="http://nyarly.github.com/mattock/">the documentation on github</a>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Sun Mar 11 18:20:10 2012 by 
+  Generated on Tue May 15 23:42:40 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.2).
+  0.8.1 (ruby-1.9.3).
 </div>
 
   </body>

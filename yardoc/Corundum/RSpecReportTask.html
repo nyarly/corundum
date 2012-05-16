@@ -6,7 +6,7 @@
 <title>
   Class: Corundum::RSpecReportTask
   
-    &mdash; Documentation by YARD 0.7.5
+    &mdash; Documentation by YARD 0.8.1
   
 </title>
 
@@ -15,9 +15,11 @@
   <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
+
 
   <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
 
@@ -26,36 +28,41 @@
 
   </head>
   <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
     <div id="header">
       <div id="menu">
   
-    <a href="../_index.html">Index (R)</a> &raquo; 
+    <a href="../_index.html">Index (R)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../Corundum.html" title="Corundum (module)">Corundum</a></span></span>
      &raquo; 
     <span class="title">RSpecReportTask</span>
   
-  
+
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
       <div id="search">
   
-    <a id="class_list_link" href="#">Class List</a>
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
   
-    <a id="method_list_link" href="#">Method List</a>
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
   
-    <a id="file_list_link" href="#">File List</a>
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
   
 </div>
       <div class="clear"></div>
     </div>
-    
+
     <iframe id="search_frame"></iframe>
-    
+
     <div id="content"><h1>Class: Corundum::RSpecReportTask
   
   
@@ -127,6 +134,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -142,6 +150,7 @@
 
     
   </span>
+  
   
   
   
@@ -169,6 +178,7 @@
   
   
   
+  
 
   
     <span class="summary_desc"><div class='inline'></div></span>
@@ -184,6 +194,7 @@
 
     
   </span>
+  
   
   
   
@@ -208,6 +219,7 @@
   
   
   
+  
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="RSpecTask.html" title="Corundum::RSpecTask (class)">RSpecTask</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="RSpecTask.html#resolve_configuration-instance_method" title="Corundum::RSpecTask#resolve_configuration (method)">#resolve_configuration</a></span></p>
 
@@ -215,28 +227,30 @@
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
-    
+
     
       <div class="method_details first">
-  <p class="signature first" id="default_configuration-instance_method">
+  <h3 class="signature first" id="default_configuration-instance_method">
   
     - (<tt>Object</tt>) <strong>default_configuration</strong>(rspec) 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+72
 73
 74
-75
-76</pre>
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/rspec-task.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/rspec-task.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_rspec'>rspec</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -248,13 +262,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="needed?-instance_method">
+  <h3 class="signature " id="needed?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>needed?</strong> 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 
@@ -262,7 +278,7 @@
 </div>
 <div class="tags">
   
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -282,12 +298,12 @@
       <pre class="lines">
 
 
+68
 69
-70
-71</pre>
+70</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/rspec-task.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/rspec-task.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_needed?'>needed?</span>
   <span class='op'>!</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_doc_path'>doc_path</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_out_of_date?'>out_of_date?</span><span class='lparen'>(</span><span class='id identifier rubyid_timestamp'>timestamp</span><span class='rparen'>)</span>
@@ -298,13 +314,15 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="out_of_date?-instance_method">
+  <h3 class="signature " id="out_of_date?-instance_method">
   
     - (<tt>Boolean</tt>) <strong>out_of_date?</strong>(stamp) 
   
 
   
-</p><div class="docstring">
+
+  
+</h3><div class="docstring">
   <div class="discussion">
     
 
@@ -312,7 +330,7 @@
 </div>
 <div class="tags">
   
-<h3>Returns:</h3>
+<p class="tag_title">Returns:</p>
 <ul class="return">
   
     <li>
@@ -332,12 +350,12 @@
       <pre class="lines">
 
 
+64
 65
-66
-67</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/rspec-task.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/rspec-task.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_out_of_date?'>out_of_date?</span><span class='lparen'>(</span><span class='id identifier rubyid_stamp'>stamp</span><span class='rparen'>)</span>
   <span class='ivar'>@prerequisites</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_application'>application</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='ivar'>@scope</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_timestamp'>timestamp</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_stamp'>stamp</span><span class='rbrace'>}</span>
@@ -348,28 +366,30 @@
 </div>
     
       <div class="method_details ">
-  <p class="signature " id="timestamp-instance_method">
+  <h3 class="signature " id="timestamp-instance_method">
   
     - (<tt>Object</tt>) <strong>timestamp</strong> 
   
 
   
-</p><table class="source_code">
+
+  
+</h3><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+56
 57
 58
 59
 60
 61
-62
-63</pre>
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/rspec-task.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/rspec-task.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_timestamp'>timestamp</span>
   <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span class='id identifier rubyid_doc_path'>doc_path</span><span class='rparen'>)</span>
@@ -386,11 +406,11 @@
   </div>
 
 </div>
-    
+
     <div id="footer">
-  Generated on Sun Mar 11 18:20:11 2012 by 
+  Generated on Tue May 15 23:42:40 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.5 (ruby-1.9.2).
+  0.8.1 (ruby-1.9.3).
 </div>
 
   </body>
