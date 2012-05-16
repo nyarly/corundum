@@ -51,7 +51,6 @@ Gem::Specification.new do |spec|
     lib/corundum/default_configuration/templates/doc_assembly/theme/sass/styles.scss
     lib/corundum/default_configuration/templates/doc_assembly/theme/stylesheets/pygment_trac.css
     lib/corundum/default_configuration/templates/doc_assembly/theme/stylesheets/styles.css
-    lib/corundum/default_configuration/templates/doc_assembly/theme/index.html
     lib/corundum/default_configuration/templates/doc_assembly/theme/javascripts/scale.fix.js
     lib/corundum/default_configuration/templates/doc_assembly/theme/images/checker.png
     README.md

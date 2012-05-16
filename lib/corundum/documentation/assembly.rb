@@ -65,7 +65,7 @@ module Corundum
           Compass.add_configuration(compass_config.to_hash, __FILE__)
         end
 
-        template_task("doc_assembly/stylesheet.scss", stylesheet, Compass.sass_engine_options)
+        template_task("doc_assembly/theme/sass/styles.scss", stylesheet, Compass.sass_engine_options)
         file stylesheet => [:setup_compass, target_dir]
 
         template_task("doc_assembly/index.html.erb", entry_point)

@@ -28,6 +28,7 @@ Have you ever released a gem that:
 * Still had a p or debugger line hanging around?
 * Weren't commited and pushed to github?
 * Weren't tagged with their version on github?
+* Didn't have decent public documentation?
 
 If so, Corundum is for you.
 
@@ -41,3 +42,23 @@ Have you ever been irritated with a gem packaging system that
 If so, Corundum is for you.
 
 [Learn more](http://nyarly.github.com/corundum/)
+
+### Thanks
+
+Corundum certainly wouldn't exist without seattlerb's Hoe.
+
+Corundum's default documentation theme is lifted wholesale from Steve Smith's Modernizer theme for github pages.
+
+Obviously, Bundler and Rubygems are a prerequisite, and the team that works on them is pretty much amazing.
+
+### Contributing
+
+The decisions about what to support in Corundum have everything to do with my
+personal dev environment (which might help explain the Montone version control
+tasklib).  From the start, the idea has been to make changing out components
+absurdly easy.  Legos stick together more than these things.  I'd love to see
+an RCov tasklib, for instance, or a Minitest one.  Mercurial.
+
+Make a pull request, and I'll get it merged.  If you're worried, we can talk it
+out in Issues or email, and we can hash out the form of a pull request that
+I'll commit to merging.
