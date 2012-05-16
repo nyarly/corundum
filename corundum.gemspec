@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
-  spec.version		= "0.0.16"
+  spec.version		= "0.0.17"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -48,6 +48,12 @@ Gem::Specification.new do |spec|
     lib/corundum/version_control/git.rb
     lib/corundum/default_configuration/preferences.yaml
     lib/corundum/default_configuration/templates/doc_assembly/index.html.erb
+    lib/corundum/default_configuration/templates/doc_assembly/theme/sass/styles.scss
+    lib/corundum/default_configuration/templates/doc_assembly/theme/stylesheets/pygment_trac.css
+    lib/corundum/default_configuration/templates/doc_assembly/theme/stylesheets/styles.css
+    lib/corundum/default_configuration/templates/doc_assembly/theme/index.html
+    lib/corundum/default_configuration/templates/doc_assembly/theme/javascripts/scale.fix.js
+    lib/corundum/default_configuration/templates/doc_assembly/theme/images/checker.png
     README.md
     spec/smoking_spec.rb
     spec_help/spec_helper.rb
