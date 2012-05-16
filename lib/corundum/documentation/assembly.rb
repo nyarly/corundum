@@ -1,26 +1,42 @@
 require 'corundum/documentation-task'
 require 'mattock/template-host'
+require 'compass'
 
 module Corundum
   class DocumentationAssembly < DocumentationTask
-    include Mattock::TemplateHost
+    include Mattock::TemplateTaskLib
 
     title 'Assembled Documentation'
 
     setting :sub_dir, "assembled"
     setting :documenters, []
     setting :extra_data, {}
+    setting :stylesheet
+    setting :css_dir, "stylesheets"
+    setting :compass_config, nested(
+      :http_path => "/",
+      :line_comments => false,
+      :preferred_syntax => :scss,
+      :http_stylesheets_path => nil,
+      :project_path => nil
+    )
 
     def default_configuration(toolkit, *documenters)
       super(toolkit)
       self.documenters = documenters
       self.valise = Corundum::configuration_store.valise
+
+      self.compass_config.http_stylesheets_path = css_dir
+      self.compass_config.project_dir = template_path("doc_assembly/theme")
     end
 
     def resolve_configuration
       super
       self.documenters = documenters.each_with_object({}) do |doccer, hash|
         hash[File::join(target_dir, doccer.sub_dir)] = doccer
+      end
+      if unset?(stylesheet)
+        self.stylesheet = File::join(target_dir, "stylesheet.css")
       end
     end
 
@@ -43,12 +59,15 @@ module Corundum
         #Colision of doc groups
         task :collect => documenters.keys
 
-        desc "Generate various documentation and collect it in one place"
-        file entry_point => [target_dir, :collect] do
-          File::open(entry_point, "w") do |file|
-            file.write(render("doc_assembly/index.html.erb"))
-          end
+        task :setup_compass do
+          Compass.configuration_for(compass_config.to_hash)
         end
+
+        template_task("doc_assembly/stylesheet.scss", stylesheet, Compass.sass_engine_options)
+        file stylesheet => [:setup_compass, target_dir]
+
+        template_task("doc_assembly/index.html.erb", entry_point)
+        file entry_point => [stylesheet, target_dir, :collect]
       end
       super
     end

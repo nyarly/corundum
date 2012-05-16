@@ -1,11 +1,14 @@
 <html>
   <head>
+    <link rel="stylesheet" src="stylesheet.css" />
   </head>
   <body>
     <div class="gem-details">
-      <h1><%= gemspec.name %></h1>
-      <h2><%= gemspec.summary %></h2>
-      <h2>(current version: <%= gemspec.version %>)</h2>
+      <div class="headers">
+        <h1><%= gemspec.name %></h1>
+        <h2><%= gemspec.summary %></h2>
+        <h2>(current version: <%= gemspec.version %>)</h2>
+      </div>
       <p><%= gemspec.description.gsub(/\n\s*\n/, "</p><p>") %></p>
     </div>
     <div class="documentation-list">
@@ -17,6 +20,7 @@
       </ul>
     </div>
     <div class="credits">
+      <h2>Authors</h2>
       <dl>
         <% gemspec.authors.zip(gemspec.email).each do |author, email| %>
           <dt><%= author %></dt>

@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
-  spec.version		= "0.0.15"
+  spec.version		= "0.0.16"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -79,7 +79,6 @@ Gem::Specification.new do |spec|
   spec.rdoc_options	+= ["--title", "#{spec.name}-#{spec.version} RDoc"]
 
   spec.add_dependency "rake-rubygems", ">= 0.2.0"
-  #spec.add_dependency "hanna", "~> 0.1.0"
   spec.add_dependency "rdoc", ">= 0"
   spec.add_dependency "yard", ">= 0"
   spec.add_dependency "mailfactory", "~> 1.4.0"
@@ -87,7 +86,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "simplecov", ">= 0.5.4"
   spec.add_dependency "bundler", "~> 1.1.0"
   spec.add_dependency "nokogiri"
-  spec.add_dependency "mattock", ">= 0.2.10"
+  spec.add_dependency "mattock", ">= 0.2.11"
+  spec.add_dependency "sass", ">= 3.1"
+  spec.add_dependency "compass", ">= 0.12.1"
 
   spec.post_install_message = "Another tidy package brought to you by Judson"
 end
