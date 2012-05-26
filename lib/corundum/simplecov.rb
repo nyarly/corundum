@@ -76,7 +76,7 @@ module Corundum
         end
 
         @test_lib.doc_task(:report => [:config_exists] + all_files) do |t|
-          t.rspec_opts += test_options + %w{-r simplecov}
+          t.rspec_opts = %w{-r simplecov} + test_options + t.rspec_opts
         end
         file entry_path => :report
 
