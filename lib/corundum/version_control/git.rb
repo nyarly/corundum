@@ -3,6 +3,11 @@ require 'corundum/version_control'
 module Corundum
   class Git < VersionControl
     setting(:branch, nil)
+    setting(:build_finished_task)
+
+    def default_configuration(toolkit)
+      self.build_finished_task ||= toolkit.finished_files.build
+    end
 
     def resolve_configuration
       @branch ||= guess_branch
@@ -94,6 +99,7 @@ module Corundum
 
         task :check_in => [:push]
       end
+      task build_finished_task => in_namespace("is_checked_in")
     end
   end
 end
