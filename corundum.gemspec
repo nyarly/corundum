@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   # Do this: y$@"
   # !!find lib bin doc spec spec_help -not -regex '.*\.sw.' -type f
   spec.files		= %w[
+    bin/corundum-rakefile
     lib/corundum.rb
     lib/corundum/configuration-store.rb
     lib/corundum/core.rb
@@ -61,6 +62,7 @@ Gem::Specification.new do |spec|
     spec_help/file-sandbox.rb
   ]
 
+  spec.executables = %w{corundum-rakefile}
   spec.test_file        = "spec_help/gem_test_suite.rb"
   spec.licenses = ["MIT"]
   spec.require_paths = %w[lib/]

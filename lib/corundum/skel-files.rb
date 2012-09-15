@@ -1,6 +1,6 @@
 module Corundum
   class SkelFiles < Mattock::Tasklib
-    default_namespace :skel_files
+    default_namespace :skel
 
     def define
       in_namespace do
