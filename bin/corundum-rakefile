@@ -1,0 +1,16 @@
+# vi: set ft=ruby:
+require 'optparse'
+require 'corundum/configuration-store'
+
+options = {
+  :write => false
+}
+parser = OptionParser.new do |opti|
+  opti.banner = "Usage: #{$0} [options]"
+
+  opti.on "-w", "--write", "Actually write Rakefile" do |v|
+    options[:write] = v
+  end
+end
+
+puts Corundum.configuration_store.loaded["example-rakefile"]

@@ -24,3 +24,19 @@ Documentation:
   specs,
   showoff,
   handwritten
+
+
+Missing a case of missing files... don't remember what it was, but I definitely deployed a gem with files missing
+
+Also:
+WARNING: Global access to Rake DSL methods is deprecated.  Please include
+    ...  Rake::DSL into classes and modules which use the Rake DSL methods.
+    WARNING: DSL method Module#task called at /home/judson/ruby/gems/word-bloom/Rakefile:20:in `block in <module:Corundum>'
+
+Improve on current simplecov config message:
+Try this in /home/judson/ruby/gems/word-bloom/.simplecov
+(You can just do ./.bundle/bin/rake > /home/judson/ruby/gems/word-bloom/.simplecov)
+
+Some default files?
+corundum-rakefile as bin?
+tasks for e.g. spec_help/gem_spec_test.rb?
