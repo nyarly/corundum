@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     corundum (0.0.19)
-      bundler (~> 1.1.0)
+      bundler (>= 1.1.0)
       compass (>= 0.12.1)
       mailfactory (~> 1.4.0)
       mattock (>= 0.2.13)
