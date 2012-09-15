@@ -6,7 +6,8 @@ module Corundum
     setting(:build_finished_task)
 
     def default_configuration(toolkit)
-      self.build_finished_task ||= toolkit.finished_files.build
+      super
+      self.build_finished_task = toolkit.finished_files.build
     end
 
     def resolve_configuration
