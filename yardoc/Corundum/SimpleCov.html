@@ -442,7 +442,7 @@
     <span class='kw'>end</span>
 
     <span class='ivar'>@test_lib</span><span class='period'>.</span><span class='id identifier rubyid_doc_task'>doc_task</span><span class='lparen'>(</span><span class='symbol'>:report</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:config_exists</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_all_files'>all_files</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_t'>t</span><span class='op'>|</span>
-      <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_rspec_opts'>rspec_opts</span> <span class='op'>+=</span> <span class='id identifier rubyid_test_options'>test_options</span> <span class='op'>+</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>-r</span><span class='words_sep'> </span><span class='tstring_content'>simplecov</span><span class='words_sep'>}</span>
+      <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_rspec_opts'>rspec_opts</span> <span class='op'>=</span> <span class='qwords_beg'>%w{</span><span class='tstring_content'>-r</span><span class='words_sep'> </span><span class='tstring_content'>simplecov</span><span class='words_sep'>}</span> <span class='op'>+</span> <span class='id identifier rubyid_test_options'>test_options</span> <span class='op'>+</span> <span class='id identifier rubyid_t'>t</span><span class='period'>.</span><span class='id identifier rubyid_rspec_opts'>rspec_opts</span>
     <span class='kw'>end</span>
     <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_entry_path'>entry_path</span> <span class='op'>=&gt;</span> <span class='symbol'>:report</span>
 
@@ -598,7 +598,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May 17 23:12:12 2012 by
+  Generated on Fri Sep 14 18:24:30 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.1 (ruby-1.9.3).
 </div>

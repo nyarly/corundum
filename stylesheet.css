@@ -6,7 +6,6 @@ html {
   background: #6c7989 -webkit-linear-gradient(#6c7989, #434b55) fixed;
   background: #6c7989 -moz-linear-gradient(#6c7989, #434b55) fixed;
   background: #6c7989 -o-linear-gradient(#6c7989, #434b55) fixed;
-  background: #6c7989 -ms-linear-gradient(#6c7989, #434b55) fixed;
   background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;
 }
 
@@ -70,7 +69,6 @@ header {
   background: -webkit-linear-gradient(#ddfbfc, #c6eafa);
   background: -moz-linear-gradient(#ddfbfc, #c6eafa);
   background: -o-linear-gradient(#ddfbfc, #c6eafa);
-  background: -ms-linear-gradient(#ddfbfc, #c6eafa);
   background: linear-gradient(#ddfbfc, #c6eafa);
   position: relative;
   padding: 15px 20px;
@@ -127,7 +125,6 @@ header ul {
   background: -webkit-linear-gradient(#77b9fb, #3782cd);
   background: -moz-linear-gradient(#77b9fb, #3782cd);
   background: -o-linear-gradient(#77b9fb, #3782cd);
-  background: -ms-linear-gradient(#77b9fb, #3782cd);
   background: linear-gradient(#77b9fb, #3782cd);
   border-radius: 5px;
   -webkit-box-shadow: inset rgba(255, 255, 255, 0.45) 0 1px 0, inset rgba(0, 0, 0, 0.2) 0 -1px 0;
@@ -201,7 +198,6 @@ section {
   background: -webkit-linear-gradient(#fafafa, #dedede 700px);
   background: -moz-linear-gradient(#fafafa, #dedede 700px);
   background: -o-linear-gradient(#fafafa, #dedede 700px);
-  background: -ms-linear-gradient(#fafafa, #dedede 700px);
   background: linear-gradient(#fafafa, #dedede 700px);
   -webkit-border-radius: 0 0 8px 8px;
   -moz-border-radius: 0 0 8px 8px;

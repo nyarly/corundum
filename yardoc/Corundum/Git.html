@@ -168,7 +168,8 @@
         <span class='kw'>end</span>
 
         <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:check_in</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:push</span><span class='rbracket'>]</span>
-      <span class='kw'>end</span></pre>
+      <span class='kw'>end</span>
+      <span class='id identifier rubyid_task'>task</span> <span class='id identifier rubyid_build_finished_task'>build_finished_task</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is_checked_in</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></pre>
 
 
 
@@ -203,6 +204,32 @@
 </li>
 
     
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_finished_task-instance_method" title="#build_finished_task (instance method)">- (Object) <strong>build_finished_task</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting build_finished_task.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -216,6 +243,28 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_configuration-instance_method" title="#default_configuration (instance method)">- (Object) <strong>default_configuration</strong>(toolkit) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -338,18 +387,45 @@
   
   
   
-  
-  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="VersionControl.html" title="Corundum::VersionControl (class)">VersionControl</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="VersionControl.html#default_configuration-instance_method" title="Corundum::VersionControl#default_configuration (method)">#default_configuration</a></span></p>
-
-  
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="define-instance_method">
+  <h3 class="signature first" id="default_configuration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>default_configuration</strong>(toolkit) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/git.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_build_finished_task'>build_finished_task</span> <span class='op'>=</span> <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="define-instance_method">
   
     - (<tt>Object</tt>) <strong>define</strong> 
   
@@ -363,12 +439,6 @@
       <pre class="lines">
 
 
-32
-33
-34
-35
-36
-37
 38
 39
 40
@@ -428,10 +498,17 @@
 94
 95
 96
-97</pre>
+97
+98
+99
+100
+101
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/git.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/git.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
   <span class='kw'>super</span>
@@ -498,6 +575,7 @@
 
     <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:check_in</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:push</span><span class='rbracket'>]</span>
   <span class='kw'>end</span>
+  <span class='id identifier rubyid_task'>task</span> <span class='id identifier rubyid_build_finished_task'>build_finished_task</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is_checked_in</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -519,14 +597,14 @@
       <pre class="lines">
 
 
-19
-20
-21
-22
-23</pre>
+25
+26
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/git.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/git.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_git'>git</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_git_command'>git_command</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span>
@@ -553,16 +631,16 @@
       <pre class="lines">
 
 
-11
-12
-13
-14
-15
-16
-17</pre>
+17
+18
+19
+20
+21
+22
+23</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/git.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/git.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_git_command'>git_command</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--no-pager</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cmd'>cmd</span><span class='op'>|</span>
@@ -591,15 +669,15 @@
       <pre class="lines">
 
 
-25
-26
-27
-28
-29
-30</pre>
+31
+32
+33
+34
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/git.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/git.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_guess_branch'>guess_branch</span>
   <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Guessing branch - configure Git &gt; branch</span><span class='tstring_end'>&quot;</span></span>
@@ -627,12 +705,12 @@
       <pre class="lines">
 
 
-7
-8
-9</pre>
+13
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/git.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/git.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
   <span class='ivar'>@branch</span> <span class='op'>||=</span> <span class='id identifier rubyid_guess_branch'>guess_branch</span>
@@ -647,7 +725,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu May 17 23:12:13 2012 by
+  Generated on Fri Sep 14 18:24:31 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.1 (ruby-1.9.3).
 </div>
