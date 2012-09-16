@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
-  spec.version		= "0.0.21"
+  spec.version		= "0.0.22"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -64,7 +64,7 @@ Gem::Specification.new do |spec|
     spec_help/file-sandbox.rb
   ]
 
-  spec.executables = %w{corundum-rakefile}
+  spec.executables = %w{corundum-skel}
   spec.test_file        = "spec_help/gem_test_suite.rb"
   spec.licenses = ["MIT"]
   spec.require_paths = %w[lib/]

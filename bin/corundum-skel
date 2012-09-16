@@ -1,0 +1,39 @@
+# vi: set ft=ruby:
+require 'optparse'
+require 'corundum/configuration-store'
+require 'rake/application'
+
+skelfiles = [ {
+  :source => 'skel-files/rakefile',
+  :target => 'Rakefile',
+  :unless => Rake::Application::DEFAULT_RAKEFILES,
+},
+{
+  :source => 'skel-files/gemspec',
+  :target => 'gemspec.rb',
+  :unless => ['gemspec.rb', '*.gemspec'],
+},
+{
+  :source => 'skel-files/gemfile',
+  :target => 'Gemfile',
+  :unless => ['Gemfile'],
+} ]
+
+if %w{-h --help -help help}.include?(ARGV[0])
+  puts "Spits out skeleton files to start a gem with."
+  puts "Files are copied from the skel-files directory out of this search path:"
+  puts
+  puts Corundum.configuration_store.valise
+  exit 0
+end
+
+skelfiles.each do |desc|
+  unless (found = desc[:unless].map{|pattern| Dir.glob(pattern)}.flatten).empty?
+    puts "Refusing to clobber existing '#{found.first}'"
+  else
+    File::open(desc[:target], "w") do |file|
+      file.write(Corundum.configuration_store.loaded[desc[:source]])
+    end
+    puts "Created #{desc[:target]}"
+  end
+end
