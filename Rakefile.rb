@@ -4,6 +4,8 @@ require 'mattock/yard_extensions'
 include Corundum
 Corundum::register_project(__FILE__)
 
+file 'bin/corundum-skel'
+
 tk = Toolkit.new do |tk|
   tk.file_lists.project = [__FILE__]
 end
@@ -38,5 +40,6 @@ tk.in_namespace do
   end
   pages = GithubPages.new(all_docs)
 end
+
 
 task :default => [:release, :publish_docs]

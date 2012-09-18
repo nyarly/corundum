@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   # Do this: y$@"
   # !!find lib bin doc spec spec_help -not -regex '.*\.sw.' -type f
   spec.files		= %w[
-    bin/corundum-rakefile
+    bin/corundum-skel
     lib/corundum.rb
     lib/corundum/configuration-store.rb
     lib/corundum/core.rb
@@ -48,8 +48,9 @@ Gem::Specification.new do |spec|
     lib/corundum/version_control/monotone.rb
     lib/corundum/version_control/git.rb
     lib/corundum/default_configuration/preferences.yaml
-    lib/corundum/default_configuration/example-rakefile
+    lib/corundum/default_configuration/skel-files/rakefile
     lib/corundum/default_configuration/skel-files/gemspec
+    lib/corundum/default_configuration/skel-files/gemfile
     lib/corundum/default_configuration/templates/doc_assembly/index.html.erb
     lib/corundum/default_configuration/templates/doc_assembly/theme/sass/styles.scss
     lib/corundum/default_configuration/templates/doc_assembly/theme/stylesheets/pygment_trac.css
