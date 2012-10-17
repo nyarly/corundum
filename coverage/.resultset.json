@@ -7,6 +7,7 @@
         1,
         null,
         1,
+        1,
         null
       ],
       "/home/judson/ruby/gems/corundum/lib/corundum/configuration-store.rb": [
@@ -1557,6 +1558,6 @@
         null
       ]
     },
-    "timestamp": 1347700390
+    "timestamp": 1350493904
   }
 }

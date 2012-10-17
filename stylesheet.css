@@ -378,7 +378,7 @@ footer p + p {
     float: none;
   }
 }
-@media print, screen and (max-width:580px) {
+@media print, screen and (max-width: 580px) {
   /* line 308, doc_assembly/theme/sass/styles.scss */
   header ul {
     display: none;

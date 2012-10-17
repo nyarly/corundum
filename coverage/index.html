@@ -23,14 +23,14 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-09-15T02:13:10-07:00">2012-09-15T02:13:10-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-10-17T10:11:44-07:00">2012-10-17T10:11:44-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">60.71%</span></span>
+    (<span class="covered_percent"><span class="red">60.76%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
@@ -41,8 +41,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>22</b> files in total.
-    <b>873</b> relevant lines. 
-    <span class="green"><b>530</b> lines covered</span> and
+    <b>874</b> relevant lines. 
+    <span class="green"><b>531</b> lines covered</span> and
     <span class="red"><b>343</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -62,9 +62,9 @@
       <tr>
         <td class="strong"><a href="#40b1a87f29241930a6c0500cd72ea10da2241237" class="src_link" title="lib/corundum.rb">lib/corundum.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>6</td>
-        <td>4</td>
-        <td>4</td>
+        <td>7</td>
+        <td>5</td>
+        <td>5</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -300,8 +300,8 @@
     <h3>lib/corundum.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>4</b> relevant lines. 
-      <span class="green"><b>4</b> lines covered</span> and
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -339,7 +339,13 @@
           <code class="ruby">module Corundum</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  extend Rake::DSL</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">end</code>
@@ -5802,7 +5808,7 @@
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">    setting :ruby_command, Mattock::CommandLine.new(RbConfig.ruby) do |cmd|</code>
+          <code class="ruby">    setting :ruby_command, cmd(RbConfig.ruby) do |cmd|</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="7">
