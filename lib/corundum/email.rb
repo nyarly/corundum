@@ -11,6 +11,7 @@ module Corundum
     setting(:urls, nested.required_fields(:home_page, :project_page))
 
     def default_configuration(toolkit)
+      super
       self.rubyforge = toolkit.rubyforge
       self.gemspec = toolkit.gemspec
       self.urls.home_page = toolkit.gemspec.homepage

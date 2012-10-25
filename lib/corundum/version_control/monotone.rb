@@ -7,6 +7,7 @@ module Corundum
     setting(:branch, nil)
 
     def resolve_configuration
+      super
       @branch ||= guess_branch
     end
 

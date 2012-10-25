@@ -11,6 +11,7 @@ module Corundum
     end
 
     def resolve_configuration
+      super
       @branch ||= guess_branch
     end
 

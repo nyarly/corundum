@@ -28,10 +28,12 @@ module Corundum
     end
 
     def default_configuration(toolkit)
+      super
       toolkit.copy_settings_to(self)
     end
 
     def resolve_configuration
+      super
       if unset?(docs_root)
         self.docs_root = File::join(corundum_dir, "docs")
       end

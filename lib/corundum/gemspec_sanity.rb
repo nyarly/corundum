@@ -7,6 +7,7 @@ module Corundum
     setting(:gemspec)
 
     def default_configuration(toolkit)
+      super
       self.gemspec = toolkit.gemspec
     end
 

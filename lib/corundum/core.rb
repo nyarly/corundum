@@ -45,6 +45,7 @@ module Corundum
     end
 
     def resolve_configuration
+      super
       load_gemspec
 
       self.finished_dir ||= File::join(corundum_dir, "finished")

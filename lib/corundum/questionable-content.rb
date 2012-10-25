@@ -10,6 +10,7 @@ module Corundum
     setting :files
 
     def default_configuration(core)
+      super
       self.files = core.file_lists.code
     end
 
@@ -33,6 +34,7 @@ module Corundum
 
 
           files.each do |filename|
+
             File::open(filename) do |file|
               file.grep(line_regexp) do |line|
                 line.scan(word_regexp) do |word|

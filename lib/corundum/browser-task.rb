@@ -7,6 +7,7 @@ module Corundum
     setting(:task_name, "view")
 
     def default_configuration(parent)
+      super
       self.browser = parent.browser
     end
 
@@ -15,6 +16,7 @@ module Corundum
     end
 
     def resolve_configuration
+      super
       self.command = Mattock::CommandLine.new(browser, index_html)
     end
   end

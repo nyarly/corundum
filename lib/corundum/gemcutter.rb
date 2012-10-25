@@ -12,6 +12,7 @@ module Corundum
     setting(:package_dir)
 
     def default_configuration(toolkit, build)
+      super
       self.build = build
       self.gemspec = toolkit.gemspec
       self.build_finished_path = toolkit.finished_files.build
@@ -20,6 +21,7 @@ module Corundum
     end
 
     def resolve_configuration
+      super
       self.gem_path ||= File::join(package_dir, gemspec.file_name)
     end
 

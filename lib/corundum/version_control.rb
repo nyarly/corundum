@@ -7,6 +7,7 @@ module Corundum
     required_fields(:gemspec, :build_finished_file, :gemspec_files, :tag)
 
     def default_configuration(toolkit)
+      super
       self.gemspec =  toolkit.gemspec
       self.build_finished_file =  toolkit.finished_files.build
       self.gemspec_files = toolkit.files.code + toolkit.files.test

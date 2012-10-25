@@ -20,6 +20,7 @@ module Corundum
     setting :target_dir
 
     def default_configuration(parent)
+      super
       parent.copy_settings_to(self)
     end
 
@@ -51,11 +52,13 @@ module Corundum
     end
 
     def default_configuration(doc_gen)
+      super
       self.source_dir = doc_gen.target_dir
       self.docs_index = doc_gen.entry_point
     end
 
     def resolve_configuration
+      super
       self.repo_dir ||= File::join(target_dir, ".git")
     end
 

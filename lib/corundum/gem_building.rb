@@ -7,6 +7,7 @@ module Corundum
     setting(:package_dir, "pkg")
 
     def default_configuration(toolkit)
+      super
       self.gemspec =  toolkit.gemspec
       self.qa_finished_file =  toolkit.finished_files.qa
     end
