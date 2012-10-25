@@ -37,3 +37,11 @@ Try this in /home/judson/ruby/gems/word-bloom/.simplecov
 (You can just do ./.bundle/bin/rake > /home/judson/ruby/gems/word-bloom/.simplecov)
 
 tasks for e.g. spec_help/gem_spec_test.rb?
+
+Feature: if the target gem version is pre-release, some QA rules get relaxed?
+
+Feature: QA should check for gem deps in Gemfile - specs aren't valid for QA if so
+  - consider building new Gemfile without those gem lines and seeing if specs pass
+  - still allows for the case of a gem that passes specs but can't run in the wild
+
+Feature: run specs file-by-file to try to isolate require fails?

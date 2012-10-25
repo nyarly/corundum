@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
-  spec.version		= "0.0.23"
+  spec.version		= "0.0.24"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -94,7 +94,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mailfactory", "~> 1.4.0"
   spec.add_dependency "rspec", ">= 2.0"
   spec.add_dependency "simplecov", ">= 0.5.4"
-  spec.add_dependency "bundler", ">= 1.1.0"
+  spec.add_dependency "bundler"
   spec.add_dependency "nokogiri"
   spec.add_dependency "mattock", ">= 0.3.0"
   spec.add_dependency "sass", ">= 3.1"
