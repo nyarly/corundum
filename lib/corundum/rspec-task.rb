@@ -2,7 +2,7 @@ require 'rbconfig'
 require 'mattock/command-task'
 
 module Corundum
-  class RSpecTask < Mattock::CommandTask
+  class RSpecTask < Mattock::Rake::CommandTask
     setting :ruby_command, cmd(RbConfig.ruby) do |cmd|
       if /^1\.8/ =~ RUBY_VERSION
         cmd.options << "-S"

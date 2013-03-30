@@ -26,7 +26,7 @@ module Corundum
     def default_configuration(toolkit, *documenters)
       super(toolkit)
       self.documenters = documenters
-      self.valise = Corundum::configuration_store.valise
+      self.templates_are_in(Corundum::configuration_store.valise)
 
       self.compass_config.http_stylesheets_path = css_dir
       self.compass_config.project_path = template_path("doc_assembly/theme")
@@ -58,7 +58,7 @@ module Corundum
           end
         end
 
-        #Colision of doc groups
+        #Collision of doc groups
         task :collect => documenters.keys
 
         task :setup_compass do

@@ -2,7 +2,7 @@ require 'mattock/tasklib'
 require 'mattock/task'
 
 module Corundum
-  class GitTask < Mattock::CommandTask
+  class GitTask < Mattock::Rake::CommandTask
     setting(:subcommand)
     setting(:arguments, [])
 
@@ -16,7 +16,7 @@ module Corundum
     end
   end
 
-  class InDirCommandTask < Mattock::CommandTask
+  class InDirCommandTask < Mattock::Rake::CommandTask
     setting :target_dir
 
     def default_configuration(parent)
@@ -85,7 +85,7 @@ module Corundum
           git("clone", url.chomp, target_dir)
         end
 
-        InDirCommandTask.new(self, :remote_branch => repo_dir) do |t|
+        InDirCommandTask.define_task(self, :remote_branch => repo_dir) do |t|
           t.verify_command = Mattock::PipelineChain.new do |chain|
             chain.add git_command(%w{branch -r})
             chain.add Mattock::CommandLine.new("grep", "-q", branch)
@@ -99,7 +99,7 @@ module Corundum
           end
         end
 
-        InDirCommandTask.new(self, :local_branch => :remote_branch) do |t|
+        InDirCommandTask.define_task(self, :local_branch => :remote_branch) do |t|
           t.verify_command = Mattock::PipelineChain.new do |chain|
             chain.add git_command(%w{branch})
             chain.add Mattock::CommandLine.new("grep", "-q", "'#{branch}'")
@@ -112,7 +112,7 @@ module Corundum
           end
         end
 
-        InDirCommandTask.new(self, :on_branch => [:remote_branch, :local_branch]) do |t|
+        InDirCommandTask.define_task(self, :on_branch => [:remote_branch, :local_branch]) do |t|
           t.verify_command = Mattock::PipelineChain.new do |chain|
             chain.add git_command(%w{branch})
             chain.add Mattock::CommandLine.new("grep", "-q", "'^[*] #{branch}'")

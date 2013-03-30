@@ -34,13 +34,13 @@ module Corundum
     end
 
     def test_task(name)
-      RSpecTask.new(self, name) do |t|
+      RSpecTask.define_task(self, name) do |t|
         yield(t) if block_given?
       end
     end
 
     def doc_task(name)
-      RSpecReportTask.new(self, name) do |t|
+      RSpecReportTask.define_task(self, name) do |t|
         yield(t) if block_given?
       end
     end

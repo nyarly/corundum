@@ -1,3 +1,5 @@
+Bug: generated .rspec uses absolute paths ...
+
 Before rake release: run 'bundle install' to make sure that this gem's version is u2d in Gemfile.lock
 
 Missing something: "don't know how to build docs/Specification"
@@ -23,6 +25,7 @@ Documentation:
   coverage,
   specs,
   showoff,
+  rhet-butler
   handwritten
 
 
@@ -30,7 +33,6 @@ Missing a case of missing files... don't remember what it was, but I definitely 
 Just happened again: lib/corundum/default_configuration/ files missed on release.
   They're not tested, but they're part of the release.
   Maybe add incl/excl lists for QA for files?  So "everything under lib should be in the gem..."
-
 
 Improve on current simplecov config message:
 Try this in /home/judson/ruby/gems/word-bloom/.simplecov
@@ -45,3 +47,7 @@ Feature: QA should check for gem deps in Gemfile - specs aren't valid for QA if 
   - still allows for the case of a gem that passes specs but can't run in the wild
 
 Feature: run specs file-by-file to try to isolate require fails?
+
+Feature: QC tool should list line numbers for iffy words
+
+Feature: documentation coverage as a QA requirement

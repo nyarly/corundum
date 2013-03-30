@@ -62,7 +62,7 @@ module Corundum
 
       in_namespace do
         desc "Open up a browser to view your documentation"
-        BrowserTask.new(self) do |t|
+        BrowserTask.define_task(self) do |t|
           t.index_html = entry_point
         end
       end

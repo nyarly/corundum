@@ -1,7 +1,7 @@
 require 'mattock/command-task'
 
 module Corundum
-  class BrowserTask < Mattock::CommandTask
+  class BrowserTask < Mattock::Rake::CommandTask
     setting(:browser, "chromium")
     setting(:index_html)
     setting(:task_name, "view")
