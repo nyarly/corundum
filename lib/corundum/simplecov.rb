@@ -117,6 +117,7 @@ module Corundum
           need_coverage = @code_files.find_all(&coverage_filter)
 
           report = QA::Report.new("Stragglers")
+          qa_rejections << report
           (covered_files - need_coverage).each do |file|
             report.add("Not in gemspec", file)
           end
