@@ -78,6 +78,7 @@ module Corundum
         task :reinstall => [:uninstall, :install]
 
         task :dependencies_available do
+          require 'corundum/qa-report'
           checker = Gem::SpecFetcher.new
           report = QA::Report.new("Gem dependencies")
           qa_rejections << report
