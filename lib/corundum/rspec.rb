@@ -10,7 +10,6 @@ module Corundum
       :qa_rejections => nil,
       :sub_dir => "rspec",
       :pattern => './spec{,/*/**}/*_spec.rb',
-      :rspec_opts => nil,
       :warning => false,
       :verbose => true,
       :ruby_opts => [],

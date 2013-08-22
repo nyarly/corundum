@@ -11,7 +11,7 @@ module Corundum
 
     setting :runner_command
 
-    required_fields :pattern, :ruby_opts, :rspec_opts,
+    required_fields :pattern, :ruby_opts,
       :warning, :rspec_path, :rspec_opts, :failure_message, :files_to_run,
       :file_dependencies
 
