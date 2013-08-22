@@ -75,7 +75,7 @@ module Corundum
 
         task :reinstall => [:uninstall, :install]
 
-        task :dependencies_available do
+        task :dependencies_available => :is_unpushed do
           checker = Gem::SpecFetcher.new
           gemspec.runtime_dependencies.each do |dep|
             fulfilling = checker.find_matching(dep,true,false,false)
