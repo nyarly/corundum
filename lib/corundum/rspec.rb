@@ -58,7 +58,7 @@ module Corundum
         end
         file entry_path => :doc
 
-        task :verify => :doc do |task|
+        task :verify => entry_path do |task|
           require 'nokogiri'
           require 'corundum/qa-report'
 
@@ -73,10 +73,10 @@ module Corundum
 
           fails_path = "//*[" + %w{example failed}.map{|kind| class_xpath(kind)}.join(" and ") + "]"
           doc.xpath(fails_path).each do |node|
-            backtrace_line = node.xpath(".//*[#{class_xpath("backtrace")}]").contents.split("\n").last
+            backtrace_line = node.xpath(".//*[#{class_xpath("backtrace")}]").first.content.split("\n").last
             file,line,_ = backtrace_line.split(":")
             label = "fail"
-            value = node.xpath(".//[#{class_xpath("message")}]").contents.gsub(/\s+/m, " ")
+            value = node.xpath(".//*[#{class_xpath("message")}]").first.content.gsub(/\s+/m, " ")
 
             rejections.add(label, file, line, value)
           end

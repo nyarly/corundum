@@ -114,7 +114,7 @@ module Corundum
             "//table[@class='file_list']//td//a[@class='src_link']").map do |link|
             link.content
             end
-          need_coverage = @code_files.find_all(&coverage_filter)
+          need_coverage = code_files.find_all(&coverage_filter)
 
           report = QA::Report.new("Stragglers")
           qa_rejections << report

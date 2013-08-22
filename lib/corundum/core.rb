@@ -36,7 +36,8 @@ module Corundum
                             :test => FileList['test/**/*.rb','spec/**/*.rb','features/**/*.rb'],
                             :docs => FileList['doc/**/*.rb'],
                             :project => FileList['Rakefile'],
-                            :all => nil)
+                            :all => nil),
+      :file_patterns => nested( :code => [%r{^lib/}], :test => [%r{^spec/}, %r{^test/}], :docs => [%r{^doc/}])
     )
 
     def load_gemspec
@@ -58,9 +59,9 @@ module Corundum
 
       @qa_rejections ||= []
 
-      @files.code ||= gemspec.files.grep(%r{^lib/})
-      @files.test ||= gemspec.files.grep(%r{^spec/})
-      @files.docs ||= gemspec.files.grep(%r{^doc/})
+      @files.code ||= file_patterns.code.map{ |pattern| gemspec.files.grep(pattern) }.flatten
+      @files.test ||= file_patterns.test.map{ |pattern| gemspec.files.grep(pattern) }.flatten
+      @files.docs ||= file_patterns.docs.map{ |pattern| gemspec.files.grep(pattern) }.flatten
 
       @file_lists.project << gemspec_path
       @file_lists.all  ||=
