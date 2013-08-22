@@ -8,49 +8,47 @@ module Corundum
     setting :comments, false
     setting :accept_token, /#ok/
     setting :files
+    setting :qa_rejections
 
     def default_configuration(core)
       super
-      self.files = core.file_lists.code
+      core.copy_settings_to(self)
     end
 
     def define
       in_namespace do
-        task type do
+        task type do |task|
+          require 'corundum/qa-report'
+
           word_regexp = %r{#{words.map{|word| "\\b#{word}\\b"}.join("|")}}
-          line_regexp = comments ? %r{\A\s*#.*#{word_regexp}} : word_regexp
+          line_regexp = case comments
+                        when true, :only
+                          %r{\A\s*#.*#{word_regexp}}
+                        when false, :both
+                          word_regexp
+                        when :ignore
+                          %r{\A\s*[^#]*#{word_regexp}} #this will fail like "Stuff #{interp}" <word>
+                        end
+
           unless accept_token.nil?
             line_regexp = /#{line_regexp}(?:.(?!#{accept_token}))*\s*\Z/
-
           end
 
-          found_words = Hash.new do |h,k|
-            h[k] = 0
-          end
-
-          files_with_words = Hash.new do |h,k|
-            h[k] = {}
-          end
-
-
+          rejections = QA::Report.new("Content: #{type} #{words.inspect}")
+          qa_rejections << rejections
           files.each do |filename|
-
             File::open(filename) do |file|
-              file.grep(line_regexp) do |line|
+              file.each_line.with_index do |line, line_number|
+                next unless line_regexp =~ line
                 line.scan(word_regexp) do |word|
-                  files_with_words[filename][word] = true
-                  found_words[word] += 1
+                  rejections << QA::Rejection.new(word, file, line_number+1)
                 end
               end
             end
           end
 
-          total = found_words.values.inject{|acc, num| acc + num} || 0
-
-          if total > limit
-            require 'pp'
-            report = PP::pp([files_with_words, found_words], "")
-            fail "Exceeded limits on words: #{words.join(",")}.  Full report:\n#{report}"
+          if rejections.length > limit
+            rejections.fail "Maximum allowed uses: #{limit}"
           end
         end
       end

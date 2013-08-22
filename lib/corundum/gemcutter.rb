@@ -78,7 +78,7 @@ module Corundum
         task :dependencies_available do
           checker = Gem::SpecFetcher.new
           gemspec.runtime_dependencies.each do |dep|
-            fulfilling = checker.find_matching(dep,false,false,false)
+            fulfilling = checker.find_matching(dep,true,false,false)
             if fulfilling.empty?
               fail "Dependency #{dep} is unfulfilled remotely"
             else

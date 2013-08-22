@@ -23,6 +23,7 @@ module Corundum
       :finished_dir => nil,
       :package_dir => "pkg",
       :doc_dir => "rubydoc",
+      :qa_rejections => nil,
       :browser => Corundum.user_preferences["browser"],
       :finished_files => nested.nil_fields(:build, :qa, :package, :release, :press),
       :files => nested.nil_fields(:code, :test, :docs),
@@ -54,6 +55,8 @@ module Corundum
       @finished_files.qa ||= File::join( finished_dir, "qa_#{gemspec.version}")
       @finished_files.release ||= File::join( finished_dir, "release_#{gemspec.version}")
       @finished_files.press ||= File::join( finished_dir, "press_#{gemspec.version}")
+
+      @qa_rejections ||= []
 
       @files.code ||= gemspec.files.grep(%r{^lib/})
       @files.test ||= gemspec.files.grep(%r{^spec/})
@@ -92,10 +95,18 @@ module Corundum
         task :preflight
 
         desc "Run quality assurance tasks"
-        task :qa => [:preflight, finished_files.qa]
+        task :qa => [:preflight, finished_files.qa] do
+          require 'corundum/qa-report'
+          puts QA::ReportFormatter.new(qa_rejections).to_s
+
+          unless qa_rejections.all?(&:passed)
+            fail "There are QA tests that failed"
+          end
+        end
+
         file finished_files.qa =>
         [finished_dir] + file_lists.project + file_lists.code + file_lists.test do |task|
-          Rake::Task[:qa].invoke #because I don't want this to be needed if it's not
+          Rake::Task[:qa].invoke
           touch task.name
         end
 

@@ -7,6 +7,7 @@ module Corundum
     title "RSpec run output"
 
     settings(
+      :qa_rejections => nil,
       :sub_dir => "rspec",
       :pattern => './spec{,/*/**}/*_spec.rb',
       :rspec_opts => nil,
@@ -24,6 +25,7 @@ module Corundum
     def default_configuration(toolkit)
       super
       self.qa_finished_path = toolkit.finished_files.qa
+      self.qa_rejections = toolkit.qa_rejections
     end
 
     def resolve_configuration
@@ -53,10 +55,37 @@ module Corundum
 
         desc "Generate specifications documentation"
         doc_task(:doc) do |t|
-          t.rspec_opts = %w{-o /dev/null -f h -o} + [t.doc_path]
-          t.failure_message = "Failed generating specification docs"
+          t.rspec_opts = %w{-o /dev/null --failure-exit-code 0 -f h -o} + [t.doc_path]
         end
         file entry_path => :doc
+
+        task :verify => :doc do |task|
+          require 'nokogiri'
+          require 'corundum/qa-report'
+
+          doc = Nokogiri::parse(File::read(entry_path))
+
+          rejections = QA::Report.new("RSpec")
+          qa_rejections << rejections
+
+          def class_xpath(name)
+            "contains(concat(' ', normalize-space(@class), ' '), '#{name}')"
+          end
+
+          fails_path = "//*[" + %w{example failed}.map{|kind| class_xpath(kind)}.join(" and ") + "]"
+          doc.xpath(fails_path).each do |node|
+            backtrace_line = node.xpath(".//*[#{class_xpath("backtrace")}]").contents.split("\n").last
+            file,line,_ = backtrace_line.split(":")
+            label = "fail"
+            value = node.xpath(".//[#{class_xpath("message")}]").contents.gsub(/\s+/m, " ")
+
+            rejections.add(label, file, line, value)
+          end
+
+          unless rejections.empty?
+            rejections.fail "Spec fails, none allowed"
+          end
+        end
 
         desc "Run only failing examples listed in last_run"
         test_task(:quick) do |t|
@@ -80,7 +109,7 @@ module Corundum
       desc "Run failing examples if any exist, otherwise, run the whole suite"
       task root_task => in_namespace(:quick)
 
-      task :qa => in_namespace(:doc)
+      task :qa => in_namespace(:verify)
     end
   end
 end

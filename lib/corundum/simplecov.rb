@@ -25,11 +25,14 @@ module Corundum
 
     setting(:test_options, [])
 
+    setting :qa_rejections, nil
+
     def default_configuration(toolkit, testlib)
       super(toolkit)
       self.test_lib = testlib
       self.code_files = toolkit.files.code
       self.all_files =  toolkit.file_lists.project + toolkit.file_lists.code + toolkit.file_lists.test
+      self.qa_rejections = toolkit.qa_rejections
     end
 
     def resolve_configuration
@@ -84,18 +87,26 @@ module Corundum
 
         task :verify_coverage => :generate_report do
           require 'nokogiri'
+          require 'corundum/qa-report'
 
           doc = Nokogiri::parse(File::read(entry_path))
 
           coverage_total_xpath = "//span[@class='covered_percent']/span"
           percentage = doc.xpath(coverage_total_xpath).first.content.to_f
 
-          raise "Coverage must be at least #{threshold} but was #{percentage}" if percentage < threshold
-          puts "Coverage is #{percentage}% (required: #{threshold}%)"
+          report = QA::Report.new("Coverage")
+          report.add("percentage", entry_page, nil, percentage)
+          report.add("threshold", entry_page, nil, threshold)
+          qa_rejections << report
+
+          if percentage < threshold
+            report.fail "Coverage below threshold"
+          end
         end
 
         task :find_stragglers => :generate_report do
           require 'nokogiri'
+          require 'corundum/qa-report'
 
           doc = Nokogiri::parse(File::read(entry_path))
 
@@ -105,12 +116,17 @@ module Corundum
             end
           need_coverage = @code_files.find_all(&coverage_filter)
 
-          not_listed = covered_files - need_coverage
-          not_covered = need_coverage - covered_files
-          unless not_listed.empty? and not_covered.empty?
-            raise ["Covered files and gemspec manifest don't match:",
-              "Not in gemspec: #{not_listed.inspect}",
-            "Not covered: #{not_covered.inspect}"].join("\n")
+          report = QA::Report.new("Stragglers")
+          (covered_files - need_coverage).each do |file|
+            report.add("Not in gemspec", file)
+          end
+
+          (need_coverage - covered_files).each do |file|
+            report.add("Not covered", file)
+          end
+
+          unless report.empty?
+            report.fail "Covered files and gemspec manifest don't match"
           end
         end
       end

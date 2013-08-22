@@ -8,8 +8,11 @@ Documentation assembly is masking rebuilds of docs
 
 QA tests:
   XXX, FIXME, profanity filters of code and specs (configurable?)
-  p in files
-  debugger in files
+  QC filter needs a "allow this many..."
+  QC filter: 'default_profanity' so that you don't have to have it in your Rakefile
+    (if you care)
+  QC filter: ignore_comments (because commented out debugging lines are useful)
+
   Empty filelist
   gemspec filelist is a subset of VC known files
   Check that gem authors are gem owners?
@@ -17,6 +20,8 @@ QA tests:
     (or gem lines at all?)  - needs a lot of configurablity
   spec files included
   YARD templates missing (?)
+
+Version control QA should come LAST - otherwise there's lots of little dinky commits
 
 Twitter press - external user preferences means that API keys can live on
 machine, not in repo
@@ -51,3 +56,9 @@ Feature: run specs file-by-file to try to isolate require fails?
 Feature: QC tool should list line numbers for iffy words
 
 Feature: documentation coverage as a QA requirement
+
+corundum-skel should generate <project>.gemspec, not gemspec.rb - either last part of PWD or ARGV[0]
+corundum-skel should use optparse
+corundum-skel should create directories
+corundum-skel should have a config file: directories to create, files to template.
+Skel'd gemspec should have commented out executables line

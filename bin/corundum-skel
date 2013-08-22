@@ -1,3 +1,4 @@
+#! /bin/env ruby
 # vi: set ft=ruby:
 require 'optparse'
 require 'corundum/configuration-store'

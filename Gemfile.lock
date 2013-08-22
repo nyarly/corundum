@@ -17,9 +17,9 @@ PATH
 PATH
   remote: ../mattock
   specs:
-    mattock (0.4.0)
+    mattock (0.4.1)
       tilt (> 0)
-      valise (>= 0.9)
+      valise (>= 0.9.1)
 
 GEM
   specs:
@@ -77,8 +77,8 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
-    tilt (1.3.5)
-    valise (0.9.0)
+    tilt (1.4.1)
+    valise (1.0.0)
     yard (0.8.3)
 
 PLATFORMS
