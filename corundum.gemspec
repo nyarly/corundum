@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
     lib/corundum.rb
     lib/corundum/configuration-store.rb
     lib/corundum/core.rb
+    lib/corundum/qa-report.rb
     lib/corundum/browser-task.rb
     lib/corundum/github-pages.rb
     lib/corundum/rspec.rb

@@ -10,6 +10,7 @@ module Corundum
     setting(:build_finished_path)
     setting(:gem_name)
     setting(:package_dir)
+    setting(:qa_rejections)
 
     def default_configuration(toolkit, build)
       super
@@ -18,6 +19,7 @@ module Corundum
       self.build_finished_path = toolkit.finished_files.build
       self.gem_name = toolkit.gemspec.full_name
       self.package_dir = build.package_dir
+      self.qa_rejections = toolkit.qa_rejections
     end
 
     def resolve_configuration
@@ -75,14 +77,17 @@ module Corundum
 
         task :reinstall => [:uninstall, :install]
 
-        task :dependencies_available => :is_unpushed do
+        task :dependencies_available do
           checker = Gem::SpecFetcher.new
+          report = QA::Report.new("Gem dependencies")
+          qa_rejections << report
           gemspec.runtime_dependencies.each do |dep|
             fulfilling = checker.find_matching(dep,true,false,false)
             if fulfilling.empty?
-              fail "Dependency #{dep} is unfulfilled remotely"
+              report.add("missing", File::basename(gemspec.loaded_from), nil, dep)
+              report.fail "Dependency unfulfilled remotely"
             else
-              puts "Remotely fulfilled: #{dep}" if verbose
+              report.add("fulfilled", File::basename(gemspec.loaded_from), nil, dep)
             end
           end
         end
@@ -106,7 +111,8 @@ module Corundum
         task :push => build_finished_path
       end
       task :release => in_namespace(:push)
-      task :preflight => in_namespace(:dependencies_available, :is_unpushed)
+      task :preflight => in_namespace(:is_unpushed)
+      task :qa => in_namespace(:dependencies_available)
     end
   end
 end

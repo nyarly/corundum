@@ -101,10 +101,10 @@ module Corundum
       def to_s(widths=nil)
         (passed ? "Ok" : "FAIL") +
         ": #{name} (#{length})\n" +
-          (summary.empty? ? "" : summary + "\n\n") +
+          (summary.empty? ? "" : (summary + "\n")) +
           rejects.map do |reject|
-          "  " + reject.to_s(widths)
-          end.join("\n")
+          "  " + reject.to_s(widths) + "\n"
+          end.join("")
       end
     end
   end
