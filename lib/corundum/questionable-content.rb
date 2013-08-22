@@ -35,7 +35,7 @@ module Corundum
             line_regexp = /#{line_regexp}(?:.(?!#{accept_token}))*\s*\Z/
           end
 
-          rejections = QA::Report.new("Content: #{type} #{words.inspect}")
+          rejections = QA::Report.new("Content: #{type}")
           qa_rejections << rejections
           files.each do |filename|
             File::open(filename) do |file|
