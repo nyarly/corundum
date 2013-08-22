@@ -5,37 +5,41 @@ module Corundum
       def initialize(reports)
         @reports = reports
       end
+      attr_reader :reports
 
       def to_s
         return "" if reports.empty?
 
-        widths = column_widths(reports, columns)
+        widths = column_widths(reports)
 
         reports.map do |report|
           report.to_s(widths)
         end.join("\n") + "\n\n" + totals + "\n\n"
-
-        string
       end
 
       protected
 
-      def column_widths(reports, columns)
-        {
-          :file_and_line => reports.map {|reject| reject.file_and_line.to_s.length }.max,
-          :label => reports.map {|reject| reject.label.to_s.length }.max,
-          :value => reports.map {|reject| reject.value.to_s.length }.max
-        }
+      def max_width(name, &block)
+        reports.map(&:rejects).flatten.map do |reject|
+          yield(reject).to_s.length
+        end.max
+      end
+
+      def column_widths(reports)
+        Hash[[:file_and_line, :label, :value].map do |name|
+          [name, max_width(name, &name)]
+        end]
       end
 
       def totals
-        "Total QA Rejections: #{reports.inject(0){|sum, length| sum + length}}"
+        "Total QA report items: #{reports.inject(0){|sum, report| sum + report.length}}"
+        "Total QA failing reports: #{reports.inject(0){|sum, report| sum + (report.passed ? 0 : 1)}}"
       end
     end
 
     class Rejection
       def initialize(label, file, line = nil, value = nil)
-        @file, @line, @label, @value = test, file, line, label, value
+        @file, @line, @label, @value = file, line, label, value
       end
       attr_reader :file, :line, :label, :value
 
@@ -45,18 +49,20 @@ module Corundum
             if line.nil?
               file
             else
-              "%s:%i" % file, line
+              [file, line].join(":")
             end
           end
       end
 
       def to_s(column_widths=nil)
         column_widths ||= {}
-        [
-          file_and_line.to_s.ljust(column_widths[:file_and_line]),
-          label.to_s.ljust(column_widths[:label]),
-          value.to_s.ljust(column_widths[:value])
-        ].join('  ')
+        [:file_and_line, :label, :value].map do |name|
+          if column_widths.has_key?(name)
+            self.send(name).to_s.ljust(column_widths[name])
+          else
+            self.send(name).to_s
+          end
+        end.join('  ')
       end
     end
 
@@ -67,7 +73,7 @@ module Corundum
         @passed = true
         @summary = ""
       end
-      attr_reader :rejects
+      attr_reader :name, :rejects
       attr_accessor :summary, :passed
 
       def <<(reject)
@@ -92,10 +98,10 @@ module Corundum
         @rejects.empty?
       end
 
-      def to_s(widths)
-        passed ? "Ok" : "FAIL"
+      def to_s(widths=nil)
+        (passed ? "Ok" : "FAIL") +
         ": #{name} (#{length})\n" +
-          summary.empty? ? "" : summary + "\n\n"
+          (summary.empty? ? "" : summary + "\n\n") +
           rejects.map do |reject|
           "  " + reject.to_s(widths)
           end.join("\n")

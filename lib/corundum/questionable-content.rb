@@ -13,6 +13,7 @@ module Corundum
     def default_configuration(core)
       super
       core.copy_settings_to(self)
+      self.files = core.file_lists.code
     end
 
     def define
