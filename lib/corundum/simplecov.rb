@@ -95,6 +95,7 @@ module Corundum
           percentage = doc.xpath(coverage_total_xpath).first.content.to_f
 
           report = QA::Report.new("Coverage")
+          report.summary_counts = false
           report.add("percentage", entry_path, nil, percentage)
           report.add("threshold", entry_path, nil, threshold)
           qa_rejections << report

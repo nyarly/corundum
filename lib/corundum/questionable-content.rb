@@ -42,7 +42,7 @@ module Corundum
               file.each_line.with_index do |line, line_number|
                 next unless line_regexp =~ line
                 line.scan(word_regexp) do |word|
-                  rejections << QA::Rejection.new(word, file, line_number+1)
+                  rejections << QA::Rejection.new(word, filename, line_number+1)
                 end
               end
             end

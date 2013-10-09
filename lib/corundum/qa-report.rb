@@ -72,9 +72,10 @@ module Corundum
         @rejects = []
         @passed = true
         @summary = ""
+        @summary_counts = true
       end
       attr_reader :name, :rejects
-      attr_accessor :summary, :passed
+      attr_accessor :summary, :passed, :summary_counts
 
       def <<(reject)
         @rejects << reject
@@ -100,7 +101,8 @@ module Corundum
 
       def to_s(widths=nil)
         (passed ? "Ok" : "FAIL") +
-        ": #{name} (#{length})\n" +
+        ": #{name} " +
+        (summary_counts ? "(#{length})" : "") + "\n" +
           (summary.empty? ? "" : (summary + "\n")) +
           rejects.map do |reject|
           "  " + reject.to_s(widths) + "\n"
