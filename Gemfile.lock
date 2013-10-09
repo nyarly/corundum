@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    corundum (0.0.31)
+    corundum (0.1.0)
       bundler
       compass (>= 0.12.1)
       mailfactory (~> 1.4.0)
@@ -43,9 +43,9 @@ GEM
     mattock (0.4.1)
       tilt (> 0)
       valise (>= 0.9.1)
-    mime-types (1.24)
+    mime-types (1.25)
     mini_portile (0.5.1)
-    multi_json (1.7.9)
+    multi_json (1.8.1)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     rake (10.1.0)
@@ -70,14 +70,14 @@ GEM
     ruby-debug-base (0.10.4)
       linecache (>= 0.3)
     ruby-progressbar (0.0.10)
-    sass (3.2.10)
+    sass (3.2.12)
     simplecov (0.7.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
     tilt (1.4.1)
     valise (1.0.0)
-    yard (0.8.7)
+    yard (0.8.7.2)
 
 PLATFORMS
   ruby
