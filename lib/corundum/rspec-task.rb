@@ -62,7 +62,8 @@ module Corundum
     end
 
     def out_of_date?(stamp)
-      @prerequisites.any? { |n| application[n, @scope].timestamp > stamp}
+      puts "\n#{__FILE__}:#{__LINE__} => #{{name => prerequisites}.inspect}"
+      prerequisites.any? { |n| application[n, @scope].timestamp > stamp}
     end
 
     def needed?

@@ -13,11 +13,13 @@ module Corundum
       :warning => false,
       :verbose => true,
       :ruby_opts => [],
-      :rspec_path => 'rspec',
+      :rspec_program => 'rspec',
       :rspec_opts => [],
       :failure_message => "Spec examples failed.",
       :files_to_run => "spec"
     )
+
+    setting :rspec_path
 
     required_fields :gemspec_path, :qa_finished_path, :file_lists, :file_dependencies
 
@@ -25,12 +27,11 @@ module Corundum
       super
       self.qa_finished_path = toolkit.finished_files.qa
       self.qa_rejections = toolkit.qa_rejections
+      self.file_dependencies = file_lists.code + file_lists.test + file_lists.project
     end
 
     def resolve_configuration
-      #XXX Que?
-      self.rspec_path = %x"which #{rspec_path}".chomp
-      self.file_dependencies = file_lists.code + file_lists.test + file_lists.project
+      self.rspec_path ||= %x"which #{rspec_program}".chomp
       super
     end
 
@@ -53,7 +54,7 @@ module Corundum
         test_task(:all)
 
         desc "Generate specifications documentation"
-        doc_task(:doc) do |t|
+        docn = doc_task(:doc => file_dependencies) do |t|
           t.rspec_opts = %w{-o /dev/null --failure-exit-code 0 -f h -o} + [t.doc_path]
         end
         file entry_path => :doc
@@ -73,7 +74,8 @@ module Corundum
 
           fails_path = "//*[" + %w{example failed}.map{|kind| class_xpath(kind)}.join(" and ") + "]"
           doc.xpath(fails_path).each do |node|
-            backtrace_line = node.xpath(".//*[#{class_xpath("backtrace")}]").first.content.split("\n").last
+            backtrace_line =
+              node.xpath(".//*[#{class_xpath("backtrace")}]").first.content.split("\n").first
             file,line,_ = backtrace_line.split(":")
             label = "fail"
             value = node.xpath(".//*[#{class_xpath("message")}]").first.content.gsub(/\s+/m, " ")
