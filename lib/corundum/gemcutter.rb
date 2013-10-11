@@ -95,17 +95,22 @@ module Corundum
 
         task :pinned_dependencies do
           return unless File::exists?("Gemfile.lock")
+          require 'corundum/qa-report'
           require 'bundler/lockfile_parser'
           parser = File::open("Gemfile.lock") do |lockfile|
             Bundler::LockfileParser.new(lockfile.read)
           end
           report = QA::Report.new("Bundler pinned dependencies")
           qa_rejections << report
+          runtime_deps = gemspec.runtime_dependencies.map(&:name)
           pinned_dependencies = parser.dependencies.each do |dep|
+            next unless runtime_deps.include? dep.name
             next if dep.source.nil?
             next if dep.source.respond_to?(:path) and dep.source.path.to_s == "."
             report.add("source", dep, nil, dep.source)
-            report.fail("Pinned development dependencies: spec results suspect")
+            report.fail("Pinned runtime dependencies:\n" +
+                        "   Specs depended on by the gemspec are pinned and " +
+                        "as a result, spec results are suspect\n")
           end
         end
 
