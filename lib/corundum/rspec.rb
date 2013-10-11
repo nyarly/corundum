@@ -65,7 +65,7 @@ module Corundum
 
           doc = Nokogiri::parse(File::read(entry_path))
 
-          rejections = QA::Report.new("RSpec")
+          rejections = QA::Report.new("RSpec[#{entry_path}]")
           qa_rejections << rejections
 
           def class_xpath(name)

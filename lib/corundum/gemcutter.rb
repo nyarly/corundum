@@ -80,16 +80,32 @@ module Corundum
         task :dependencies_available do
           require 'corundum/qa-report'
           checker = Gem::SpecFetcher.new
-          report = QA::Report.new("Gem dependencies")
+          report = QA::Report.new("Gem dependencies[#{File::basename(gemspec.loaded_from)}]")
           qa_rejections << report
           gemspec.runtime_dependencies.each do |dep|
             fulfilling = checker.find_matching(dep,true,false,false)
             if fulfilling.empty?
-              report.add("missing", File::basename(gemspec.loaded_from), nil, dep)
+              report.add("status", dep, nil, "missing")
               report.fail "Dependency unfulfilled remotely"
             else
-              report.add("fulfilled", File::basename(gemspec.loaded_from), nil, dep)
+              report.add("status", dep, nil, "fulfilled")
             end
+          end
+        end
+
+        task :pinned_dependencies do
+          return unless File::exists?("Gemfile.lock")
+          require 'bundler/lockfile_parser'
+          parser = File::open("Gemfile.lock") do |lockfile|
+            Bundler::LockfileParser.new(lockfile.read)
+          end
+          report = QA::Report.new("Bundler pinned dependencies")
+          qa_rejections << report
+          pinned_dependencies = parser.dependencies.each do |dep|
+            next if dep.source.nil?
+            next if dep.source.respond_to?(:path) and dep.source.path.to_s == "."
+            report.add("source", dep, nil, dep.source)
+            report.fail("Pinned development dependencies: spec results suspect")
           end
         end
 
@@ -114,6 +130,7 @@ module Corundum
       task :release => in_namespace(:push)
       task :preflight => in_namespace(:is_unpushed)
       task :qa => in_namespace(:dependencies_available)
+      task :qa => in_namespace(:pinned_dependencies)
     end
   end
 end
