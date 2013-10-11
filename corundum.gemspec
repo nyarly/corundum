@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
-  spec.version		= "0.1.2"
+  spec.version		= "0.1.3"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
