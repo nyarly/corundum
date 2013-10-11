@@ -89,7 +89,6 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = Dir.glob("doc/**/*")
   spec.rdoc_options	+= ["--title", "#{spec.name}-#{spec.version} RDoc"]
 
-  spec.add_dependency "rake-rubygems", ">= 0.2.0"
   spec.add_dependency "rdoc", ">= 0"
   spec.add_dependency "yard", ">= 0"
   spec.add_dependency "mailfactory", "~> 1.4.0"
