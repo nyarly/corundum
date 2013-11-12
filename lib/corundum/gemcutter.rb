@@ -55,6 +55,37 @@ module Corundum
       cmd
     end
 
+    class DepsChecker
+      def self.build
+        if Gem::SpecFetcher.instance_methods.include?(:find_matching)
+          CheckerForRubyGems189.new
+        else
+          CheckerForRubyGems200.new
+        end
+      end
+
+      def initialize
+        @checker = Gem::SpecFetcher.new
+      end
+
+      def fulfilled?(dependency)
+
+      end
+    end
+
+    class CheckerForRubyGems189 < DepsChecker
+      def fulfilled?(dependency)
+        !(@checker.find_matching(dependency,true,false,false).empty)
+      end
+    end
+
+    class CheckerForRubyGems200 < DepsChecker
+      def fulfilled?(dependency)
+        gems, errors = *(@checker.search_for_dependency(dependency))
+        !gems.empty?
+      end
+    end
+
     def define
       in_namespace do
         task :uninstall do |t|
@@ -79,16 +110,15 @@ module Corundum
 
         task :dependencies_available do
           require 'corundum/qa-report'
-          checker = Gem::SpecFetcher.new
           report = QA::Report.new("Gem dependencies[#{File::basename(gemspec.loaded_from)}]")
           qa_rejections << report
+          checker = DepsChecker.build
           gemspec.runtime_dependencies.each do |dep|
-            fulfilling = checker.find_matching(dep,true,false,false)
-            if fulfilling.empty?
+            if checker.fulfilled?(dep)
+              report.add("status", dep, nil, "fulfilled")
+            else
               report.add("status", dep, nil, "missing")
               report.fail "Dependency unfulfilled remotely"
-            else
-              report.add("status", dep, nil, "fulfilled")
             end
           end
         end
@@ -115,10 +145,9 @@ module Corundum
         end
 
         task :is_unpushed do
-          checker = Gem::SpecFetcher.new
+          checker = DepsChecker.build
           dep = Gem::Dependency.new(gemspec.name, "= #{gemspec.version}")
-          fulfilling = checker.find_matching(dep,false,false,false)
-          unless fulfilling.empty?
+          if checker.fulfilled?(dep)
             fail "Gem #{gemspec.full_name} is already pushed"
           end
         end

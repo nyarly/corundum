@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
-  spec.version		= "0.1.3"
+  spec.version		= "0.1.4"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -96,7 +96,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "simplecov", ">= 0.5.4"
   spec.add_dependency "bundler"
   spec.add_dependency "nokogiri"
-  spec.add_dependency "mattock", "~> 0.5.3"
+  spec.add_dependency "mattock", "~> 0.5"
   spec.add_dependency "sass", ">= 3.1"
   spec.add_dependency "compass", ">= 0.12.1"
 end
