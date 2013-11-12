@@ -7,9 +7,13 @@ module Corundum
   core = Core.new
 
   core.in_namespace do
-    sanity = GemspecSanity.new(core)
-    QuestionableContent.new(core) do |dbg|
-      dbg.words = %w{p debugger}
+    GemspecFiles.new(core)
+
+    #Also available: 'unfinished': TODO and XXX
+    ["debug", "profanity", "ableism", "racism"].each do |type|
+      QuestionableContent.new(tk) do |content|
+        content.type = type
+      end
     end
     rspec = RSpec.new(core)
     cov = SimpleCov.new(core, rspec) do |cov|

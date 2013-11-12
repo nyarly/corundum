@@ -11,14 +11,13 @@ tk = Toolkit.new do |tk|
 end
 
 tk.in_namespace do
-  sanity = GemspecSanity.new(tk)
-  QuestionableContent.new(tk) do |dbg|
-    dbg.words = %w{p debugger}
+  GemspecFiles.new(tk)
+  ["debug", "profanity", "ableism", "racism"].each do |type|
+    QuestionableContent.new(tk) do |content|
+      content.type = type
+    end
   end
-  QuestionableContent.new(tk) do |swear|
-    swear.type = :swearing
-    swear.words = %w{fuck shit}
-  end
+
   rspec = RSpec.new(tk)
   cov = SimpleCov.new(tk, rspec) do |cov|
     cov.threshold = 59

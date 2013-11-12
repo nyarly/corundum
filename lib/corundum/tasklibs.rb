@@ -1,7 +1,7 @@
 require 'corundum'
 require 'corundum/rspec'
 require 'corundum/simplecov'
-require 'corundum/gemspec_sanity'
+require 'corundum/gemspec_files'
 require 'corundum/gem_building'
 require 'corundum/gemcutter'
 require 'corundum/email'

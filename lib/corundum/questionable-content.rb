@@ -4,7 +4,8 @@ module Corundum
   class QuestionableContent < Mattock::Tasklib
     default_namespace :content
     setting :type, :debugging
-    settings :words => ["p", "debugger"], :limit => 0 #ok
+    setting :words
+    setting :limit, 0
     setting :comments, false
     setting :accept_token, /#ok/
     setting :files
@@ -16,12 +17,43 @@ module Corundum
       self.files = core.file_lists.code
     end
 
+    #I hate putting these lists together. I have to keep reminding myself that
+    #it's akin to discussing the use of the word.
+    #Also, this is a place I'm especially open to contributions.
+    WORD_SETS = {
+      "debug" => ["p", "debugger"], #ok
+      "profanity" => ['fuck\w*', 'shit\w*'], #ok
+      "ableism" => ["crazy", '\w*sanity', "dumb", 'idiot\w*', "lame", 'moron\w*', "retarded"], #ok
+      "racism" => ["chink", "coon", "dago", "gook", 'gyp\w*', "k[yi]ke", 'nig\w*', "spic"], #ok
+      "gender" => ["bitch", "cocksucker", "cunt", "dyke", "faggot", "tranny"], #ok
+      "issues" => ["XXX", "TODO"], #ok
+    }
+    [
+      ["debug", "debugging"],
+      ["profanity", "swearing"],
+      ["profanity", "swears"],
+      ["ableism", "ablism"],
+      ["racism", "ethnic"],
+      ["gender", "sexism"]
+    ].each do |name, other|
+      WORD_SETS[other] = WORD_SETS[name]
+    end
+
+    def resolve_configuration
+      if field_unset?(:words)
+        self.words = WORD_SETS.fetch(type.to_s) do
+          raise "Word set #{type.inspect} unknown. Choose from: #{WORD_SETS.keys.inspect}"
+        end
+      end
+      super
+    end
+
     def define
       in_namespace do
         task type do |task|
           require 'corundum/qa-report'
 
-          word_regexp = %r{#{words.map{|word| "\\b#{word}\\b"}.join("|")}}
+          word_regexp = %r{(?i:#{words.map{|word| "\\b#{word}\\b"}.join("|")})}
           line_regexp = case comments
                         when true, :only
                           %r{\A\s*#.*#{word_regexp}}

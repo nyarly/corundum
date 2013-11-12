@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
-  spec.version		= "0.1.4"
+  spec.version		= "0.2"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -34,7 +34,7 @@ Gem::Specification.new do |spec|
     lib/corundum/rspec.rb
     lib/corundum/rspec-task.rb
     lib/corundum/email.rb
-    lib/corundum/gemspec_sanity.rb
+    lib/corundum/gemspec_files.rb
     lib/corundum/gemcutter.rb
     lib/corundum/documentation.rb
     lib/corundum/documentation-task.rb

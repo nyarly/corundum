@@ -1,8 +1,8 @@
 require 'mattock/tasklib'
 
 module Corundum
-  class GemspecSanity < Mattock::TaskLib
-    default_namespace :gemspec_sanity
+  class GemspecFiles < Mattock::TaskLib
+    default_namespace :gemspec_files
 
     setting(:gemspec)
 
