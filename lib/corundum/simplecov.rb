@@ -83,7 +83,7 @@ module Corundum
         end
         file entry_path => :report
 
-        task :generate_report => [:preflight, entry_path]
+        task :generate_report => [:config_exists, entry_path]
 
         task :verify_coverage => :generate_report do
           require 'nokogiri'

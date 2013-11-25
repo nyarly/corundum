@@ -163,10 +163,7 @@ module Corundum
       end
       task :release => in_namespace(:push)
       task :preflight => in_namespace(:is_unpushed)
-      task :run_quality_assurance => [
-        in_namespace(:dependencies_available),
-        in_namespace(:pinned_dependencies)
-      ]
+      task :run_quality_assurance => in_namespace(:dependencies_available, :pinned_dependencies)
       task :run_continuous_integration => in_namespace(:pinned_dependencies)
     end
   end
