@@ -10,8 +10,13 @@ skelfiles = [ {
   :unless => Rake::Application::DEFAULT_RAKEFILES,
 },
 {
+  :source => 'skel-files/travis',
+  :target => '.travis.yml',
+  :unless => ['.travis.yml']
+},
+{
   :source => 'skel-files/gemspec',
-  :target => 'gemspec.rb',
+  :target => 'gem.gemspec',
   :unless => ['gemspec.rb', '*.gemspec'],
 },
 {
@@ -22,8 +27,11 @@ skelfiles = [ {
 
 if %w{-h --help -help help}.include?(ARGV[0])
   puts "Spits out skeleton files to start a gem with."
-  puts "Files are copied from the skel-files directory out of this search path:"
   puts
+  puts "Will emit these files:"
+  puts skelfiles.map{|desc| desc[:target]}.join(", ")
+  puts
+  puts "Files are copied from the skel-files directory out of this search path:"
   puts Corundum.configuration_store.valise
   exit 0
 end
