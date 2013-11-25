@@ -85,7 +85,8 @@ module Corundum
           end
         end
       end
-      task :qa => in_namespace(type)
+      task :run_quality_assurance => in_namespace(type)
+      task :run_continuous_integration => in_namespace(type)
     end
   end
 end

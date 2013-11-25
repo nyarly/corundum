@@ -110,7 +110,8 @@ module Corundum
       desc "Run failing examples if any exist, otherwise, run the whole suite"
       task root_task => in_namespace(:quick)
 
-      task :qa => in_namespace(:verify)
+      task :run_quality_assurance => in_namespace(:verify)
+      task :run_continuous_integration => in_namespace(:verify)
     end
   end
 end

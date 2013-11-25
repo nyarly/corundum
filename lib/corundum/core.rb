@@ -95,15 +95,29 @@ module Corundum
         desc "Run preflight checks"
         task :preflight
 
-        desc "Run quality assurance tasks"
-        task :qa => [:preflight, finished_files.qa] do
+        task :setup_rejections do
           require 'corundum/qa-report'
           puts QA::ReportFormatter.new(qa_rejections).to_s
+        end
 
+        task :run_quality_assurance => [:setup_rejections, :preflight, finished_files.qa]
+
+        task :run_continuous_integration => [:setup_rejections]
+
+        desc "Run quality assurance tasks"
+        task :qa => :run_quality_assurance do
           unless qa_rejections.all?(&:passed)
             fail "There are QA tests that failed"
           end
         end
+
+        desc "Run limited set of QA tasks appropriate for CI"
+        task :ci => :run_continuous_integration do
+          unless qa_rejections.all?(&:passed)
+            fail "There are Continuous Integration tests that failed"
+          end
+        end
+
 
         file finished_files.qa =>
         [finished_dir] + file_lists.project + file_lists.code + file_lists.test do |task|

@@ -134,7 +134,8 @@ module Corundum
       end
 
       task :preflight => in_namespace(:config_exists)
-      task :qa => in_namespace(:verify_coverage, :find_stragglers)
+      task :run_quality_assurance => in_namespace(:verify_coverage, :find_stragglers)
+      task :run_continuous_integration => in_namespace(:verify_coverage, :find_stragglers)
     end
   end
 end
