@@ -10,6 +10,11 @@ skelfiles = [ {
   :unless => Rake::Application::DEFAULT_RAKEFILES,
 },
 {
+  :source => 'skel-files/simplecov',
+  :target => '.simplecov',
+  :unless => ['.simplecov']
+},
+{
   :source => 'skel-files/travis',
   :target => '.travis.yml',
   :unless => ['.travis.yml']
