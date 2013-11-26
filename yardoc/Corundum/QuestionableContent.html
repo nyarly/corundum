@@ -469,19 +469,21 @@ especially open to contributions.</p>
       <pre class="lines">
 
 
-14
-15
-16
-17
-18</pre>
+36
+37
+38
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/questionable-content.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/questionable-content.rb', line 36</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_core'>core</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
   <span class='id identifier rubyid_core'>core</span><span class='period'>.</span><span class='id identifier rubyid_copy_settings_to'>copy_settings_to</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span> <span class='op'>=</span> <span class='id identifier rubyid_core'>core</span><span class='period'>.</span><span class='id identifier rubyid_file_lists'>file_lists</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_qa_rejections'>qa_rejections</span> <span class='op'>=</span> <span class='id identifier rubyid_core'>core</span><span class='period'>.</span><span class='id identifier rubyid_qa_rejections'>qa_rejections</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -503,7 +505,6 @@ especially open to contributions.</p>
       <pre class="lines">
 
 
-51
 52
 53
 54
@@ -542,10 +543,11 @@ especially open to contributions.</p>
 87
 88
 89
-90</pre>
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/questionable-content.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/questionable-content.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
   <span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
@@ -607,17 +609,17 @@ especially open to contributions.</p>
       <pre class="lines">
 
 
-42
 43
 44
 45
 46
 47
 48
-49</pre>
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/questionable-content.rb', line 42</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/questionable-content.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_field_unset?'>field_unset?</span><span class='lparen'>(</span><span class='symbol'>:words</span><span class='rparen'>)</span>
@@ -637,7 +639,7 @@ especially open to contributions.</p>
 </div>
 
     <div id="footer">
-  Generated on Tue Nov 26 00:06:26 2013 by
+  Generated on Tue Nov 26 00:27:00 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.3 (ruby-1.9.3).
 </div>
