@@ -1,19 +1,27 @@
-require 'corundum/documentation-task'
-require 'mattock/template-host'
 require 'compass'
+require 'corundum/documentation-task'
+#require 'mattock/template-host'
 
 module Corundum
   class DocumentationAssembly < DocumentationTask
-    include Mattock::TemplateTaskLib
 
     title 'Assembled Documentation'
+
+    dir(:assembly_sub, "doc_assembly",
+        dir(:theme_dir, "theme",
+            dir(:theme_sass, "sass",
+               path(:root_stylesheet, "styles"))),
+        path(:index_source, "index.html"))
+
+    dir(:target, path(:stylesheet, "stylesheet.css"))
+
+    setting :templates
 
     setting :sub_dir, "assembled"
     setting :documenters, []
     setting :extra_data, {}
     setting :external_docs, {}
-    setting :stylesheet
-    setting :css_dir, "stylesheets"
+    setting :css_dir, "stylesheets" #XXX
     setting :compass_config, nested(
       :http_path => "/",
       :line_comments => false,
@@ -26,20 +34,37 @@ module Corundum
     def default_configuration(toolkit, *documenters)
       super(toolkit)
       self.documenters = documenters
-      self.templates_are_in(Corundum::configuration_store.valise)
 
-      self.compass_config.http_stylesheets_path = css_dir
-      self.compass_config.project_path = template_path("doc_assembly/theme")
+      self.compass_config.http_stylesheets_path = css_dir #XXX
     end
 
     def resolve_configuration
       super
+      assembly_sub.absolute_path = assembly_sub.relative_path
+      target.absolute_path = target_dir
+
+      resolve_paths
+
+      if field_unset?(:templates)
+        self.templates = Corundum::configuration_store.valise.templates do |mapping|
+          case mapping
+          when "sass", "scss"
+            {:template_options => Compass.sass_engine_options }
+          else
+            nil
+          end
+        end
+      end
+
+      self.compass_config.project_path = templates.find("doc_assembly/theme").full_path
+
       self.documenters = documenters.each_with_object({}) do |doccer, hash|
         hash[File::join(target_dir, doccer.sub_dir)] = doccer
       end
-      if unset?(stylesheet)
+      if field_unset?(:stylesheet)
         self.stylesheet = File::join(target_dir, "stylesheet.css")
       end
+
     end
 
 
@@ -58,18 +83,26 @@ module Corundum
           end
         end
 
-        #Collision of doc groups
+        #XXX Collision of doc groups
         task :collect => documenters.keys
 
         task :setup_compass do
           Compass.add_configuration(compass_config.to_hash, __FILE__)
         end
 
-        template_task("doc_assembly/theme/sass/styles.scss", stylesheet, Compass.sass_engine_options)
-        file stylesheet => [:setup_compass, target_dir]
+        file stylesheet.abspath => [:setup_compass, target.abspath] do |task|
+          template = templates.find(root_stylesheet.abspath).contents
+          File::open(task.name, "w") do |file|
+            file.write(template.render(nil, nil))
+          end
+        end
 
-        template_task("doc_assembly/index.html.erb", entry_point)
-        file entry_point => [stylesheet, target_dir, :collect]
+        file entry_point => [stylesheet.abspath, target.abspath, :collect] do |task|
+          template = templates.find(index_source.abspath).contents
+          File::open(task.name, "w") do |file|
+            file.write(template.render(self, {}))
+          end
+        end
       end
       super
     end

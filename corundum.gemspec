@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
   #{MAJOR: incompatible}.{MINOR added feature}.{PATCH bugfix}-{LABEL}
-  spec.version		= "0.3"
+  spec.version		= "0.3.1"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -97,7 +97,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "simplecov", ">= 0.5.4"
   spec.add_dependency "bundler"
   spec.add_dependency "nokogiri"
-  spec.add_dependency "mattock", "~> 0.5"
+  spec.add_dependency "mattock", "~> 0.7"
   spec.add_dependency "sass", ">= 3.1"
   spec.add_dependency "compass", ">= 0.12.1"
 end

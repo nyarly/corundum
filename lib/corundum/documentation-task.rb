@@ -6,6 +6,7 @@ module Corundum
     setting :browser
     setting :gemspec
 
+    #TODO update to use new paths DSL
     setting :corundum_dir
     setting :docs_root
 
@@ -34,21 +35,21 @@ module Corundum
 
     def resolve_configuration
       super
-      if unset?(docs_root)
+      if field_unset?(:docs_root)
         self.docs_root = File::join(corundum_dir, "docs")
       end
 
-      if unset?(target_dir)
+      if field_unset?(:target_dir)
         self.target_dir = File::join(docs_root, sub_dir)
       else
         self.sub_dir = target_dir.sub(/^#{docs_root}\//,"")
       end
 
-      if unset?(entry_path)
+      if field_unset?(:entry_path)
         self.entry_path = File::join(target_dir, entry_file)
       end
 
-      if unset?(entry_link)
+      if field_unset?(:entry_link)
         self.entry_link = File::join(sub_dir, entry_file)
       end
     end
