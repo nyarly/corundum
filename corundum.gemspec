@@ -53,8 +53,11 @@ Gem::Specification.new do |spec|
     lib/corundum/default_configuration/skel-files/rakefile
     lib/corundum/default_configuration/skel-files/gemspec
     lib/corundum/default_configuration/skel-files/gemfile
+    lib/corundum/default_configuration/skel-files/travis
+    lib/corundum/default_configuration/skel-files/simplecov
     lib/corundum/default_configuration/templates/doc_assembly/index.html.erb
     lib/corundum/default_configuration/templates/doc_assembly/theme/sass/styles.scss
+    lib/corundum/default_configuration/templates/doc_assembly/stylesheet.scss
     lib/corundum/default_configuration/templates/doc_assembly/theme/stylesheets/pygment_trac.css
     lib/corundum/default_configuration/templates/doc_assembly/theme/stylesheets/styles.css
     lib/corundum/default_configuration/templates/doc_assembly/theme/javascripts/scale.fix.js

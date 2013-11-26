@@ -11,7 +11,10 @@ tk = Toolkit.new do |tk|
 end
 
 tk.in_namespace do
-  GemspecFiles.new(tk)
+  GemspecFiles.new(tk) do |files|
+    files.extra_files = Rake::FileList["lib/corundum/default_configuration/**/*"]
+  end
+
   ["debug", "profanity", "ableism", "racism"].each do |type|
     QuestionableContent.new(tk) do |content|
       content.type = type
