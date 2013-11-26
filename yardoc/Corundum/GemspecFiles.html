@@ -110,6 +110,13 @@
           <span class='kw'>end</span>
         <span class='kw'>end</span>
 
+        <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:has_extras</span> <span class='op'>=&gt;</span> <span class='symbol'>:has_files</span> <span class='kw'>do</span>
+          <span class='id identifier rubyid_missing_files'>missing_files</span> <span class='op'>=</span> <span class='id identifier rubyid_extra_files'>extra_files</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_find_all'>find_all</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_path'>path</span><span class='op'>|</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_file?'>file?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='rbrace'>}</span> <span class='op'>-</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span>
+          <span class='kw'>unless</span> <span class='id identifier rubyid_missing_files'>missing_files</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+            <span class='id identifier rubyid_fail'>fail</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Untested extra files are not mentioned in gemspec: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_missing_files'>missing_files</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
+
         <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:files_exist</span> <span class='kw'>do</span>
           <span class='id identifier rubyid_missing'>missing</span> <span class='op'>=</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_find_all'>find_all</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_path'>path</span><span class='op'>|</span>
             <span class='kw'>not</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -119,7 +126,7 @@
         <span class='kw'>end</span>
       <span class='kw'>end</span>
 
-      <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:preflight</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:files_exist</span><span class='comma'>,</span> <span class='symbol'>:has_files</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:preflight</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:files_exist</span><span class='comma'>,</span> <span class='symbol'>:has_extras</span><span class='comma'>,</span> <span class='symbol'>:has_files</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_e'>e</span></pre>
 
 
@@ -151,6 +158,32 @@
   
   
     <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extra_files-instance_method" title="#extra_files (instance method)">- (Object) <strong>extra_files</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting extra_files.</p>
+</div></span>
+  
+  
+    <span class="summary_desc">Default value: <code>Rake::FileList[]</code></span>
   
 </li>
 
@@ -238,13 +271,13 @@
       <pre class="lines">
 
 
-9
 10
 11
-12</pre>
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/gemspec_files.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/gemspec_files.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -270,7 +303,6 @@
       <pre class="lines">
 
 
-14
 15
 16
 17
@@ -288,16 +320,31 @@
 29
 30
 31
-32</pre>
+32
+33
+34
+35
+36
+37
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/gemspec_files.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/gemspec_files.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
   <span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:has_files</span> <span class='kw'>do</span>
       <span class='kw'>if</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span> <span class='kw'>or</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
         <span class='id identifier rubyid_fail'>fail</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No files mentioned in gemspec - do you intend an empty gem?</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:has_extras</span> <span class='op'>=&gt;</span> <span class='symbol'>:has_files</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_missing_files'>missing_files</span> <span class='op'>=</span> <span class='id identifier rubyid_extra_files'>extra_files</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_find_all'>find_all</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_path'>path</span><span class='op'>|</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_file?'>file?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='rbrace'>}</span> <span class='op'>-</span> <span class='id identifier rubyid_gemspec'>gemspec</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span>
+      <span class='kw'>unless</span> <span class='id identifier rubyid_missing_files'>missing_files</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+        <span class='id identifier rubyid_fail'>fail</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Untested extra files are not mentioned in gemspec: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_missing_files'>missing_files</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
       <span class='kw'>end</span>
     <span class='kw'>end</span>
 
@@ -310,7 +357,7 @@
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 
-  <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:preflight</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:files_exist</span><span class='comma'>,</span> <span class='symbol'>:has_files</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:preflight</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:files_exist</span><span class='comma'>,</span> <span class='symbol'>:has_extras</span><span class='comma'>,</span> <span class='symbol'>:has_files</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -322,7 +369,7 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Nov 26 00:27:00 2013 by
+  Generated on Tue Nov 26 00:39:24 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.3 (ruby-1.9.3).
 </div>

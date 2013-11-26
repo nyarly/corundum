@@ -14,14 +14,14 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-26T00:26:42-08:00">2013-11-26T00:26:42-08:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-26T00:39:05-08:00">2013-11-26T00:39:05-08:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">58.87%</span></span>
+    (<span class="covered_percent"><span class="red">58.69%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
@@ -32,9 +32,9 @@
   <a name="AllFiles"></a>
   <div>
     <b>23</b> files in total.
-    <b>1060</b> relevant lines. 
-    <span class="green"><b>624</b> lines covered</span> and
-    <span class="red"><b>436</b> lines missed </span>
+    <b>1065</b> relevant lines. 
+    <span class="green"><b>625</b> lines covered</span> and
+    <span class="red"><b>440</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -162,12 +162,12 @@
       
       <tr>
         <td class="strong"><a href="#edbaa7d655f5c3c9537e00ee68fa36a384e61c0d" class="src_link" title="lib/corundum/gemspec_files.rb">lib/corundum/gemspec_files.rb</a></td>
-        <td class="red strong">38.89 %</td>
-        <td>34</td>
-        <td>18</td>
-        <td>7</td>
-        <td>11</td>
-        <td>0.4</td>
+        <td class="red strong">34.78 %</td>
+        <td>42</td>
+        <td>23</td>
+        <td>8</td>
+        <td>15</td>
+        <td>0.3</td>
       </tr>
       
       <tr>
@@ -4943,11 +4943,11 @@
         <div class="source_table" id="edbaa7d655f5c3c9537e00ee68fa36a384e61c0d">
   <div class="header">
     <h3>lib/corundum/gemspec_files.rb</h3>
-    <h4><span class="red">38.89 %</span> covered</h4>
+    <h4><span class="red">34.78 %</span> covered</h4>
     <div>
-      <b>18</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
-      <span class="red"><b>11</b> lines missed.</span>
+      <b>23</b> relevant lines. 
+      <span class="green"><b>8</b> lines covered</span> and
+      <span class="red"><b>15</b> lines missed.</span>
     </div>
   </div>
   
@@ -4996,124 +4996,124 @@
           <code class="ruby">    setting(:gemspec)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    setting(:extra_files, Rake::FileList[])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
           <code class="ruby">    def default_configuration(toolkit)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="10">
+        <li class="missed" data-hits="0" data-linenumber="11">
           
           
           <code class="ruby">      super</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="11">
+        <li class="missed" data-hits="0" data-linenumber="12">
           
           
           <code class="ruby">      self.gemspec = toolkit.gemspec</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
+        <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
           <code class="ruby">    def define</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="15">
+        <li class="missed" data-hits="0" data-linenumber="16">
           
           
           <code class="ruby">      in_namespace do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="16">
+        <li class="missed" data-hits="0" data-linenumber="17">
           
           
           <code class="ruby">        task :has_files do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
+        <li class="missed" data-hits="0" data-linenumber="18">
           
           
           <code class="ruby">          if gemspec.files.nil? or gemspec.files.empty?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
+        <li class="missed" data-hits="0" data-linenumber="19">
           
           
           <code class="ruby">            fail &quot;No files mentioned in gemspec - do you intend an empty gem?&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">          end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">        end</code>
+          <code class="ruby">          end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">        end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby">        task :files_exist do</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="23">
           
           
-          <code class="ruby">          missing = gemspec.files.find_all do |path|</code>
+          <code class="ruby">        task :has_extras =&gt; :has_files do</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="24">
           
           
-          <code class="ruby">            not File::exists?(path)</code>
+          <code class="ruby">          missing_files = extra_files.to_a.find_all{|path| File.file?(path)} - gemspec.files</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">          unless missing_files.empty?</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="26">
+          
+          
+          <code class="ruby">            fail &quot;Untested extra files are not mentioned in gemspec: #{missing_files.inspect}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">          end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="26">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="27">
-          
-          
-          <code class="ruby">          fail &quot;Files mentioned in gemspec are missing: #{missing.join(&quot;, &quot;)}&quot; unless missing.empty?</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
@@ -5125,34 +5125,82 @@
         <li class="never" data-hits="" data-linenumber="29">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="missed" data-hits="0" data-linenumber="30">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">        task :files_exist do</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="31">
           
           
-          <code class="ruby">      task :preflight =&gt; in_namespace(:files_exist, :has_files)</code>
+          <code class="ruby">          missing = gemspec.files.find_all do |path|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="missed" data-hits="0" data-linenumber="32">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">            not File::exists?(path)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">          end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="35">
+          
+          
+          <code class="ruby">          fail &quot;Files mentioned in gemspec are missing: #{missing.join(&quot;, &quot;)}&quot; unless missing.empty?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="39">
+          
+          
+          <code class="ruby">      task :preflight =&gt; in_namespace(:files_exist, :has_extras, :has_files)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
           
           
           <code class="ruby">end</code>
