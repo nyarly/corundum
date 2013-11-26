@@ -6,13 +6,13 @@
 <title>
   Class: Corundum::RSpecReportTask
   
-    &mdash; Documentation by YARD 0.8.2.1
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -78,7 +78,7 @@
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Mattock::CommandTask</li>
+            <li class="next">Mattock::Rake::CommandTask</li>
           
             <li class="next"><span class='object_link'><a href="RSpecTask.html" title="Corundum::RSpecTask (class)">RSpecTask</a></span></li>
           
@@ -358,7 +358,7 @@
       <pre class="code"><span class="info file"># File 'lib/corundum/rspec-task.rb', line 64</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_out_of_date?'>out_of_date?</span><span class='lparen'>(</span><span class='id identifier rubyid_stamp'>stamp</span><span class='rparen'>)</span>
-  <span class='ivar'>@prerequisites</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_application'>application</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='ivar'>@scope</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_timestamp'>timestamp</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_stamp'>stamp</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_prerequisites'>prerequisites</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_application'>application</span><span class='lbracket'>[</span><span class='id identifier rubyid_n'>n</span><span class='comma'>,</span> <span class='ivar'>@scope</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_timestamp'>timestamp</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_stamp'>stamp</span><span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -408,9 +408,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 10:11:39 2012 by
+  Generated on Tue Nov 26 00:06:26 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.2.1 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

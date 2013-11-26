@@ -6,13 +6,13 @@
 <title>
   Class: Corundum::VersionControl
   
-    &mdash; Documentation by YARD 0.8.2.1
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -117,7 +117,8 @@
       <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:tag</span><span class='comma'>,</span> <span class='symbol'>:check_in</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_taskname'>taskname</span><span class='op'>|</span>
         <span class='id identifier rubyid_task'>task</span> <span class='id identifier rubyid_taskname'>taskname</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_build_finished_file'>build_finished_file</span>
       <span class='kw'>end</span>
-      <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:release</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:tag</span><span class='comma'>,</span> <span class='symbol'>:check_in</span><span class='rparen'>)</span></pre>
+      <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:release</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='symbol'>:tag</span><span class='comma'>,</span> <span class='symbol'>:check_in</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_e'>e</span></pre>
 
 <div id="subclasses">
   <h2>Direct Known Subclasses</h2>
@@ -322,12 +323,14 @@
 11
 12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/corundum/version_control.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_gemspec'>gemspec</span> <span class='op'>=</span>  <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_gemspec'>gemspec</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_build_finished_file'>build_finished_file</span> <span class='op'>=</span>  <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_build'>build</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_gemspec_files'>gemspec_files</span> <span class='op'>=</span> <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_code'>code</span> <span class='op'>+</span> <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_files'>files</span><span class='period'>.</span><span class='id identifier rubyid_test'>test</span>
@@ -353,7 +356,6 @@
       <pre class="lines">
 
 
-16
 17
 18
 19
@@ -369,10 +371,11 @@
 29
 30
 31
-32</pre>
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
   <span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
@@ -401,9 +404,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 10:11:40 2012 by
+  Generated on Tue Nov 26 00:06:26 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.2.1 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

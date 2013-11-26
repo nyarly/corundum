@@ -6,13 +6,13 @@
 <title>
   Class: Corundum::Monotone
   
-    &mdash; Documentation by YARD 0.8.2.1
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -154,7 +154,8 @@
         <span class='kw'>end</span>
 
         <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:check_in</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:sync</span><span class='rbracket'>]</span>
-      <span class='kw'>end</span></pre>
+      <span class='kw'>end</span>
+    <span class='id identifier rubyid_e'>e</span></pre>
 
 
 
@@ -415,12 +416,12 @@
       <pre class="lines">
 
 
-72
 73
-74</pre>
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_base_revision'>base_revision</span>
   <span class='id identifier rubyid_mtn_automate'>mtn_automate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>get_base_revision_id</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span>
@@ -445,7 +446,6 @@
       <pre class="lines">
 
 
-98
 99
 100
 101
@@ -496,10 +496,11 @@
 146
 147
 148
-149</pre>
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 99</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
   <span class='kw'>super</span>
@@ -573,15 +574,15 @@
       <pre class="lines">
 
 
-76
 77
 78
 79
 80
-81</pre>
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_guess_branch'>guess_branch</span>
   <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Guessing branch - configure Monotone &gt; branch</span><span class='tstring_end'>&quot;</span></span>
@@ -609,16 +610,16 @@
       <pre class="lines">
 
 
-13
 14
 15
 16
 17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mtn_automate'>mtn_automate</span><span class='lparen'>(</span><span class='id identifier rubyid_cmd'>cmd</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mtn</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>automate</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_cmd'>cmd</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cmd'>cmd</span><span class='op'>|</span>
@@ -647,7 +648,6 @@
       <pre class="lines">
 
 
-21
 22
 23
 24
@@ -674,10 +674,11 @@
 45
 46
 47
-48</pre>
+48
+49</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parse_basic_io'>parse_basic_io</span><span class='lparen'>(</span><span class='id identifier rubyid_string'>string</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_items'>items</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -727,7 +728,6 @@
       <pre class="lines">
 
 
-50
 51
 52
 53
@@ -747,10 +747,11 @@
 67
 68
 69
-70</pre>
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parse_certs'>parse_certs</span><span class='lparen'>(</span><span class='id identifier rubyid_string'>string</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_items'>items</span> <span class='op'>=</span> <span class='id identifier rubyid_parse_basic_io'>parse_basic_io</span><span class='lparen'>(</span><span class='id identifier rubyid_string'>string</span><span class='rparen'>)</span>
@@ -795,12 +796,14 @@
 
 9
 10
-11</pre>
+11
+12</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
+  <span class='kw'>super</span>
   <span class='ivar'>@branch</span> <span class='op'>||=</span> <span class='id identifier rubyid_guess_branch'>guess_branch</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -823,7 +826,6 @@
       <pre class="lines">
 
 
-85
 86
 87
 88
@@ -834,10 +836,11 @@
 93
 94
 95
-96</pre>
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/version_control/monotone.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stanzas'>stanzas</span><span class='lparen'>(</span><span class='id identifier rubyid_first_item'>first_item</span><span class='comma'>,</span> <span class='id identifier rubyid_items'>items</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_stanzas'>stanzas</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -861,9 +864,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 10:11:40 2012 by
+  Generated on Tue Nov 26 00:06:27 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.2.1 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

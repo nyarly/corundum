@@ -6,13 +6,13 @@
 <title>
   Class: Corundum::GemBuilding
   
-    &mdash; Documentation by YARD 0.8.2.1
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -117,7 +117,8 @@
         <span class='kw'>end</span>
       <span class='kw'>end</span>
 
-      <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:build</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>gem</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></pre>
+      <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:build</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_in_namespace'>in_namespace</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>gem</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_e'>e</span></pre>
 
 
 
@@ -290,12 +291,14 @@
 9
 10
 11
-12</pre>
+12
+13</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/corundum/gem_building.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_gemspec'>gemspec</span> <span class='op'>=</span>  <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_gemspec'>gemspec</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_qa_finished_file'>qa_finished_file</span> <span class='op'>=</span>  <span class='id identifier rubyid_toolkit'>toolkit</span><span class='period'>.</span><span class='id identifier rubyid_finished_files'>finished_files</span><span class='period'>.</span><span class='id identifier rubyid_qa'>qa</span>
 <span class='kw'>end</span></pre>
@@ -319,7 +322,6 @@
       <pre class="lines">
 
 
-14
 15
 16
 17
@@ -335,10 +337,11 @@
 27
 28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/gem_building.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/gem_building.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
   <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>rubygems/package_task</span><span class='tstring_end'>'</span></span>
@@ -367,9 +370,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 10:11:40 2012 by
+  Generated on Tue Nov 26 00:06:26 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.2.1 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

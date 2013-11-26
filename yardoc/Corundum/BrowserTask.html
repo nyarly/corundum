@@ -6,13 +6,13 @@
 <title>
   Class: Corundum::BrowserTask
   
-    &mdash; Documentation by YARD 0.8.2.1
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -73,12 +73,12 @@
   
     <dt class="r1">Inherits:</dt>
     <dd class="r1">
-      <span class="inheritName">Mattock::CommandTask</span>
+      <span class="inheritName">Mattock::Rake::CommandTask</span>
       
         <ul class="fullTree">
           <li>Object</li>
           
-            <li class="next">Mattock::CommandTask</li>
+            <li class="next">Mattock::Rake::CommandTask</li>
           
             <li class="next">Corundum::BrowserTask</li>
           
@@ -211,12 +211,14 @@
 
 9
 10
-11</pre>
+11
+12</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/corundum/browser-task.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_parent'>parent</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_browser'>browser</span> <span class='op'>=</span> <span class='id identifier rubyid_parent'>parent</span><span class='period'>.</span><span class='id identifier rubyid_browser'>browser</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -239,14 +241,16 @@
       <pre class="lines">
 
 
-17
 18
-19</pre>
+19
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/browser-task.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/browser-task.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
+  <span class='kw'>super</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_command'>command</span> <span class='op'>=</span> <span class='const'>Mattock</span><span class='op'>::</span><span class='const'>CommandLine</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_browser'>browser</span><span class='comma'>,</span> <span class='id identifier rubyid_index_html'>index_html</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -269,12 +273,12 @@
       <pre class="lines">
 
 
-13
 14
-15</pre>
+15
+16</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/browser-task.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/browser-task.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_task_args'>task_args</span>
   <span class='lbracket'>[</span><span class='lbrace'>{</span><span class='id identifier rubyid_task_name'>task_name</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_index_html'>index_html</span><span class='rbrace'>}</span><span class='rbracket'>]</span>
@@ -289,9 +293,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 10:11:40 2012 by
+  Generated on Tue Nov 26 00:06:25 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.2.1 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>

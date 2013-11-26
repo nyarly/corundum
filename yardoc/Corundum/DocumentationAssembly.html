@@ -6,13 +6,13 @@
 <title>
   Class: Corundum::DocumentationAssembly
   
-    &mdash; Documentation by YARD 0.8.2.1
+    &mdash; Documentation by YARD 0.8.7.3
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
@@ -94,15 +94,11 @@
     
   
     
-      <dt class="r2">Includes:</dt>
-      <dd class="r2">Mattock::TemplateTaskLib</dd>
-      
-    
   
   
   
-    <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/corundum/documentation/assembly.rb</dd>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/corundum/documentation/assembly.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -123,20 +119,29 @@
           <span class='kw'>end</span>
         <span class='kw'>end</span>
 
-        <span class='comment'>#Colision of doc groups
+        <span class='comment'>#XXX Collision of doc groups
 </span>        <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:collect</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_documenters'>documenters</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
 
         <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:setup_compass</span> <span class='kw'>do</span>
           <span class='const'>Compass</span><span class='period'>.</span><span class='id identifier rubyid_add_configuration'>add_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_compass_config'>compass_config</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='rparen'>)</span>
         <span class='kw'>end</span>
 
-        <span class='id identifier rubyid_template_task'>template_task</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>doc_assembly/theme/sass/styles.scss</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='comma'>,</span> <span class='const'>Compass</span><span class='period'>.</span><span class='id identifier rubyid_sass_engine_options'>sass_engine_options</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:setup_compass</span><span class='comma'>,</span> <span class='id identifier rubyid_target_dir'>target_dir</span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:setup_compass</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span><span class='rbracket'>]</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_task'>task</span><span class='op'>|</span>
+          <span class='id identifier rubyid_template'>template</span> <span class='op'>=</span> <span class='id identifier rubyid_templates'>templates</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_root_stylesheet'>root_stylesheet</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_contents'>contents</span>
+          <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_task'>task</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+            <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span><span class='rparen'>)</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
 
-        <span class='id identifier rubyid_template_task'>template_task</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>doc_assembly/index.html.erb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_entry_point'>entry_point</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_entry_point'>entry_point</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='comma'>,</span> <span class='id identifier rubyid_target_dir'>target_dir</span><span class='comma'>,</span> <span class='symbol'>:collect</span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_entry_point'>entry_point</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span><span class='comma'>,</span> <span class='symbol'>:collect</span><span class='rbracket'>]</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_task'>task</span><span class='op'>|</span>
+          <span class='id identifier rubyid_template'>template</span> <span class='op'>=</span> <span class='id identifier rubyid_templates'>templates</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_index_source'>index_source</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_contents'>contents</span>
+          <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_task'>task</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+            <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='rparen'>)</span>
+          <span class='kw'>end</span>
+        <span class='kw'>end</span>
       <span class='kw'>end</span>
-      <span class='kw'>super</span></pre>
+      <span class='kw'>super</span>
+    <span class='id identifier rubyid_e'>e</span></pre>
 
 
 
@@ -144,6 +149,32 @@
 
   <h2>Instance Settings Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
   <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#templates-instance_method" title="#templates (instance method)">- (Object) <strong>templates</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The value of setting templates.</p>
+</div></span>
+  
+  
+    <span class="summary_desc"><em>This setting must have a value set</em></span>
+  
+</li>
+
     
       <li class="public ">
   <span class="summary_signature">
@@ -252,32 +283,6 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#stylesheet-instance_method" title="#stylesheet (instance method)">- (Object) <strong>stylesheet</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>The value of setting stylesheet.</p>
-</div></span>
-  
-  
-    <span class="summary_desc"><em>This setting must have a value set</em></span>
-  
-</li>
-
-    
-      <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#css_dir-instance_method" title="#css_dir (instance method)">- (Object) <strong>css_dir</strong> </a>
     
 
@@ -292,7 +297,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>The value of setting css_dir.</p>
+<p>XXX.</p>
 </div></span>
   
   
@@ -549,7 +554,6 @@
   
   
   
-  
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="DocumentationTask.html" title="Corundum::DocumentationTask (class)">DocumentationTask</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="DocumentationTask.html#entry_point-instance_method" title="Corundum::DocumentationTask#entry_point (method)">#entry_point</a></span>, <span class='object_link'><a href="DocumentationTask.html#title-class_method" title="Corundum::DocumentationTask.title (method)">title</a></span></p>
 
@@ -574,26 +578,22 @@
       <pre class="lines">
 
 
-26
-27
-28
-29
-30
-31
-32
-33</pre>
+34
+35
+36
+37
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/assembly.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/assembly.rb', line 34</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_default_configuration'>default_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_documenters'>documenters</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_toolkit'>toolkit</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_documenters'>documenters</span> <span class='op'>=</span> <span class='id identifier rubyid_documenters'>documenters</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_valise'>valise</span> <span class='op'>=</span> <span class='const'>Corundum</span><span class='op'>::</span><span class='id identifier rubyid_configuration_store'>configuration_store</span><span class='period'>.</span><span class='id identifier rubyid_valise'>valise</span>
 
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_compass_config'>compass_config</span><span class='period'>.</span><span class='id identifier rubyid_http_stylesheets_path'>http_stylesheets_path</span> <span class='op'>=</span> <span class='id identifier rubyid_css_dir'>css_dir</span>
-  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_compass_config'>compass_config</span><span class='period'>.</span><span class='id identifier rubyid_project_path'>project_path</span> <span class='op'>=</span> <span class='id identifier rubyid_template_path'>template_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>doc_assembly/theme</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_compass_config'>compass_config</span><span class='period'>.</span><span class='id identifier rubyid_http_stylesheets_path'>http_stylesheets_path</span> <span class='op'>=</span> <span class='id identifier rubyid_css_dir'>css_dir</span> <span class='comment'>#XXX
+</span><span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -614,39 +614,47 @@
       <pre class="lines">
 
 
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
 71
 72
 73
 74
-75</pre>
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/assembly.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/assembly.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span>
   <span class='id identifier rubyid_in_namespace'>in_namespace</span> <span class='kw'>do</span>
@@ -663,18 +671,26 @@
       <span class='kw'>end</span>
     <span class='kw'>end</span>
 
-    <span class='comment'>#Colision of doc groups
+    <span class='comment'>#XXX Collision of doc groups
 </span>    <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:collect</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_documenters'>documenters</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
 
     <span class='id identifier rubyid_task'>task</span> <span class='symbol'>:setup_compass</span> <span class='kw'>do</span>
       <span class='const'>Compass</span><span class='period'>.</span><span class='id identifier rubyid_add_configuration'>add_configuration</span><span class='lparen'>(</span><span class='id identifier rubyid_compass_config'>compass_config</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_template_task'>template_task</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>doc_assembly/theme/sass/styles.scss</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='comma'>,</span> <span class='const'>Compass</span><span class='period'>.</span><span class='id identifier rubyid_sass_engine_options'>sass_engine_options</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:setup_compass</span><span class='comma'>,</span> <span class='id identifier rubyid_target_dir'>target_dir</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:setup_compass</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span><span class='rbracket'>]</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_task'>task</span><span class='op'>|</span>
+      <span class='id identifier rubyid_template'>template</span> <span class='op'>=</span> <span class='id identifier rubyid_templates'>templates</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_root_stylesheet'>root_stylesheet</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_contents'>contents</span>
+      <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_task'>task</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+        <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
 
-    <span class='id identifier rubyid_template_task'>template_task</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>doc_assembly/index.html.erb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_entry_point'>entry_point</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_entry_point'>entry_point</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='comma'>,</span> <span class='id identifier rubyid_target_dir'>target_dir</span><span class='comma'>,</span> <span class='symbol'>:collect</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_file'>file</span> <span class='id identifier rubyid_entry_point'>entry_point</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span><span class='comma'>,</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span><span class='comma'>,</span> <span class='symbol'>:collect</span><span class='rbracket'>]</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_task'>task</span><span class='op'>|</span>
+      <span class='id identifier rubyid_template'>template</span> <span class='op'>=</span> <span class='id identifier rubyid_templates'>templates</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_index_source'>index_source</span><span class='period'>.</span><span class='id identifier rubyid_abspath'>abspath</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_contents'>contents</span>
+      <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_task'>task</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+        <span class='id identifier rubyid_file'>file</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_template'>template</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
   <span class='kw'>end</span>
   <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
@@ -698,27 +714,65 @@
       <pre class="lines">
 
 
-35
-36
-37
-38
-39
-40
 41
 42
-43</pre>
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/assembly.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/corundum/documentation/assembly.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_resolve_configuration'>resolve_configuration</span>
   <span class='kw'>super</span>
+  <span class='id identifier rubyid_assembly_sub'>assembly_sub</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span> <span class='op'>=</span> <span class='id identifier rubyid_assembly_sub'>assembly_sub</span><span class='period'>.</span><span class='id identifier rubyid_relative_path'>relative_path</span>
+  <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_absolute_path'>absolute_path</span> <span class='op'>=</span> <span class='id identifier rubyid_target_dir'>target_dir</span>
+
+  <span class='id identifier rubyid_resolve_paths'>resolve_paths</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_field_unset?'>field_unset?</span><span class='lparen'>(</span><span class='symbol'>:templates</span><span class='rparen'>)</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_templates'>templates</span> <span class='op'>=</span> <span class='const'>Corundum</span><span class='op'>::</span><span class='id identifier rubyid_configuration_store'>configuration_store</span><span class='period'>.</span><span class='id identifier rubyid_valise'>valise</span><span class='period'>.</span><span class='id identifier rubyid_templates'>templates</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mapping'>mapping</span><span class='op'>|</span>
+      <span class='kw'>case</span> <span class='id identifier rubyid_mapping'>mapping</span>
+      <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sass</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>scss</span><span class='tstring_end'>&quot;</span></span>
+        <span class='lbrace'>{</span><span class='symbol'>:template_options</span> <span class='op'>=&gt;</span> <span class='const'>Compass</span><span class='period'>.</span><span class='id identifier rubyid_sass_engine_options'>sass_engine_options</span> <span class='rbrace'>}</span>
+      <span class='kw'>else</span>
+        <span class='kw'>nil</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_compass_config'>compass_config</span><span class='period'>.</span><span class='id identifier rubyid_project_path'>project_path</span> <span class='op'>=</span> <span class='id identifier rubyid_templates'>templates</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>doc_assembly/theme</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_full_path'>full_path</span>
+
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_documenters'>documenters</span> <span class='op'>=</span> <span class='id identifier rubyid_documenters'>documenters</span><span class='period'>.</span><span class='id identifier rubyid_each_with_object'>each_with_object</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_doccer'>doccer</span><span class='comma'>,</span> <span class='id identifier rubyid_hash'>hash</span><span class='op'>|</span>
     <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_target_dir'>target_dir</span><span class='comma'>,</span> <span class='id identifier rubyid_doccer'>doccer</span><span class='period'>.</span><span class='id identifier rubyid_sub_dir'>sub_dir</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_doccer'>doccer</span>
   <span class='kw'>end</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_unset?'>unset?</span><span class='lparen'>(</span><span class='id identifier rubyid_stylesheet'>stylesheet</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_field_unset?'>field_unset?</span><span class='lparen'>(</span><span class='symbol'>:stylesheet</span><span class='rparen'>)</span>
     <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_stylesheet'>stylesheet</span> <span class='op'>=</span> <span class='const'>File</span><span class='op'>::</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_target_dir'>target_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stylesheet.css</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -730,9 +784,9 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Oct 17 10:11:40 2012 by
+  Generated on Tue Nov 26 00:06:26 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.2.1 (ruby-1.9.3).
+  0.8.7.3 (ruby-1.9.3).
 </div>
 
   </body>
