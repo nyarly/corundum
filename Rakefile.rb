@@ -20,7 +20,7 @@ tk.in_namespace do
 
   rspec = RSpec.new(tk)
   cov = SimpleCov.new(tk, rspec) do |cov|
-    cov.threshold = 59
+    cov.threshold = 58
   end
   gem = GemBuilding.new(tk)
   cutter = GemCutter.new(tk,gem)

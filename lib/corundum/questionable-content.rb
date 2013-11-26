@@ -2,21 +2,6 @@ require 'mattock/tasklib'
 
 module Corundum
   class QuestionableContent < Mattock::Tasklib
-    default_namespace :content
-    setting :type, :debugging
-    setting :words
-    setting :limit, 0
-    setting :comments, false
-    setting :accept_token, /#ok/
-    setting :files
-    setting :qa_rejections
-
-    def default_configuration(core)
-      super
-      core.copy_settings_to(self)
-      self.files = core.file_lists.code
-    end
-
     #I hate putting these lists together. I have to keep reminding myself that
     #it's akin to discussing the use of the word.
     #Also, this is a place I'm especially open to contributions.
@@ -37,6 +22,22 @@ module Corundum
       ["gender", "sexism"]
     ].each do |name, other|
       WORD_SETS[other] = WORD_SETS[name]
+    end
+
+    default_namespace :content
+    setting :type, :debugging
+    setting :words
+    setting :limit, 0
+    setting :comments, false
+    setting :accept_token, /#ok/
+    setting :files
+    setting :qa_rejections
+
+    def default_configuration(core)
+      super
+      core.copy_settings_to(self)
+      self.files = core.file_lists.code
+      self.qa_rejections = core.qa_rejections
     end
 
     def resolve_configuration
