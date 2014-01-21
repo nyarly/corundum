@@ -11,7 +11,7 @@ module Corundum
 
     #Also available: 'unfinished': TODO and XXX
     ["debug", "profanity", "ableism", "racism"].each do |type|
-      QuestionableContent.new(tk) do |content|
+      QuestionableContent.new(core) do |content|
         content.type = type
       end
     end

@@ -49,7 +49,16 @@ module Corundum
         self.templates = Corundum::configuration_store.valise.templates do |mapping|
           case mapping
           when "sass", "scss"
-            {:template_options => Compass.sass_engine_options }
+            valise = Corundum::configuration_store.valise
+            options =
+              if Compass.respond_to? :sass_engine_options
+                Compass.sass_engine_options
+              else
+                require 'compass/core'
+                { :load_paths => [Compass::Core.base_directory("stylesheets")] }
+              end
+            options[:load_paths] = valise.sub_set("templates").map(&:to_s) + options[:load_paths]
+            { :template_options => options }
           else
             nil
           end
@@ -86,11 +95,7 @@ module Corundum
         #XXX Collision of doc groups
         task :collect => documenters.keys
 
-        task :setup_compass do
-          Compass.add_configuration(compass_config.to_hash, __FILE__)
-        end
-
-        file stylesheet.abspath => [:setup_compass, target.abspath] do |task|
+        file stylesheet.abspath => [target.abspath] do |task|
           template = templates.find(root_stylesheet.abspath).contents
           File::open(task.name, "w") do |file|
             file.write(template.render(nil, nil))

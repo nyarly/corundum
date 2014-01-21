@@ -3,13 +3,11 @@ PATH
   specs:
     corundum (0.3.2)
       bundler
-      compass (>= 0.12.1)
       mailfactory (~> 1.4.0)
       mattock (~> 0.7)
       nokogiri
       rdoc
       rspec (>= 2.0)
-      sass (>= 3.1)
       simplecov (>= 0.5.4)
       yard
 
@@ -26,7 +24,7 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     diff-lcs (1.1.3)
-    docile (1.1.0)
+    docile (1.1.1)
     fssm (0.2.10)
     fuubar (1.0.0)
       rspec (~> 2.0)
@@ -73,5 +71,6 @@ PLATFORMS
 
 DEPENDENCIES
   cadre
+  compass
   corundum!
   fuubar
