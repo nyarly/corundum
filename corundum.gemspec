@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
   #{MAJOR: incompatible}.{MINOR added feature}.{PATCH bugfix}-{LABEL}
-  spec.version		= "0.3.2"
+  spec.version		= "0.3.3"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
