@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    corundum (0.3.3)
+    corundum (0.3.4)
       bundler
       compass (>= 0.12.1)
       mailfactory (~> 1.4.0)
@@ -10,6 +10,7 @@ PATH
       rdoc
       rspec (>= 2.0)
       simplecov (>= 0.5.4)
+      tilt (< 2.0)
       yard
 
 GEM
