@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
   #{MAJOR: incompatible}.{MINOR added feature}.{PATCH bugfix}-{LABEL}
-  spec.version		= "0.3.4"
+  spec.version		= "0.3.5"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -95,13 +95,12 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rdoc", ">= 0"
   spec.add_dependency "yard", ">= 0"
-  spec.add_dependency "tilt", "< 2.0" #Need to update valise, possibly split out related...
   spec.add_dependency "mailfactory", "~> 1.4.0"
   spec.add_dependency "rspec", ">= 2.0"
   spec.add_dependency "simplecov", ">= 0.5.4"
   spec.add_dependency "bundler"
   spec.add_dependency "nokogiri"
-  spec.add_dependency "mattock", "~> 0.7"
+  spec.add_dependency "mattock", "~> 0.7.1"
   #spec.add_dependency "sass", ">= 3.1"
   spec.add_dependency "compass", ">= 0.12.1"
 end
