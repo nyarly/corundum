@@ -94,6 +94,7 @@ Gem::Specification.new do |spec|
   spec.rdoc_options	+= ["--title", "#{spec.name}-#{spec.version} RDoc"]
 
   spec.add_dependency "rdoc", ">= 0"
+  spec.add_dependency "paint", "~> 0.8.7"
   spec.add_dependency "yard", ">= 0"
   spec.add_dependency "mailfactory", "~> 1.4.0"
   spec.add_dependency "rspec", ">= 2.0"

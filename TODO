@@ -1,3 +1,9 @@
+Output:
+  Color QA output, including red/green for review tests
+  Output information about file names in a vertical list, rather than [].inspect - c&p fixes
+
+Should CI tasks include all gem QA?
+
 Bug: generated .rspec uses absolute paths ...
 
 Before rake release: run 'bundle install' to make sure that this gem's version is u2d in Gemfile.lock
@@ -7,11 +13,9 @@ Missing something: "don't know how to build docs/Specification"
 Documentation assembly is masking rebuilds of docs
 
 QA tests:
-  XXX, FIXME, profanity filters of code and specs (configurable?)
   QC filter needs a "allow this many..."
-  QC filter: 'default_profanity' so that you don't have to have it in your Rakefile
-    (if you care)
   QC filter: ignore_comments (because commented out debugging lines are useful)
+  QC filter: should list line numbers for iffy words
 
   Empty filelist
   gemspec filelist is a subset of VC known files
@@ -33,30 +37,22 @@ Documentation:
   rhet-butler
   handwritten
 
-
-Missing a case of missing files... don't remember what it was, but I definitely deployed a gem with files missing
-Just happened again: lib/corundum/default_configuration/ files missed on release.
-  They're not tested, but they're part of the release.
-  Maybe add incl/excl lists for QA for files?  So "everything under lib should be in the gem..."
-
-Improve on current simplecov config message:
-Try this in /home/judson/ruby/gems/word-bloom/.simplecov
-(You can just do ./.bundle/bin/rake > /home/judson/ruby/gems/word-bloom/.simplecov)
-
 tasks for e.g. spec_help/gem_spec_test.rb?
 
 Feature: if the target gem version is pre-release, some QA rules get relaxed?
 
-Feature: QA should check for gem deps in Gemfile - specs aren't valid for QA if so
+Feature:
+  - QA should check for gem deps in Gemfile - specs aren't valid for QA if so
   - consider building new Gemfile without those gem lines and seeing if specs pass
   - still allows for the case of a gem that passes specs but can't run in the wild
 
-Feature: run specs file-by-file to try to isolate require fails?
-
-Feature: QC tool should list line numbers for iffy words
+? Feature: run specs file-by-file to try to isolate require fails
 
 Feature: documentation coverage as a QA requirement
 
+Use Thor for corundum tool
+  corundum-skel -> corundum skel
+  ? corundum <anything else> -> Rakefile (Mattock feature...)
 corundum-skel should generate <project>.gemspec, not gemspec.rb - either last part of PWD or ARGV[0]
 corundum-skel should use optparse
 corundum-skel should create directories

@@ -1,3 +1,5 @@
+require 'paint'
+
 module Corundum
   module QA
     #Adopted gratefully from Xavier Shay's Cane
@@ -100,9 +102,12 @@ module Corundum
       end
 
       def to_s(widths=nil)
-        (passed ? "Ok" : "FAIL") +
-        ": #{name} " +
-        (summary_counts ? "(#{length})" : "") + "\n" +
+        Paint[
+          (passed ? "Ok" : "FAIL") +
+          ": #{name} " +
+          (summary_counts ? "(#{length})" : ""),
+            passed ? :green : :red
+        ] + "\n" +
           (summary.empty? ? "" : (summary + "\n")) +
           rejects.map do |reject|
           "  " + reject.to_s(widths) + "\n"
