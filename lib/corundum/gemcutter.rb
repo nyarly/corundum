@@ -133,13 +133,13 @@ module Corundum
           report = QA::Report.new("Bundler pinned dependencies")
           qa_rejections << report
           runtime_deps = gemspec.runtime_dependencies.map(&:name)
-          pinned_dependencies = parser.dependencies.each do |dep|
+          parser.dependencies.each do |dep|
             next unless runtime_deps.include? dep.name
             next if dep.source.nil?
             next if dep.source.respond_to?(:path) and dep.source.path.to_s == "."
             report.add("source", dep, nil, dep.source)
-            report.fail("Pinned runtime dependencies:\n" +
-                        "   Specs depended on by the gemspec are pinned and " +
+            report.fail("Pinned gem dependencies:\n" +
+                        "   Specs depended on by the gemspec are pinned (by :path or :git) and " +
                         "as a result, spec results are suspect\n")
           end
         end
