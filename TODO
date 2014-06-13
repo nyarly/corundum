@@ -1,3 +1,9 @@
+NameError: uninitialized constant Bundler::Source
+/home/judson/.gem/ruby/2.0.0/gems/bundler-1.6.2/lib/bundler/lockfile_parser.rb:52:in `<class:LockfileParser>'.
+...
+lib/corundum/gemcutter.rb:129
+ - solution is to require files in bundler
+
 Output:
   Color QA output, including red/green for review tests
   Output information about file names in a vertical list, rather than [].inspect - c&p fixes

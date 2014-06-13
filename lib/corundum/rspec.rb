@@ -93,7 +93,7 @@ module Corundum
           examples = []
           begin
             File.open("last_run", "r") do |fail_list|
-              fail_list.lines.grep(%r{^\s*\d+\)\s*(.*)}) do |line|
+              fail_list.each_line.grep(%r{^\s*\d+\)\s*(.*)}) do |line|
                 examples << $1.gsub(/'/){"[']"}
               end
             end

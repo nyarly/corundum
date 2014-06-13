@@ -1,3 +1,4 @@
+require 'bundler'
 require 'mattock/tasklib'
 
 module Corundum

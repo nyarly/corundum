@@ -96,7 +96,7 @@ module Corundum
         end
 
         task :push => :on_branch do
-          git("push")
+          git("push", "--tags")
         end
 
         task :check_in => [:push]
