@@ -35,7 +35,7 @@ module Corundum
       end
 
       def gem_list=(list)
-        gems = list
+        @gems ||= list
       end
 
       def get_all_gem_names
@@ -82,7 +82,7 @@ module Corundum
 
     class CheckerForRubyGems200 < DepsChecker
       def fulfilled?(dependency)
-        gems, errors = *(@checker.search_for_dependency(dependency))
+        gems, _ = *(@checker.search_for_dependency(dependency))
         !gems.empty?
       end
     end
@@ -147,7 +147,7 @@ module Corundum
 
         task :is_unpushed do
           checker = DepsChecker.build
-          dep = Gem::Dependency.new(gemspec.name, "<= #{gemspec.version}")
+          dep = Gem::Dependency.new(gemspec.name, ">= #{gemspec.version}")
           if checker.fulfilled?(dep)
             fail "Gem #{gemspec.full_name} is already pushed"
           end
