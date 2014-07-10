@@ -147,7 +147,7 @@ module Corundum
 
         task :is_unpushed do
           checker = DepsChecker.build
-          dep = Gem::Dependency.new(gemspec.name, "= #{gemspec.version}")
+          dep = Gem::Dependency.new(gemspec.name, "<= #{gemspec.version}")
           if checker.fulfilled?(dep)
             fail "Gem #{gemspec.full_name} is already pushed"
           end
