@@ -31,7 +31,7 @@ module Corundum
       end
     end
 
-    def action
+    def action(*args)
       Dir.chdir target_dir do
         super
       end
