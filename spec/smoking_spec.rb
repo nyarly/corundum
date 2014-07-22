@@ -1,8 +1,6 @@
 require 'corundum'
 require 'corundum/tasklibs'
 
-require 'corundum/rubyforge'
-
 module Corundum
   describe "A fairly complete Rakefile" do
     before :each do
