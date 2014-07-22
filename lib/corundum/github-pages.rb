@@ -7,7 +7,7 @@ module Corundum
     setting(:arguments, [])
 
     def command
-      Mattock::CommandLine.new("git", "--no-pager") do |cmd|
+      cmd("git", "--no-pager") do |cmd|
         cmd.options << subcommand
         arguments.each do |arg|
           cmd.options += [*arg]
@@ -38,7 +38,7 @@ module Corundum
     end
   end
 
-  class GithubPages < Mattock::TaskLib
+  class GithubPages < Mattock::CommandTaskLib
     default_namespace :publish_docs
 
     setting(:target_dir, "gh-pages")
@@ -63,7 +63,7 @@ module Corundum
     end
 
     def git_command(*args)
-      Mattock::CommandLine.new("git", "--no-pager") do |cmd|
+      cmd("git", "--no-pager") do |cmd|
         args.each do |arg|
           cmd.options += [*arg]
         end
@@ -86,40 +86,25 @@ module Corundum
         end
 
         InDirCommandTask.define_task(self, :remote_branch => repo_dir) do |t|
-          t.verify_command = Mattock::PipelineChain.new do |chain|
-            chain.add git_command(%w{branch -r})
-            chain.add Mattock::CommandLine.new("grep", "-q", branch)
-          end
-          t.command = Mattock::PrereqChain.new do |cmd|
-            cmd.add git_command("checkout", "-b", branch)
-            cmd.add Mattock::CommandLine.new("rm -rf *")
-            cmd.add git_command(%w{commit -a -m} + ["'Creating pages'"])
-            cmd.add git_command("push", "origin", branch)
-            cmd.add git_command("branch", "--set-upstream", branch, "origin/" + branch)
-          end
+          t.verify_command = git_command | cmd("grep", "-q", branch)
+          t.command = git_command("checkout", "-b", branch) &
+            cmd("rm -rf *") &
+            git_command(%w{commit -a -m} + ["'Creating pages'"]) &
+            git_command("push", "origin", branch) &
+            git_command("branch", "--set-upstream", branch, "origin/" + branch)
         end
 
         InDirCommandTask.define_task(self, :local_branch => :remote_branch) do |t|
-          t.verify_command = Mattock::PipelineChain.new do |chain|
-            chain.add git_command(%w{branch})
-            chain.add Mattock::CommandLine.new("grep", "-q", "'#{branch}'")
-          end
-          t.command = Mattock::PrereqChain.new do |chain|
-            chain.add git_command("checkout", "-b", branch)
-            chain.add git_command("branch", "--set-upstream", branch, "origin/" + branch)
-            chain.add Mattock::CommandLine.new("rm", "-f", '.git/index')
-            chain.add git_command("clean", "-fdx")
-          end
+          t.verify_command = git_command(%w{branch}) | cmd("grep", "-q", "'#{branch}'")
+          t.command = git_command("checkout", "-b", branch) &
+            git_command("branch", "--set-upstream", branch, "origin/" + branch) &
+            cmd("rm", "-f", '.git/index') &
+            git_command("clean", "-fdx")
         end
 
         InDirCommandTask.define_task(self, :on_branch => [:remote_branch, :local_branch]) do |t|
-          t.verify_command = Mattock::PipelineChain.new do |chain|
-            chain.add git_command(%w{branch})
-            chain.add Mattock::CommandLine.new("grep", "-q", "'^[*] #{branch}'")
-          end
-          t.command = Mattock::PrereqChain.new do |chain|
-            chain.add git_command("checkout", branch)
-          end
+          t.verify_command = git_command(%w{branch}) | cmd("grep", "-q", "'^[*] #{branch}'")
+          t.command = git_command("checkout", branch)
         end
 
         task :pull => [repo_dir, :on_branch] do
@@ -129,7 +114,7 @@ module Corundum
         end
 
         task :cleanup_repo => repo_dir do
-          Mattock::CommandLine.new("rm", "-f", File::join(repo_dir, "hooks", "*")).must_succeed!
+          cmd("rm", "-f", File::join(repo_dir, "hooks", "*")).must_succeed!
           File::open(File::join(repo_dir, ".gitignore"), "w") do |file|
             file.write ".sw?"
           end
@@ -140,13 +125,13 @@ module Corundum
         task :pre_publish => [repo_dir, target_dir]
 
         task :clobber_target => [:on_branch, :pull] do
-          Mattock::CommandLine.new(*%w{rm -rf}) do |cmd|
+          cmd(*%w{rm -rf}) do |cmd|
             cmd.options << target_dir + "/*"
           end.must_succeed!
         end
 
         task :assemble_docs => [docs_index, :pre_publish, :clobber_target] do
-          Mattock::CommandLine.new(*%w{cp -a}) do |cmd|
+          cmd(*%w{cp -a}) do |cmd|
             cmd.options << source_dir + "/*"
             cmd.options << target_dir
           end.must_succeed!

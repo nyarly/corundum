@@ -26,15 +26,12 @@ module Corundum
       ruby_command.options << ruby_opts if ruby_opts
       ruby_command.options << "-w" if warning
 
-      self.runner_command = Mattock::CommandLine.new(rspec_path) do |cmd|
+      self.runner_command = cmd(rspec_path) do |cmd|
         cmd.options << rspec_opts
         cmd.options << files_to_run
       end
 
-      self.command = Mattock::WrappingChain.new do |cmd|
-        cmd.add ruby_command
-        cmd.add runner_command
-      end
+      self.command = ruby_command - runner_command
 
       super
 

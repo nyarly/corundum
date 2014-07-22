@@ -17,7 +17,7 @@ module Corundum
 
     def resolve_configuration
       super
-      self.command = Mattock::CommandLine.new(browser, index_html)
+      self.command = cmd(browser, index_html)
     end
   end
 end

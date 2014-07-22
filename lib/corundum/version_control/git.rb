@@ -16,7 +16,7 @@ module Corundum
     end
 
     def git_command(*args)
-      Mattock::CommandLine.new("git", "--no-pager") do |cmd|
+      cmd("git", "--no-pager") do |cmd|
         args.each do |arg|
           cmd.options += [*arg]
         end
