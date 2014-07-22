@@ -44,7 +44,6 @@ Gem::Specification.new do |spec|
     lib/corundum/gem_building.rb
     lib/corundum/tasklibs.rb
     lib/corundum/simplecov.rb
-    lib/corundum/rubyforge.rb
     lib/corundum/questionable-content.rb
     lib/corundum/version_control.rb
     lib/corundum/version_control/monotone.rb
