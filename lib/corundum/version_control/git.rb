@@ -7,7 +7,7 @@ module Corundum
 
     def default_configuration(toolkit)
       super
-      self.build_finished_task = toolkit.finished_files.build
+      self.build_finished_task = toolkit.build_file.abspath
     end
 
     def resolve_configuration

@@ -9,14 +9,14 @@ module Corundum
     def default_configuration(toolkit)
       super
       self.gemspec =  toolkit.gemspec
-      self.qa_finished_file =  toolkit.finished_files.qa
+      self.qa_finished_file =  toolkit.qa_file.abspath
     end
 
     def define
       require 'rubygems/package_task'
 
       in_namespace do
-        package = Gem::PackageTask.new(gemspec) do |t|
+        Gem::PackageTask.new(gemspec) do |t|
           t.need_tar_gz = true
           t.need_tar_bz2 = true
           t.package_dir = package_dir

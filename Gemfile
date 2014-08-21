@@ -2,4 +2,6 @@ source "https://rubygems.org"
 
 gem 'cadre'
 gem 'fuubar'
-gemspec
+gem 'mattock', :path => "../mattock"
+gemspec :name => 'corundum'
+gemspec :name => 'corundum-docs'

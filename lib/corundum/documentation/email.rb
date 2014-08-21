@@ -4,7 +4,7 @@ module Corundum
   class Email < Mattock::TaskLib
     default_namespace :email
 
-    setting(:rubyforge)
+    setting(:rubyforge, nested.nil_fields(:group_id, :package_id, :release_name, :home_page, :project_page))
     setting(:email_servers, [])
     setting(:gemspec)
     setting(:announce_to_email, nil)
@@ -12,10 +12,9 @@ module Corundum
 
     def default_configuration(toolkit)
       super
-      self.rubyforge = toolkit.rubyforge
       self.gemspec = toolkit.gemspec
       self.urls.home_page = toolkit.gemspec.homepage
-      self.urls.project_page = toolkit.rubyforge.project_page
+      self.urls.project_page ||= "http://rubyforge.org/project/#{toolkit.gemspec.rubyforge_project}/"
     end
 
     def announcement

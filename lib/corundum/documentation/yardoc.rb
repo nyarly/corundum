@@ -10,7 +10,6 @@ module Corundum
 
     settings(:options =>  nil,
              :readme =>  nil,
-             :sub_dir =>  "yardoc",
              :files =>  nested(:code => [], :docs => []),
              :extra_files =>  [] )
 
@@ -30,6 +29,7 @@ module Corundum
       super
       self.gemspec = toolkit.gemspec
       toolkit.files.copy_settings_to(self.files)
+      target_dir.relative_path = "yardoc"
       self.files.docs = []
     end
 

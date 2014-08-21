@@ -16,18 +16,19 @@ module Corundum
   # [release] push the gem out to the world
   # [press] send out notifications that the gem has been published
   class Core < Mattock::TaskLib
+    dir(:package, "pkg",
+        path(:build_file))
+
+    dir(:corundum_dir, "corundum",
+        dir(:finished_dir, "finished",
+            path(:qa_file), path(:release_file), path(:press_file)))
+
     settings(
       :gemspec => nil,
       :gemspec_path => nil,
-      :corundum_dir => "corundum",
-      :finished_dir => nil,
-      :package_dir => "pkg",
-      :doc_dir => "rubydoc",
       :qa_rejections => nil,
       :browser => Corundum.user_preferences["browser"],
-      :finished_files => nested.nil_fields(:build, :qa, :package, :release, :press),
       :files => nested.nil_fields(:code, :test, :docs),
-      :rubyforge => nested.nil_fields(:group_id, :package_id, :release_name, :home_page, :project_page),
       :email => nested(
         :servers => [ nested({ :server => "ruby-lang.org", :helo => "gmail.com" }) ],
         :announce_to_email => "ruby-talk@ruby-lang.org"
@@ -40,40 +41,30 @@ module Corundum
       :file_patterns => nested( :code => [%r{^lib/}], :test => [%r{^spec/}, %r{^test/}], :docs => [%r{^doc/}])
     )
 
-    def load_gemspec
-      @gemspec_path ||= guess_gemspec
-      @gemspec ||= Gem::Specification::load(gemspec_path)
-      return gemspec
-    end
-
     def resolve_configuration
       super
-      load_gemspec
 
-      self.finished_dir ||= File::join(corundum_dir, "finished")
-      @finished_files.build ||= File::join( package_dir, "#{gemspec.full_name}.gem")
+      self.gemspec_path ||= guess_gemspec
+      self.gemspec ||= Gem::Specification::load(gemspec_path)
 
-      @finished_files.qa ||= File::join( finished_dir, "qa_#{gemspec.version}")
-      @finished_files.release ||= File::join( finished_dir, "release_#{gemspec.version}")
-      @finished_files.press ||= File::join( finished_dir, "press_#{gemspec.version}")
+      self.qa_rejections ||= []
 
-      @qa_rejections ||= []
+      build_file.relative_path ||= gemspec.full_name + ".gem"
+      qa_file.relative_path ||= "qa-" + gemspec.version.to_s
+      release_file.relative_path ||= "release-" + gemspec.version.to_s
+      press_file.relative_path ||= "press-" + gemspec.version.to_s
 
-      @files.code ||= file_patterns.code.map{ |pattern| gemspec.files.grep(pattern) }.flatten
-      @files.test ||= file_patterns.test.map{ |pattern| gemspec.files.grep(pattern) }.flatten
-      @files.docs ||= file_patterns.docs.map{ |pattern| gemspec.files.grep(pattern) }.flatten
+      resolve_paths
 
-      @file_lists.project << gemspec_path
-      @file_lists.all  ||=
+      self.files.code ||= file_patterns.code.map{ |pattern| gemspec.files.grep(pattern) }.flatten
+      self.files.test ||= file_patterns.test.map{ |pattern| gemspec.files.grep(pattern) }.flatten
+      self.files.docs ||= file_patterns.docs.map{ |pattern| gemspec.files.grep(pattern) }.flatten
+
+      self.file_lists.project << gemspec_path
+      self.file_lists.all  ||=
         file_lists.code +
         file_lists.test +
         file_lists.docs
-
-      @rubyforge.group_id ||= gemspec.rubyforge_project
-      @rubyforge.package_id ||= gemspec.name.downcase
-      @rubyforge.release_name ||= gemspec.full_name
-      @rubyforge.home_page ||= gemspec.homepage
-      @rubyforge.project_page ||= "http://rubyforge.org/project/#{gemspec.rubyforge_project}/"
     end
 
     def guess_gemspec
@@ -90,12 +81,12 @@ module Corundum
 
     def define
       in_namespace do
-        directory finished_dir
+        directory finished_dir.abspath
 
         desc "Run preflight checks"
         task :preflight
 
-        task :run_quality_assurance => [:preflight, finished_files.qa]
+        task :run_quality_assurance => [ :preflight, qa_file.abspath ]
 
         task :run_continuous_integration
 
@@ -120,30 +111,30 @@ module Corundum
         end
 
 
-        file finished_files.qa =>
-        [finished_dir] + file_lists.project + file_lists.code + file_lists.test do |task|
+        file qa_file.abspath =>
+        [finished_dir.abspath] + file_lists.project + file_lists.code + file_lists.test do |task|
           Rake::Task[:qa].invoke
           touch task.name
         end
 
         desc "Build the package"
-        task :build => [finished_files.qa, :preflight, finished_files.build]
-        file finished_files.build =>
-        [finished_dir] + file_lists.code + file_lists.project do |task|
+        task :build => [qa_file.abspath, :preflight, build_file.abspath]
+        file build_file.abspath =>
+        [finished_dir.abspath] + file_lists.code + file_lists.project do |task|
           Rake::Task[:build].invoke
           touch task.name
         end
 
         desc "Push package out to the world"
-        task :release => [finished_files.build, :preflight, finished_files.release]
-        file finished_files.release => [finished_dir] do |task|
+        task :release => [ build_file.abspath, :preflight, release_file.abspath ]
+        file release_file.abspath => [ finished_dir.abspath ] do |task|
           Rake::Task[:release].invoke
           touch task.name
         end
 
         desc "Announce publication"
-        task :press => [finished_files.release, finished_files.press]
-        file finished_files.press => [finished_dir] do |task|
+        task :press => [ release_file.abspath, press_file.abspath ]
+        file press_file.abspath => [finished_dir.abspath] do |task|
           Rake::Task[:press].invoke
           touch task.name
         end

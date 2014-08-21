@@ -46,9 +46,7 @@ module Corundum
   end
 
   class RSpecReportTask < RSpecTask
-    setting :target_dir
-    setting :doc_file, "index.html"
-    setting :doc_path
+    dir(:target_dir, path(:doc_path, "index.html"))
 
     def timestamp
       if File.exist?(doc_path)
@@ -68,7 +66,11 @@ module Corundum
 
     def default_configuration(rspec)
       super
-      self.doc_path = File::join(target_dir, doc_file)
+    end
+
+    def resolve_configuration
+      super
+      resolve_paths
     end
   end
 end

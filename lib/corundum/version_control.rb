@@ -9,7 +9,7 @@ module Corundum
     def default_configuration(toolkit)
       super
       self.gemspec =  toolkit.gemspec
-      self.build_finished_file =  toolkit.finished_files.build
+      self.build_finished_file =  toolkit.build_file.abspath
       self.gemspec_files = toolkit.files.code + toolkit.files.test
       self.tag =  toolkit.gemspec.version.to_s
     end

@@ -8,7 +8,6 @@ module Corundum
 
     settings(
       :qa_rejections => nil,
-      :sub_dir => "rspec",
       :pattern => './spec{,/*/**}/*_spec.rb',
       :warning => false,
       :verbose => true,
@@ -25,7 +24,8 @@ module Corundum
 
     def default_configuration(toolkit)
       super
-      self.qa_finished_path = toolkit.finished_files.qa
+      target_dir.relative_path = "rspec"
+      self.qa_finished_path = toolkit.qa_file.abspath
       self.qa_rejections = toolkit.qa_rejections
       self.file_dependencies = file_lists.code + file_lists.test + file_lists.project
     end
@@ -54,7 +54,7 @@ module Corundum
         test_task(:all)
 
         desc "Generate specifications documentation"
-        docn = doc_task(:doc => file_dependencies) do |t|
+        doc_task(:doc => file_dependencies) do |t|
           t.rspec_opts = %w{-o /dev/null --failure-exit-code 0 -f h -o} + [t.doc_path]
         end
         file entry_path => :doc

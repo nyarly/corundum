@@ -14,7 +14,6 @@ module Corundum
 
     setting(:config_path, nil)
 
-    setting(:sub_dir, "coverage")
     setting(:config_file, ".simplecov")
     setting(:filters, ["./spec"])
     setting(:threshold, 80)
@@ -29,6 +28,7 @@ module Corundum
 
     def default_configuration(toolkit, testlib)
       super(toolkit)
+      target_dir.relative_path = "coverage"
       self.test_lib = testlib
       self.code_files = toolkit.files.code
       self.all_files =  toolkit.file_lists.project + toolkit.file_lists.code + toolkit.file_lists.test

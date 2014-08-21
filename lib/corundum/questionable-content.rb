@@ -13,6 +13,7 @@ module Corundum
       "gender" => ["bitch", "cocksucker", "cunt", "dyke", "faggot", "tranny"], #ok
       "issues" => ["XXX", "TODO"], #ok
     }
+    CANONICAL_WORD_SETS = WORD_SETS.keys
     [
       ["debug", "debugging"],
       ["profanity", "swearing"],
@@ -22,6 +23,14 @@ module Corundum
       ["gender", "sexism"]
     ].each do |name, other|
       WORD_SETS[other] = WORD_SETS[name]
+    end
+
+    def self.all_sets(core)
+      CANONICAL_WORD_SETS.each do |word_set|
+        self.new(core) do |qc|
+          qc.type = word_set
+        end
+      end
     end
 
     default_namespace :content

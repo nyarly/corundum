@@ -6,23 +6,14 @@ module Corundum
     setting :browser
     setting :gemspec
 
-    #TODO update to use new paths DSL
-    setting :corundum_dir
-    setting :docs_root
-
-    setting :target_dir
-    setting :sub_dir
-
-    setting :entry_file, "index.html"
-
-    #The path from the project root to the entry file
-    #Resolves if unset to target_dir + entry_file
-    setting :entry_path
+    dir(:corundum_dir,
+        dir(:docs_root, "docs",
+            dir(:target_dir,
+               path(:entry_path, "index.html"))))
 
     #The URL path from this documentation root
     #Resolves if unset to sub_dir + entry_file
     setting :entry_link
-
 
     def self.title(name)
       setting :title, name
@@ -35,31 +26,20 @@ module Corundum
 
     def resolve_configuration
       super
-      if field_unset?(:docs_root)
-        self.docs_root = File::join(corundum_dir, "docs")
-      end
-
-      if field_unset?(:target_dir)
-        self.target_dir = File::join(docs_root, sub_dir)
-      else
-        self.sub_dir = target_dir.sub(/^#{docs_root}\//,"")
-      end
-
-      if field_unset?(:entry_path)
-        self.entry_path = File::join(target_dir, entry_file)
-      end
 
       if field_unset?(:entry_link)
-        self.entry_link = File::join(sub_dir, entry_file)
+        self.entry_link = File::join(target_dir.relpath, entry_path.relpath)
       end
+
+      resolve_paths
     end
 
-    def entry_point(under = nil)
-      File::join(under || target_dir, entry_file)
+    def entry_point
+      entry_path.abspath
     end
 
     def define
-      directory target_dir
+      directory target_dir.abspath
 
       in_namespace do
         desc "Open up a browser to view your documentation"

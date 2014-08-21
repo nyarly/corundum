@@ -17,7 +17,7 @@ module Corundum
       super
       self.build = build
       self.gemspec = toolkit.gemspec
-      self.build_finished_path = toolkit.finished_files.build
+      self.build_finished_path = toolkit.build_file.abspath
       self.gem_name = toolkit.gemspec.full_name
       self.package_dir = build.package_dir
       self.qa_rejections = toolkit.qa_rejections
