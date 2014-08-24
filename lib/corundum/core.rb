@@ -90,7 +90,7 @@ module Corundum
         task :run_continuous_integration
 
         desc "Run quality assurance tasks"
-        task :qa => :run_quality_assurance do
+        qa_task = task :qa => :run_quality_assurance do
           require 'corundum/qa-report'
           puts QA::ReportFormatter.new(qa_rejections).to_s
           unless qa_rejections.all?(&:passed)
@@ -111,15 +111,15 @@ module Corundum
 
         file qa_file.abspath =>
         [finished_dir.abspath] + file_lists.project + file_lists.code + file_lists.test do |task|
-          Rake::Task[:qa].invoke
+          qa_task.invoke
           touch task.name
         end
 
         desc "Build the package"
-        task :build => [qa_file.abspath, :preflight, build_file.abspath]
+        build_task = task :build => [qa_file.abspath, :preflight, build_file.abspath]
         file build_file.abspath =>
         [finished_dir.abspath] + file_lists.code + file_lists.project do |task|
-          Rake::Task[:build].invoke
+          build_task.invoke
           touch task.name
         end
 
