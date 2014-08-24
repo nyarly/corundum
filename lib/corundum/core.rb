@@ -120,6 +120,7 @@ module Corundum
         file build_file.abspath =>
         [finished_dir.abspath] + file_lists.code + file_lists.project do |task|
           build_task.invoke
+          puts "\n#{__FILE__}:#{__LINE__} => #{task.name.inspect}"
           touch task.name
         end
 
