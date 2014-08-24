@@ -21,7 +21,7 @@ module Corundum
 
     dir(:corundum_dir, "corundum",
         dir(:finished_dir, "finished",
-            path(:qa_file), path(:release_file), path(:press_file)))
+            path(:qa_file), path(:release_file)))
 
     settings(
       :gemspec => nil,
@@ -52,7 +52,6 @@ module Corundum
       build_file.relative_path ||= gemspec.full_name + ".gem"
       qa_file.relative_path ||= "qa-" + gemspec.version.to_s
       release_file.relative_path ||= "release-" + gemspec.version.to_s
-      press_file.relative_path ||= "press-" + gemspec.version.to_s
 
       resolve_paths
 
@@ -110,7 +109,6 @@ module Corundum
           end
         end
 
-
         file qa_file.abspath =>
         [finished_dir.abspath] + file_lists.project + file_lists.code + file_lists.test do |task|
           Rake::Task[:qa].invoke
@@ -129,13 +127,6 @@ module Corundum
         task :release => [ build_file.abspath, :preflight, release_file.abspath ]
         file release_file.abspath => [ finished_dir.abspath ] do |task|
           Rake::Task[:release].invoke
-          touch task.name
-        end
-
-        desc "Announce publication"
-        task :press => [ release_file.abspath, press_file.abspath ]
-        file press_file.abspath => [finished_dir.abspath] do |task|
-          Rake::Task[:press].invoke
           touch task.name
         end
       end

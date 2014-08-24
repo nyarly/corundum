@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
   #{MAJOR: incompatible}.{MINOR added feature}.{PATCH bugfix}-{LABEL}
-  spec.version		= "0.3.9"
+  spec.version		= "0.4.0"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com"
   }
@@ -9,13 +9,22 @@ Gem::Specification.new do |spec|
   spec.email		= spec.authors.map {|name| author_list[name]}
   spec.summary		= "Tools for synthesizing rubygems"
   spec.description	= <<-EndDescription
-  A corundum is a synthetic gemstone - including synthetic rubies.  Ergo: a tool for synthesizing gems.
+  A corundum is a synthetic gemstone - including synthetic rubies.  Ergo: a
+  tool for synthesizing gems.
 
-  Corundum starts with the outlook that gemspecs are relatively easy to work with, and that the opinion of the RubyGems team is that they should be treated as a configuration file, not a code file.  Furthermore, Rake is a powerful, easy to use tool, and does admit the use of Ruby code to get the job done.
+  Corundum starts with the outlook that gemspecs are relatively easy to work
+  with, and that the opinion of the RubyGems team is that they should be
+  treated as a configuration file, not a code file.  Furthermore, Rake is a
+  powerful, easy to use tool, and does admit the use of Ruby code to get the
+  job done.
 
-  The hard part about publishing gems is getting them into a state you'll be proud of.  There's dozens of fiddly steps to putting together a gem fit for public consumption, and it's very easy to get some of them wrong.
+  The hard part about publishing gems is getting them into a state you'll be
+  proud of.  There's dozens of fiddly steps to putting together a gem fit for
+  public consumption, and it's very easy to get some of them wrong.
 
-  Corundum is a collection of Rake tasklibs, therefore, that will perform the entire process of releasing gems, including QA steps up front through generating and publishing documentation.
+  Corundum is a collection of Rake tasklibs, therefore, that will perform the
+  entire process of releasing gems, including QA steps up front through
+  packaging and releasing the gem
   EndDescription
 
   spec.rubyforge_project= spec.name.downcase
@@ -31,16 +40,11 @@ Gem::Specification.new do |spec|
     lib/corundum/core.rb
     lib/corundum/qa-report.rb
     lib/corundum/browser-task.rb
-    lib/corundum/github-pages.rb
     lib/corundum/rspec.rb
     lib/corundum/rspec-task.rb
-    lib/corundum/email.rb
     lib/corundum/gemspec_files.rb
     lib/corundum/gemcutter.rb
-    lib/corundum/documentation.rb
     lib/corundum/documentation-task.rb
-    lib/corundum/documentation/yardoc.rb
-    lib/corundum/documentation/assembly.rb
     lib/corundum/gem_building.rb
     lib/corundum/tasklibs.rb
     lib/corundum/simplecov.rb
@@ -54,13 +58,6 @@ Gem::Specification.new do |spec|
     lib/corundum/default_configuration/skel-files/gemfile
     lib/corundum/default_configuration/skel-files/travis
     lib/corundum/default_configuration/skel-files/simplecov
-    lib/corundum/default_configuration/templates/doc_assembly/index.html.erb
-    lib/corundum/default_configuration/templates/doc_assembly/theme/sass/styles.scss
-    lib/corundum/default_configuration/templates/doc_assembly/stylesheet.scss
-    lib/corundum/default_configuration/templates/doc_assembly/theme/stylesheets/pygment_trac.css
-    lib/corundum/default_configuration/templates/doc_assembly/theme/stylesheets/styles.css
-    lib/corundum/default_configuration/templates/doc_assembly/theme/javascripts/scale.fix.js
-    lib/corundum/default_configuration/templates/doc_assembly/theme/images/checker.png
     README.md
     spec/smoking_spec.rb
     spec_help/spec_helper.rb
@@ -92,17 +89,12 @@ Gem::Specification.new do |spec|
   spec.extra_rdoc_files = Dir.glob("doc/**/*")
   spec.rdoc_options	+= ["--title", "#{spec.name}-#{spec.version} RDoc"]
 
-  spec.add_dependency "rdoc", ">= 0"
   spec.add_dependency "paint", "~> 0.8.7"
-  spec.add_dependency "yard", ">= 0"
-  spec.add_dependency "mailfactory", "~> 1.4.0"
   spec.add_dependency "rspec", ">= 2.0"
   spec.add_dependency "simplecov", ">= 0.5.4"
   spec.add_dependency "bundler"
-  spec.add_dependency "nokogiri"
+  spec.add_dependency "simplecov-json", ">= 0.2"
 
   spec.add_dependency "caliph", "~> 0.3"
-  spec.add_dependency "mattock", "~> 0.8"
-  #spec.add_dependency "sass", ">= 3.1"
-  spec.add_dependency "compass", ">= 0.12.1"
+  spec.add_dependency "mattock", "~> 0.9"
 end

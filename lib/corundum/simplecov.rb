@@ -22,6 +22,9 @@ module Corundum
       /\.rb$/ =~ path
     end)
 
+    dir(:target_dir,
+        path(:coverage_json, "coverage.json"))
+
     setting(:test_options, [])
 
     setting :qa_rejections, nil
@@ -73,31 +76,48 @@ module Corundum
           puts config_file_contents
         end
 
-        task :config_exists do
-          File::exists?(config_path) or fail "No .simplecov (try: rake #{self[:example_config]})"
-          File::read(config_path) =~ /coverage_dir.*#{target_dir}/ or fail ".simplecov doesn't refer to #{target_dir}"
+        config_exists = task :config_exists do
+          problems = []
+          File::exists?(config_path) or problems << "No .simplecov (try: rake #{self[:example_config]})"
+          config_string = File.read(config_path)
+          unless config_string =~ /coverage_dir.*#{target_dir.pathname.relative_path_from(Pathname.pwd)}/
+            problems << ".simplecov doesn't refer to #{target_dir}"
+          end
+          unless config_string =~ /SimpleCov::Formatter::JSONFormatter/
+            problems << ".simplecov doesn't refer to SimpleCov::Formatter::JSONFormatter"
+          end
+          fail problems.join("\n") unless problems.empty?
         end
 
-        @test_lib.doc_task(:report => [:config_exists] + all_files) do |t|
-          t.rspec_opts = %w{-r simplecov -f progress} + test_options + t.rspec_opts
+        class << config_exists
+          attr_accessor :config_path
+
+          def timestamp
+            if File.exist?(config_path)
+              File.mtime(config_path.to_s)
+            else
+              Rake::EARLY
+            end
+          end
         end
-        file entry_path => :report
+        config_exists.config_path = config_path
 
-        task :generate_report => [:config_exists, entry_path]
+        @test_lib.report_task.rspec_opts << "-r simplecov"
+        file entry_point => @test_lib.report_task.name
+        file coverage_json => @test_lib.report_task.name
 
-        task :verify_coverage => :generate_report do
-          require 'nokogiri'
+        task :verify_coverage => coverage_json do
+          require 'json'
           require 'corundum/qa-report'
 
-          doc = Nokogiri::parse(File::read(entry_path))
+          doc = JSON::parse(File::read(coverage_json.to_s))
 
-          coverage_total_xpath = "//span[@class='covered_percent']/span"
-          percentage = doc.xpath(coverage_total_xpath).first.content.to_f
+          percentage = doc["metrics"]["covered_percent"]
 
           report = QA::Report.new("Coverage")
           report.summary_counts = false
-          report.add("percentage", entry_path, nil, percentage)
-          report.add("threshold", entry_path, nil, threshold)
+          report.add("percentage", entry_point, nil, percentage.round(2))
+          report.add("threshold", entry_point, nil, threshold)
           qa_rejections << report
 
           if percentage < threshold
@@ -105,16 +125,14 @@ module Corundum
           end
         end
 
-        task :find_stragglers => :generate_report do
-          require 'nokogiri'
+        task :find_stragglers => coverage_json do
+          require 'json'
           require 'corundum/qa-report'
 
-          doc = Nokogiri::parse(File::read(entry_path))
+          doc = JSON::parse(File::read(coverage_json.to_s))
 
-          covered_files = doc.xpath(
-            "//table[@class='file_list']//td//a[@class='src_link']").map do |link|
-            link.content
-            end
+          pwd = Pathname.pwd
+          covered_files = doc["files"].map{|f| Pathname.new(f["filename"]).relative_path_from(pwd).to_s}
           need_coverage = code_files.find_all(&coverage_filter)
 
           report = QA::Report.new("Stragglers")
@@ -132,6 +150,9 @@ module Corundum
           end
         end
       end
+
+      task @test_lib.report_task.name => in_namespace(:config_exists)
+      task @test_lib.report_task.name => all_files
 
       task :preflight => in_namespace(:config_exists)
       task :run_quality_assurance => in_namespace(:verify_coverage, :find_stragglers)

@@ -18,9 +18,15 @@ module Corundum
       :files_to_run => "spec"
     )
 
+    dir(:target_dir,
+        path(:json_report, "rspec.json"),
+        path(:doc_path, "index.html"))
+
     setting :rspec_path
 
     required_fields :gemspec_path, :qa_finished_path, :file_lists, :file_dependencies
+
+    attr_reader :report_task
 
     def default_configuration(toolkit)
       super
@@ -32,6 +38,7 @@ module Corundum
 
     def resolve_configuration
       self.rspec_path ||= %x"which #{rspec_program}".chomp
+      resolve_paths
       super
     end
 
@@ -54,33 +61,29 @@ module Corundum
         test_task(:all)
 
         desc "Generate specifications documentation"
-        doc_task(:doc => file_dependencies) do |t|
-          t.rspec_opts = %w{-o /dev/null --failure-exit-code 0 -f h -o} + [t.doc_path]
+        @report_task = doc_task(:doc => file_dependencies) do |t|
+          t.rspec_opts += %w{-o /dev/null --failure-exit-code 0}
+          t.formats["html"] = doc_path
+          t.formats["json"] = json_report
         end
-        file entry_path => :doc
+        file entry_point => :doc
+        file json_report => :doc
 
-        task :verify => entry_path do |task|
-          require 'nokogiri'
+        task :verify => json_report do |task|
+          require 'json'
           require 'corundum/qa-report'
 
-          doc = Nokogiri::parse(File::read(entry_path))
+          doc = JSON::parse(File::read(json_report.to_s))
 
-          rejections = QA::Report.new("RSpec[#{entry_path}]")
+          rejections = QA::Report.new("RSpec[#{json_report}]")
           qa_rejections << rejections
 
-          def class_xpath(name)
-            "contains(concat(' ', normalize-space(@class), ' '), '#{name}')"
-          end
-
-          fails_path = "//*[" + %w{example failed}.map{|kind| class_xpath(kind)}.join(" and ") + "]"
-          doc.xpath(fails_path).each do |node|
-            backtrace_line =
-              node.xpath(".//*[#{class_xpath("backtrace")}]").first.content.split("\n").first
-            file,line,_ = backtrace_line.split(":")
-            label = "fail"
-            value = node.xpath(".//*[#{class_xpath("message")}]").first.content.gsub(/\s+/m, " ")
-
-            rejections.add(label, file, line, value)
+          doc["examples"].find_all do |example|
+            example["status"] == "failed"
+          end.each do |failed|
+            file,line,_ = failed["exception"]["backtrace"].first.split(":", 3)
+            value = failed["exception"]["message"]
+            rejections.add("fail", file, line, value)
           end
 
           unless rejections.empty?

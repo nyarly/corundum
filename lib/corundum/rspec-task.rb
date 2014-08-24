@@ -9,9 +9,7 @@ module Corundum
       end
     end
 
-    setting :runner_command
-
-    required_fields :pattern, :ruby_opts,
+    runtime_required_fields :runner_command, :pattern, :ruby_opts,
       :warning, :rspec_path, :rspec_opts, :failure_message, :files_to_run,
       :file_dependencies
 
@@ -20,19 +18,27 @@ module Corundum
       rspec.copy_settings_to(self)
     end
 
-    def resolve_configuration
+    def resolve_runtime_configuration
       self.rspec_path = %x"which #{rspec_path}".chomp
 
       ruby_command.options << ruby_opts if ruby_opts
       ruby_command.options << "-w" if warning
 
       self.runner_command = cmd(rspec_path) do |cmd|
-        cmd.options << rspec_opts
+        cmd.options << all_rspec_options
         cmd.options << files_to_run
       end
 
       self.command = ruby_command - runner_command
 
+      super
+    end
+
+    def all_rspec_options
+      rspec_opts
+    end
+
+    def resolve_configuration
       super
 
       if task_args.last.is_a? Hash
@@ -48,12 +54,17 @@ module Corundum
   class RSpecReportTask < RSpecTask
     dir(:target_dir, path(:doc_path, "index.html"))
 
+    setting(:formats, {})
+
     def timestamp
-      if File.exist?(doc_path)
-        File.mtime(doc_path.to_s)
-      else
-        Rake::EARLY
-      end
+      return Rake::EARLY if formats.empty?
+      formats.values.map do |path|
+        if File.exist?(path.to_s)
+          File.mtime(path.to_s)
+        else
+          Rake::EARLY
+        end
+      end.min
     end
 
     def out_of_date?(stamp)
@@ -61,11 +72,17 @@ module Corundum
     end
 
     def needed?
-      ! File.exist?(doc_path) || out_of_date?(timestamp)
+      ! File.exist?(doc_path.abspath) || out_of_date?(timestamp)
     end
 
     def default_configuration(rspec)
       super
+    end
+
+    def all_rspec_options
+      super + formats.inject([]) do |list, (format, target)|
+        list + ["--format", format, "--out", target]
+      end
     end
 
     def resolve_configuration
