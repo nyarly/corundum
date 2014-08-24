@@ -83,4 +83,4 @@ end
 task :default => ['corundum:qa', 'corundum-docs:qa']
 
 desc "Release all gems in the corundum cluster"
-task :release => ['corundum:release', 'corundum-docs:release']
+task 'release-all' => ['corundum:release', 'corundum-docs:release']
