@@ -160,7 +160,7 @@ module Corundum
           push.options[:args] = [gem_path]
           push.execute
         end
-        task :push => build_finished_path
+        task :push => build_finished_path.tap{|value| puts "#{__FILE__}:#{__LINE__} => #{value.inspect}"}
       end
       task :release => in_namespace(:push)
       task :preflight => in_namespace(:is_unpushed)
