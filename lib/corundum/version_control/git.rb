@@ -101,7 +101,7 @@ module Corundum
 
         task :check_in => [:push]
       end
-      task build_finished_task => in_namespace("is_checked_in")
+      file build_finished_task => in_namespace("is_checked_in")
     end
   end
 end
