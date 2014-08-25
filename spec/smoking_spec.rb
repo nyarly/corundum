@@ -5,6 +5,7 @@ module Corundum
   describe "A fairly complete Rakefile" do
     before :each do
       tk = Toolkit.new do |tk|
+        tk.gemspec_path = "corundum.gemspec"
       end
 
       tk.in_namespace do
@@ -12,10 +13,7 @@ module Corundum
         cov = SimpleCov.new(tk, rspec)
         gem = GemBuilding.new(tk)
         cutter = GemCutter.new(tk, gem)
-        email = Email.new(tk)
         vc = Git.new(tk)
-        docs = YARDoc.new(tk)
-        pages = GithubPages.new(docs)
       end
     end
 
