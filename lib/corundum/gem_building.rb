@@ -3,13 +3,12 @@ require 'mattock/tasklib'
 module Corundum
   class GemBuilding < Mattock::TaskLib
     setting(:gemspec)
-    setting(:qa_finished_file)
-    setting(:package_dir, "pkg")
+    setting(:package)
+    setting(:qa_file)
 
     def default_configuration(toolkit)
       super
-      self.gemspec =  toolkit.gemspec
-      self.qa_finished_file =  toolkit.qa_file.abspath
+      toolkit.copy_settings_to(self)
     end
 
     def define
@@ -19,11 +18,11 @@ module Corundum
         Gem::PackageTask.new(gemspec) do |t|
           t.need_tar_gz = true
           t.need_tar_bz2 = true
-          t.package_dir = package_dir
+          t.package_dir = package.abspath
         end
 
         task(:package).prerequisites.each do |package_type|
-          file package_type => qa_finished_file
+          file package_type => qa_file
         end
       end
 
