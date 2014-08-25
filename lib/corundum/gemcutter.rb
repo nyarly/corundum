@@ -155,7 +155,7 @@ module Corundum
         task :push => [:dependencies_available, :is_unpushed] do
           require "rubygems/commands/push_command"
           push = get_command(Gem::Commands::PushCommand)
-          push.options[:args] = [gem_path]
+          push.options[:args] = [gem_path.abspath]
           push.execute
         end
         task :push => build_file.abspath.tap{|value| puts "#{__FILE__}:#{__LINE__} => #{value.inspect}"}
