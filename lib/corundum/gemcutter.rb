@@ -8,24 +8,22 @@ module Corundum
     setting(:gem_path, nil)
     setting(:build)
     setting(:gemspec)
-    setting(:build_finished_path)
-    setting(:gem_name)
-    setting(:package_dir)
     setting(:qa_rejections)
+
+    dir(:package,
+        path(:gem_path),
+        path(:build_file))
 
     def default_configuration(toolkit, build)
       super
+      toolkit.copy_settings_to(self)
       self.build = build
-      self.gemspec = toolkit.gemspec
-      self.build_finished_path = toolkit.build_file.abspath
-      self.gem_name = toolkit.gemspec.full_name
-      self.package_dir = build.package_dir
-      self.qa_rejections = toolkit.qa_rejections
     end
 
     def resolve_configuration
       super
-      self.gem_path ||= File::join(package_dir, gemspec.file_name)
+      gem_path.relative_path = gemspec.file_name
+      resolve_paths
     end
 
     module CommandTweaks
@@ -90,7 +88,7 @@ module Corundum
     def define
       in_namespace do
         task :uninstall do |t|
-          when_writing("Uninstalling #{gem_name}") do
+          when_writing("Uninstalling #{gemfile.full_name}") do
             require "rubygems/commands/uninstall_command"
             uninstall = get_command Gem::Commands::UninstallCommand
             uninstall.options[:args] = [gem_path]
@@ -160,7 +158,7 @@ module Corundum
           push.options[:args] = [gem_path]
           push.execute
         end
-        task :push => build_finished_path.tap{|value| puts "#{__FILE__}:#{__LINE__} => #{value.inspect}"}
+        task :push => build_file.abspath.tap{|value| puts "#{__FILE__}:#{__LINE__} => #{value.inspect}"}
       end
       task :release => in_namespace(:push)
       task :preflight => in_namespace(:is_unpushed)
