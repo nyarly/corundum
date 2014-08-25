@@ -50,8 +50,8 @@ module Corundum
       self.qa_rejections ||= []
 
       build_file.relative_path ||= gemspec.full_name + ".gem"
-      qa_file.relative_path ||= "qa-" + gemspec.version.to_s
-      release_file.relative_path ||= "release-" + gemspec.version.to_s
+      qa_file.relative_path ||= "qa-" + gemspec.full_name.to_s
+      release_file.relative_path ||= "release-" + gemspec.full_name.to_s
 
       resolve_paths
 
