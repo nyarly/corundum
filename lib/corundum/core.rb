@@ -90,7 +90,7 @@ module Corundum
         task :run_continuous_integration
 
         desc "Run quality assurance tasks"
-        qa_task = task :qa => :run_quality_assurance do
+        qa_task = task(:qa => :run_quality_assurance) do
           require 'corundum/qa-report'
           puts QA::ReportFormatter.new(qa_rejections).to_s
           unless qa_rejections.all?(&:passed)
