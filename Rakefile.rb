@@ -25,7 +25,7 @@ namespace :corundum do
 
     rspec = RSpec.new(core)
     cov = SimpleCov.new(core, rspec) do |cov|
-      cov.threshold = 58
+      cov.threshold = 57
     end
     gem = GemBuilding.new(core)
     cutter = GemCutter.new(core,gem)

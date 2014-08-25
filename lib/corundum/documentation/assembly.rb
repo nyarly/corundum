@@ -19,7 +19,7 @@ module Corundum
     setting :documenters, []
     setting :extra_data, {}
     setting :external_docs, {}
-    setting :css_dir, "stylesheets" #XXX
+    setting :css_dir, "stylesheets"
     setting :compass_config, nested(
       :http_path => "/",
       :line_comments => false,
@@ -35,7 +35,7 @@ module Corundum
 
       target_dir.relative_path = "assembled"
 
-      self.compass_config.http_stylesheets_path = css_dir #XXX
+      self.compass_config.http_stylesheets_path = css_dir
     end
 
     def resolve_configuration
@@ -91,7 +91,6 @@ module Corundum
           end
         end
 
-        #XXX Collision of doc groups
         task :collect => documenters.keys
 
         file stylesheet.abspath => [target_dir.abspath] do |task|
