@@ -48,6 +48,7 @@ end
 namespace 'corundum-docs' do
   docs = Core.new do |docs|
     docs.gemspec_path = "corundum-docs.gemspec"
+    docs.file_lists.project = [__FILE__]
   end
 
   docs.in_namespace do
