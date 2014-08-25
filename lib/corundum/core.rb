@@ -117,11 +117,9 @@ module Corundum
 
         desc "Build the package"
         build_task = task :build => [qa_file.abspath, :preflight, build_file.abspath]
-        file build_file.abspath.tap{|value| puts "#{__FILE__}:#{__LINE__} => #{value.inspect}"} =>
+        file build_file.abspath =>
         [finished_dir.abspath] + file_lists.code + file_lists.project do |task|
-          puts "\n#{__FILE__}:#{__LINE__} => #{task.name.inspect}"
           build_task.invoke
-          puts "\n#{__FILE__}:#{__LINE__} => #{task.name.inspect}"
           touch task.name
         end
 
