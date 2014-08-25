@@ -126,7 +126,7 @@ module Corundum
 
         desc "Push package out to the world"
         release_task = task(:release => [ build_file.abspath, :preflight, release_file.abspath ])
-        file release_file.abspath => [ finished_dir.abspath ] do |task|
+        file release_file.abspath => [ build_file, finished_dir] do |task|
           release_task.invoke
           touch task.name
         end
