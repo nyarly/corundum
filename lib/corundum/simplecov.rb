@@ -85,6 +85,11 @@ module Corundum
           end
           unless config_string =~ /SimpleCov::Formatter::JSONFormatter/
             problems << ".simplecov doesn't refer to SimpleCov::Formatter::JSONFormatter"
+            problems << "in your .simplecov file, either: "
+            problems << "    add 'formatter SimpleCov::Formatter::JSONFormatter'"
+            problems << "  or"
+            problems << "    add 'SimpleCov::Formatter::JSONFormatter' to an existing"
+            problems << "    'formatter SimpleCov::Formatter::MultiFormatter'"
           end
           fail problems.join("\n") unless problems.empty?
         end
