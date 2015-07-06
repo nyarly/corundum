@@ -1,13 +1,8 @@
 language: ruby
-install: .travis-support/cached-bundle install --deployment
-script: bundle exec rake ci
+script: bundle exec rake corundum:ci
+cache: bundler
 rvm:
 - 1.9.2
 - 1.9.3
 - 2.0.0
 - 2.1.0
-env:
-  global:
-  - AMAZON_S3_BUCKET=lrd-travis-caching
-  - secure: Ke57DGisoaPYLL9xj566Fao9Eb9fT2/qdbGrhusC0g8RhyRnx8+a+mmNeq7sONHU9ACY3QxpDIBmjsKJJqpKoPEg2iUmbV8p4xO74UmM7vo07TysY2DBDvTu1I3vomqeMrsnQceUNOMmFjCv4baFJtWpqSbFqsvisGVrMq/8tbg=
-  - secure: dGaZ5OqbUrS+/dCxiryBXWU2yGy2mLZwmnPtaUhu4cW3joKCQm9eVktSYznIyxuvyOGjgij08aLer7q8c4lHDILJwDeKsjWIZyJwvfsnVuIqj8mMchkvoknMpiaxL8GkFyANu12OwFYFQwSbE6F1l2pBbm9UQCRA0AK3cK5wO0s=
