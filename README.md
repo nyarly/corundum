@@ -1,4 +1,13 @@
 ## Corundum
+### Quickstart
+
+```
+gem install corundum
+cd my-new-rubygem
+corundum-skel
+rake -T
+```
+
 ### Foolproof rubygems
 
 With Corudum added as a developement dependancy to your gemspec, and configured
@@ -49,7 +58,7 @@ Corundum certainly wouldn't exist without seattlerb's Hoe.
 
 Corundum's default documentation theme is lifted wholesale from Steve Smith's Modernizer theme for github pages.
 
-Obviously, Bundler and Rubygems are a prerequisite, and the team that works on them is pretty much amazing.
+Obviously, Bundler and Rubygems are a prerequisite, and the teams that works on them are pretty much amazing.
 
 ### Contributing
 
@@ -62,3 +71,7 @@ an RCov tasklib, for instance, or a Minitest one.  Mercurial.
 Make a pull request, and I'll get it merged.  If you're worried, we can talk it
 out in Issues or email, and we can hash out the form of a pull request that
 I'll commit to merging.
+
+### License
+
+MIT
