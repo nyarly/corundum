@@ -1,4 +1,4 @@
-#! /bin/env ruby
+#! /usr/bin/env ruby
 # vi: set ft=ruby:
 require 'corundum/cli/skelfiles'
 Corundum::CLI::Skelfiles.new(ARGV).go
