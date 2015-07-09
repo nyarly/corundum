@@ -43,7 +43,7 @@ module Corundum
 
       def options
         @options ||= OptionParser.new do |opti|
-          opti.banner = "Spits on skeleton files to start a gem with.\nUsage: #$0 [options]"
+          opti.banner = "Spits out skeleton files to start a gem with.\nUsage: #$0 [options]"
           opti.on("-h", "--help", "This help message") do
             puts opti
             puts "Will emit these files:"
