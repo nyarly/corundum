@@ -1,6 +1,10 @@
 ## Corundum
 ### Quickstart
 
+The corundum-skel executable templates all the basic files necessary for building
+a gem with corundum. It's cautious and will not overwrite existing files.
+
+
 ```
 gem install corundum
 cd my-new-rubygem
@@ -10,7 +14,7 @@ rake -T
 
 ### Foolproof rubygems
 
-With Corudum added as a developement dependancy to your gemspec, and configured
+With Corundum added as a developement dependency to your gemspec, and configured
 (quickly) in your Rakefile you can do:
 
     rake release
