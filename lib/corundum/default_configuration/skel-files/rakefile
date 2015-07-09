@@ -8,7 +8,7 @@ require 'corundum/tasklibs'
 #
 # If you haven't seen the pattern before, simply instantiating the tasklib
 # class (i.e. SomeTasklib.new) is enough to create all the tasks it's
-# responsible for. If you do new to configure a tasklib, you can give ::new a
+# responsible for. If you do need to configure a tasklib, you can give ::new a
 # block which will receive the tasklib to configure. c.f. QuestionableContent
 # for an example.
 #
@@ -37,7 +37,11 @@ module Corundum
     # reason that 'p' appears on a line) You can tag the line with an '#ok'
     # comment to have QC ignore it.
 
-    #Also available: 'unfinished': TODO and XXX
+    # This default checks for unacceptable language (of both the profanity
+    # and -ism varieties) before release, as well as debugging statements
+    # like debugger, byebug, puts, p, etc. accidentally left in the code.
+    #
+    # Also available: 'unfinished': TODO and XXX
     ["debug", "profanity", "ableism", "racism"].each do |type|
       QuestionableContent.new(core) do |content|
         content.type = type
