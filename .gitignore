@@ -12,3 +12,4 @@ publish/
 yardoc/
 gh-pages/
 .sass-cache/
+old.travis.yml

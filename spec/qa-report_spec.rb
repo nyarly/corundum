@@ -8,15 +8,15 @@ describe Corundum::QA::Report do
   end
 
   it "should report as okay" do
-    report.passed.should  == true
-    report.to_s.should =~ /Ok/
+    expect(report.passed).to eq(true)
+    expect(report.to_s).to match(/Ok/)
   end
 
   it "should report as failed" do
     report.fail "It bwoke!"
 
-    report.passed.should be_false
-    report.to_s.should =~ /FAIL/
-    report.to_s.should =~ /bwoke/
+    expect(report.passed).to be(false)
+    expect(report.to_s).to match(/FAIL/)
+    expect(report.to_s).to match(/bwoke/)
   end
 end

@@ -18,7 +18,7 @@ module Corundum
     end
 
     it "should have some tasks" do
-      true.should be_true
+      expect(true).to be(true)
     end
   end
 end

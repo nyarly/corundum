@@ -5,7 +5,6 @@ module Corundum
   class GemCutter < Mattock::TaskLib
     default_namespace :gemcutter
 
-    setting(:gem_path, nil)
     setting(:build)
     setting(:gemspec)
     setting(:qa_rejections)

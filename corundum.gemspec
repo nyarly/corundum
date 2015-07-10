@@ -36,6 +36,7 @@ Gem::Specification.new do |spec|
   spec.files		= %w[
     bin/corundum-skel
     lib/corundum.rb
+    lib/corundum/cli/skelfiles.rb
     lib/corundum/configuration-store.rb
     lib/corundum/core.rb
     lib/corundum/qa-report.rb
@@ -54,8 +55,8 @@ Gem::Specification.new do |spec|
     lib/corundum/version_control/git.rb
     lib/corundum/default_configuration/preferences.yaml
     lib/corundum/default_configuration/skel-files/rakefile
-    lib/corundum/default_configuration/skel-files/gemspec
-    lib/corundum/default_configuration/skel-files/gemfile
+    lib/corundum/default_configuration/skel-files/gemspec.erb
+    lib/corundum/default_configuration/skel-files/gemfile.erb
     lib/corundum/default_configuration/skel-files/travis
     lib/corundum/default_configuration/skel-files/simplecov
     README.md
@@ -73,7 +74,6 @@ Gem::Specification.new do |spec|
   spec.rubygems_version = "1.3.5"
 
   if spec.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     spec.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
