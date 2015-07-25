@@ -1,4 +1,5 @@
 require 'corundum/version_control'
+require 'erb'
 
 module Corundum
   class Git < VersionControl

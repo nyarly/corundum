@@ -1,17 +1,35 @@
 require 'mattock/tasklib'
+require 'erb'
 
 module Corundum
   class VersionControl < Mattock::CommandTaskLib
     default_namespace :version_control
 
+    setting :tag_format, "<%= name %>-<%= version %>"
     required_fields(:gemspec, :build_finished_file, :gemspec_files, :tag)
+
+    class TagContext
+      def initialize(gemspec)
+        @gemspec = gemspec
+      end
+
+      def version
+        @gemspec.version
+      end
+
+      def name
+        @gemspec.name
+      end
+    end
 
     def default_configuration(toolkit)
       super
       self.gemspec =  toolkit.gemspec
       self.build_finished_file =  toolkit.build_file.abspath
       self.gemspec_files = toolkit.files.code + toolkit.files.test
-      self.tag =  toolkit.gemspec.version.to_s
+      tag_template = ERB.new(tag_format)
+      context = TagContext.new(gemspec)
+      self.tag = tag_template.result(context)
     end
 
     def define
