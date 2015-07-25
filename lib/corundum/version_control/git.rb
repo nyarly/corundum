@@ -83,7 +83,7 @@ module Corundum
           merge = git("config", "--get", "branch.#{branch}.merge").first.split("/").last.chomp
 
           ancestor = git("merge-base", branch, "#{remote}/#{merge}").first.chomp
-          remote_rev = File::read(".git/refs/remotes/#{remote}/#{merge}").chomp
+          remote_rev = git("ls-remote", remote, merge).first.split(/\s+/).first
 
           unless ancestor == remote_rev
             fail "Unmerged changes with remote branch #{remote}/#{merge}\n#{ancestor.inspect}\n#{remote_rev.inspect}"
