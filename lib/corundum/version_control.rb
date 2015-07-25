@@ -20,6 +20,10 @@ module Corundum
       def name
         @gemspec.name
       end
+
+      def bind
+        binding
+      end
     end
 
     def default_configuration(toolkit)
@@ -29,7 +33,7 @@ module Corundum
       self.gemspec_files = toolkit.files.code + toolkit.files.test
       tag_template = ERB.new(tag_format)
       context = TagContext.new(gemspec)
-      self.tag = tag_template.result(context)
+      self.tag = tag_template.result(context.bind)
     end
 
     def define
