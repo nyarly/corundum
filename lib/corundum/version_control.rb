@@ -31,9 +31,13 @@ module Corundum
       self.gemspec =  toolkit.gemspec
       self.build_finished_file =  toolkit.build_file.abspath
       self.gemspec_files = toolkit.files.code + toolkit.files.test
+    end
+
+    def resolve_configuration
       tag_template = ERB.new(tag_format)
       context = TagContext.new(gemspec)
       self.tag = tag_template.result(context.bind)
+      super
     end
 
     def define
