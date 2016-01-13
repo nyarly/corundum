@@ -3,7 +3,8 @@ last_run
 .bundle
 .mtn-ignore
 _MTN
-/corundum
+corundum/
+pkg/
 doc/Specifications
 doc/coverage
 pkg

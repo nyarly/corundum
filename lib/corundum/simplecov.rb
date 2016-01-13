@@ -110,6 +110,7 @@ module Corundum
         @test_lib.report_task.rspec_opts << "-r simplecov"
         file entry_point => @test_lib.report_task.name
         file coverage_json => @test_lib.report_task.name
+        @test_lib.report_task.extra_products << coverage_json
 
         task :verify_coverage => coverage_json do
           require 'json'

@@ -55,10 +55,11 @@ module Corundum
     dir(:target_dir, path(:doc_path, "index.html"))
 
     setting(:formats, {})
+    setting(:extra_products, [])
 
     def timestamp
       return Rake::EARLY if formats.empty?
-      formats.values.map do |path|
+      (formats.values + extra_products).map do |path|
         if File.exist?(path.to_s)
           File.mtime(path.to_s)
         else
@@ -68,7 +69,9 @@ module Corundum
     end
 
     def out_of_date?(stamp)
-      prerequisites.any? { |n| application[n, @scope].timestamp > stamp}
+      prerequisites.any? { |n|
+        application[n, @scope].timestamp > stamp
+      }
     end
 
     def needed?
