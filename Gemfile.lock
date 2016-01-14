@@ -1,14 +1,14 @@
 PATH
   remote: .
   specs:
-    corundum (0.6.1)
-      bundler
+    corundum (0.6.2)
+      bundler (~> 1.10)
       caliph (~> 0.3)
       mattock (~> 0.9)
-      paint (~> 0.8.7)
-      rspec (>= 2.0)
-      simplecov (>= 0.5.4)
-      simplecov-json (>= 0.2)
+      paint (~> 0.8)
+      rspec (>= 2.0, < 4)
+      simplecov (>= 0.5)
+      simplecov-json (~> 0.2)
     corundum-docs (0.3.9)
       bundler
       caliph (~> 0.3)
@@ -106,3 +106,6 @@ DEPENDENCIES
   corundum-docs!
   fuubar
   rspec
+
+BUNDLED WITH
+   1.11.2
