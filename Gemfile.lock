@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    corundum (0.6.0)
+    corundum (0.6.1)
       bundler
       caliph (~> 0.3)
       mattock (~> 0.9)
