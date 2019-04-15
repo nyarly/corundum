@@ -133,10 +133,10 @@ module Corundum
           runtime_deps = gemspec.runtime_dependencies.map(&:name)
           parser.dependencies.each do |_, dep|
             next unless runtime_deps.include? dep.name
-            p dep.source
-            next if dep.source.nil?
-            next if dep.source.respond_to?(:path) and dep.source.path.to_s == "."
-            report.add("source", dep, nil, dep.source)
+            _, source = dep.source
+            next if source.nil?
+            next if source.respond_to?(:path) and source.path.to_s == "."
+            report.add("source", dep, nil, source)
             report.fail("Pinned gem dependencies:\n" +
                         "   Specs depended on by the gemspec are pinned (by :path or :git) and " +
                         "as a result, spec results are suspect\n")
