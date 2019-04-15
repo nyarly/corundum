@@ -132,6 +132,7 @@ module Corundum
           qa_rejections << report
           runtime_deps = gemspec.runtime_dependencies.map(&:name)
           parser.dependencies.each do |dep|
+            p dep
             next unless runtime_deps.include? dep.name
             next if dep.source.nil?
             next if dep.source.respond_to?(:path) and dep.source.path.to_s == "."
