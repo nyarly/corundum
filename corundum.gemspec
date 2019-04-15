@@ -1,7 +1,7 @@
 Gem::Specification.new do |spec|
   spec.name		= "corundum"
   #{MAJOR: incompatible}.{MINOR added feature}.{PATCH bugfix}-{LABEL}
-  spec.version		= "0.6.2"
+  spec.version		= "0.6.3"
   author_list = {
     "Judson Lester" => "nyarly@gmail.com",
     "Evan Dorn" => "evan@lrdesign.com"
@@ -86,7 +86,6 @@ Gem::Specification.new do |spec|
     spec.add_development_dependency "corundum", "~> 0.0.1"
   end
 
-  spec.has_rdoc		= true
   spec.extra_rdoc_files = Dir.glob("doc/**/*")
   spec.rdoc_options	+= ["--title", "#{spec.name}-#{spec.version} RDoc"]
 
