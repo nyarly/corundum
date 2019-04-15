@@ -131,8 +131,7 @@ module Corundum
           report = QA::Report.new("Bundler pinned dependencies")
           qa_rejections << report
           runtime_deps = gemspec.runtime_dependencies.map(&:name)
-          parser.dependencies.each do |dep|
-            p dep
+          parser.dependencies.each do |_, dep|
             next unless runtime_deps.include? dep.name
             next if dep.source.nil?
             next if dep.source.respond_to?(:path) and dep.source.path.to_s == "."
