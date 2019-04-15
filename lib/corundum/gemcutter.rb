@@ -133,6 +133,7 @@ module Corundum
           runtime_deps = gemspec.runtime_dependencies.map(&:name)
           parser.dependencies.each do |_, dep|
             next unless runtime_deps.include? dep.name
+            p dep.source
             next if dep.source.nil?
             next if dep.source.respond_to?(:path) and dep.source.path.to_s == "."
             report.add("source", dep, nil, dep.source)
